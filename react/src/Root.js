@@ -4,7 +4,7 @@ import NavContainer from './containers/NavContainer';
 import IndexContainer from './containers/IndexContainer';
 import EventShowContainer from './containers/EventShowContainer';
 
-const Root = () => {
+const Root = (props, state, params) => {
   return(
       <Router history={browserHistory}>
         <Route path="/" component={NavContainer}>
