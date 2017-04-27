@@ -32,7 +32,7 @@ class EventShowContainer extends Component {
 
   handleDelete(){
     let eventId = this.props.params.id;
-    fetch(`/api/vi/events/${eventId}`, {
+    fetch(`/api/v1/events/${eventId}`, {
       method: 'DELETE',
       headers: { "Content-Type": "application/json" }
     })
