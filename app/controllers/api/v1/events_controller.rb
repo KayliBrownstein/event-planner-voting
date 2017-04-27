@@ -1,4 +1,4 @@
-class EventsController < ApplicationController
+class Api::V1::EventsController < ApplicationController
   def index
     @events = Event.all
     render json: @events
@@ -14,6 +14,7 @@ class EventsController < ApplicationController
     else
       flash[:error] = "Error"
     end
+  end
 
   def show
     @user = current_user
@@ -27,10 +28,4 @@ class EventsController < ApplicationController
       @event.destroy
     end
   end
-
-  private
-
-  # def event_params
-  #   params.permit(:name, :description, :cutoff_time, :user_id, :location_id)
-  # end
 end
