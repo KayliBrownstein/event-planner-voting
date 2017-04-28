@@ -3,9 +3,11 @@ import { Link } from 'react-router';
 
 const EventTile = (props) => {
   return(
-    <div>
-      <h3><Link to={`/events/${props.id}`}>{props.name}</Link></h3>
-      <p>{props.description}</p>
+    <div className="small-12 medium-6 large-4 columns event-tile">
+      <div className='box-content'>
+        <Link to={`/events/${props.id}`}><h3 className='event-title'>{props.name}</h3></Link>
+        <p>{props.description}</p>
+      </div>
     </div>
   )
 }

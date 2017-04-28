@@ -21,7 +21,6 @@ class EventShowContainer extends Component {
 
   getEventData(){
     let eventId = this.props.params.id;
-    debugger;
     fetch(`/api/v1/events/${eventId}`, {
       method: 'GET'
     })

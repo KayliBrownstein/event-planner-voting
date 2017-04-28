@@ -1,2 +1,107 @@
 @import "foundation_and_overrides";
+@import url('https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono');
+@import url('https://fonts.googleapis.com/css?family=Courgette|Damion|PT+Sans+Caption|Ubuntu|Voltaire');
+@import url('https://fonts.googleapis.com/css?family=Anaheim|Poiret+One');
+@import url('https://fonts.googleapis.com/css?family=Anaheim|Poiret+One|Raleway');
 
+.all-events {
+  margin-top: 30px;
+}
+
+.box-content {
+  background-color: #e6e6e6;
+  padding: 40px 50px 50px 50px;
+  height: 300px;
+  width: 350px;
+  margin: 30px;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.row {
+  max-width: 2000px;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+// h1 {
+//   text-transform: uppercase;
+// }
+
+.event-title {
+  margin-bottom: 30px;
+  color: #041122;
+  font-family: 'Raleway', sans-serif;
+  font-size: 30px;
+  text-align: center;
+  font-weight: 350;
+}
+
+.event-title:hover {
+  color: #7FDA89;
+  font-weight: bold;
+}
+
+p {
+  color: #041122;
+  font-family: 'Anaheim', sans-serif;
+}
+
+// a {
+//   color:#45c09d;
+//   z-index: 3;
+// }
+
+#nav-bar {
+  max-width: 2000px;
+  background-color: #7FDA89;
+  height: 60px;
+  margin-bottom: 30px;
+}
+
+#nav-bar a {
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: white;
+  height: 60px;
+  margin-top: 11px;
+  font-size: 18px;
+}
+
+#nav-bar a:hover {
+  color: black;
+}
+
+.navbar-text {
+  color: white;
+  background-color: #a7a9ac;
+  padding-top: 5px;
+  padding-right: 10px;
+  margin-bottom: 0px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: right;
+}
+
+// .navbar-text a {
+//   color: white;
+// }
+
+.navbar-text a:hover {
+  color: black;
+}
+
+#logo a {
+  margin-top: 0px;
+  font-size: 40px;
+}
+
+#logo {
+  float: left;
+  text-align: left;
+  font-size: 40px;
+  font-weight: bold;
+}

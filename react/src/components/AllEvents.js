@@ -21,7 +21,7 @@ class AllEvents extends Component {
     })
 
     return(
-      <div>
+      <div className='all-events'>
         {events}
       </div>
     )

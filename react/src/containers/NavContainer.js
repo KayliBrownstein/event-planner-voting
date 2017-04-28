@@ -16,7 +16,7 @@ class NavContainer extends Component {
                 <li><Link to="/">My Profile</Link></li>
                 <li><a href="/users/edit">Login/Signup</a></li>
                 <li><a href="#">Search</a></li>
-                <li><Link to="/">Home</Link></li>
+                <li id="logo"><Link to="/">EVENT</Link></li>
               </ul>
             </div>
           </div>
