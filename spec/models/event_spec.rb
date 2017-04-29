@@ -6,8 +6,8 @@ RSpec.describe Event, type: :model do
       id: 1,
       first_name: "John",
       last_name: "Smith",
+      username: 'smith',
       email: "jsmith@launchacademy.com",
-      universally_unique_id: 001
     )
     Event.create(
       user_id: 1,
