@@ -5,15 +5,11 @@ class Api::V1::EventsController < ApplicationController
   end
 
   def create
-    if user_signed_in?
       @event = Event.create!(event_params)
       @event.user_id = current_user.id
       if @event.save!
         render json: @event
       end
-    else
-      flash[:error] = "Error"
-    end
   end
 
   def show

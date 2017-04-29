@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import EventTile from '../components/EventTile';
+import EventShowTile from '../components/EventShowTile';
 import AllEvents from '../components/AllEvents';
 
 class EventShowContainer extends Component {
@@ -49,17 +49,15 @@ class EventShowContainer extends Component {
     }
 
     return(
-      <div>
-        <div className="column row">
-          <EventTile
-              key = {this.state.event.id}
-              id = {this.state.event.id}
-              name = {this.state.event.name}
-              description = {this.state.event.description}
-              cutoff_time = {this.state.event.cutoff_time}
-            />
+        <div className="column row centered">
+          <EventShowTile
+            key = {this.state.event.id}
+            id = {this.state.event.id}
+            name = {this.state.event.name}
+            description = {this.state.event.description}
+            cutoff_time = {this.state.event.cutoff_time}
+          />
         </div>
-      </div>
     )
   }
 }

@@ -1,5 +1,9 @@
 class User < ApplicationRecord
-  EMAIL_REGEXP = /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+
   has_many :events
   has_many :userevents
   has_many :datetimes
@@ -7,7 +11,8 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true
   validates :last_name, presence: true
+  validates :username, presence: true
+  validates :email, presence: true
+  validates :password, presence: true
 
-  validates_format_of :email, with: EMAIL_REGEXP
-  validates_uniqueness_of :email, :universally_unique_id
 end

@@ -6,6 +6,7 @@ gem "haml-rails"
 gem "jbuilder", "~> 2.0"
 gem "jquery-rails"
 gem "pg"
+gem "devise"
 gem "rails"
 gem "sass-rails", "~> 5.0"
 gem "sdoc", "~> 0.4.0", group: :doc
