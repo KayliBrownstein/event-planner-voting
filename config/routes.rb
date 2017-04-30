@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   get '/logout',  to: 'sessions#destroy'
 
+  get 'current_user' => "users#current_user"
+
   match '/users/destroy', :to => "users#destroy", via: [:get, :post]
   resources :users
 
@@ -12,9 +14,13 @@ Rails.application.routes.draw do
 
   match '/event_members/search', :to => "event_members#search", via: [:get, :post]
 
+  match '/events/new', :to => "events#new", via: [:get, :post]
+
   namespace :api do
     namespace :v1 do
+      resources :profiles
       resources :events
+      resources :users
     end
   end
 

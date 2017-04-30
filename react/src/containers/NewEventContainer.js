@@ -7,12 +7,12 @@ class NewEventContainer extends Component {
     super(props);
     this.state = {
       errors: {},
-      events: [],
       event: {},
       name: '',
       description: '',
       cutoff_time: '',
       date: '',
+      user_id: '',
       time: '',
       location: '',
       formToggle: false
@@ -28,6 +28,10 @@ class NewEventContainer extends Component {
     this.handleLocationChange = this.handleLocationChange.bind(this);
   }
 
+  componentDidMount() {
+    this.getUserData();
+  }
+
   handleFormButtonClick() {
     if (this.state.formToggle == false) {
       this.setState({ formToggle: true })
@@ -36,11 +40,19 @@ class NewEventContainer extends Component {
     }
   }
 
+  getUserData() {
+    fetch(`/api/v1/users`)
+      .then(response => response.json())
+      .then(responseData => {
+        this.setState({ user_id: responseData.user.id })
+    });
+  }
+
   handleSubmit(event){
     event.preventDefault();
     let eventPayload = {
        name: this.state.name,
-       user: this.state.user,
+       user_id: this.state.user_id,
        description: this.state.description,
        cutoff_time: this.state.cutoff_time,
        date: this.state.date,
@@ -48,7 +60,6 @@ class NewEventContainer extends Component {
        location: this.state.location
       }
       this.sendInput(eventPayload);
-       this.getData();
        this.handleClearForm();
    }
 
@@ -62,16 +73,7 @@ class NewEventContainer extends Component {
      .then(response => response.json())
      .then(responseData => {
        this.setState({ events: [...this.state.events, responseData] });
-       debugger;
      });
-  }
-
-  getData(){
-    fetch(`/api/v1/events`)
-      .then(response => response.json())
-      .then(responseData => {
-        this.setState({ events: responseData });
-      });
   }
 
   handleNameChange(event) {
@@ -119,7 +121,6 @@ class NewEventContainer extends Component {
 
     return(
       <div className="column row">
-      <NavContainer />
       <NewEventForm
          className = {className}
          handleFormButtonClick = {this.handleFormButtonClick}

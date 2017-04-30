@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NewEventForm = (props) => {
+const NewEventForm = props => {
  return(
    <div className="column row submit-event">
      <div className= 'new-event-button large-12 columns'>

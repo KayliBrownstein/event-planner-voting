@@ -17,6 +17,7 @@ class IndexContainer extends Component {
     fetch(`/api/v1/events`)
       .then(response => response.json())
       .then(responseData => {
+        debugger;
         this.setState({ events: responseData });
       });
   }

@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  # before_action :authenticate_user!
 
   def index
     @events = Event.all
@@ -14,5 +15,11 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.destroy
     redirect_to events_path
+  end
+
+  private
+
+  def event_params
+    params.permit(:name, :user_id, :cutoff_time, :description, :date, :time, :location)
   end
 end
