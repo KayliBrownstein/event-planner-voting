@@ -10,6 +10,7 @@ class Api::V1::EventsController < ApplicationController
   end
 
   def create
+    binding.pry
     if user_signed_in?
       @event = Event.create!(event_params)
       @event.user_id = current_user.id
