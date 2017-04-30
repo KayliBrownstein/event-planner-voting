@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "Eventor" %></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body class="body">
+    <header class="header">
+      <h1 class="headline"> Eventor
+      <h4 class="headline-sub"> The Event Planning Solution</h4><br>
+        <div class="login-name">
+          <% if current_user %>
+            Signed in as <strong><%= current_user.name %></strong>!
+            <%= link_to "Sign Out", logout_path, class:"sign-out-button", id: "sign_out" %>
+          <% else %>
+            <%= link_to "Sign Up", signup_path, class:"sign-up", id: "sign_in" %>
+            <%= link_to "Log In", login_path, class:"sign-up", id: "sign_in"%>
+          <% end %>
+        </div>
+        <div>
+      <ul class="header-subnav">
+        <% if current_user %>
+          <li> <%= link_to 'Add New Event', new_event_path, method: :get, class:"header-button" %></li>
+          <li><%= link_to 'Your Events', events_path, method: :get, class:"header-button" %></li>
+          <li><%= link_to 'Your Profile', user_path(current_user), method: :get, class:"header-button" %></li>
+        <% end %>
+      </ul>
+    </header>
+    <% flash.each do |key, value| %>
+      <div class="flash-container">
+        <%= value %>
+      </div>
+    <% end %>
+    <div class="main-page">
+      <%= yield %>
+    </div>
+
+
+  </body>
+</html>

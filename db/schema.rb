@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170427001952) do
+ActiveRecord::Schema.define(version: 20170429201310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,11 +24,28 @@ ActiveRecord::Schema.define(version: 20170427001952) do
     t.datetime "updated_at"
   end
 
+  create_table "event_members", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "events", force: :cascade do |t|
     t.string   "name",        null: false
     t.text     "description", null: false
     t.string   "cutoff_time", null: false
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "invites", force: :cascade do |t|
+    t.string   "email"
+    t.integer  "user_group_id"
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.string   "token"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -46,24 +62,17 @@ ActiveRecord::Schema.define(version: 20170427001952) do
     t.datetime "updated_at"
   end
 
-  create_table "userevents", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "event_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "users", force: :cascade do |t|
-    t.boolean  "admin",                  default: false
-    t.string   "avatar"
-    t.string   "email",                                  null: false
-    t.string   "first_name",                             null: false
-    t.string   "last_name",                              null: false
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
+    t.string   "email"
     t.string   "password_digest"
-    t.string   "password_reset_digest"
-    t.datetime "password_reset_sent_at"
-    t.string   "remember_digest"
-    t.string   "universally_unique_id",                  null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
 end

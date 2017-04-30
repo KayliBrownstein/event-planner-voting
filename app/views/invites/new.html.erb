@@ -1,0 +1,14 @@
+<div class="index-page">
+  <h1 class="show-header">Invite</h1>
+
+  <div class="no-top-padding">
+    <%= form_for @invite , :url => invites_path do |f| %>
+      <div class="field">
+        <%= f.hidden_field :event_member_id, value: @event_member_id %>
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+        <%= f.submit 'Send' %>
+      </div>
+    <% end %>
+  </div>
+</div>

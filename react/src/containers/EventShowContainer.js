@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import EventTile from '../components/EventTile';
-import AllEvents from '../components/AllEvents';
+import EventShowTile from '../components/EventShowTile';
 
 class EventShowContainer extends Component {
   constructor(props) {
@@ -51,7 +50,7 @@ class EventShowContainer extends Component {
     return(
       <div>
         <div className="column row">
-          <EventTile
+          <EventShowTile
               key = {this.state.event.id}
               id = {this.state.event.id}
               name = {this.state.event.name}

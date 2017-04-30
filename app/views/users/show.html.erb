@@ -1,2 +1,14 @@
-<div id='app'>
+<!-- <div id='app'>
+</div> -->
+
+<div class="index-page">
+  <h1 class="show-header">Your Profile</h1> <br>
+
+  <div class="profile-list">
+    <ul> Name: <%= current_user.name %> </ul>
+
+    <%= link_to "Delete Account", '/users/destroy', class:"generic-buttons" %>
+
+  </div>
+
 </div>

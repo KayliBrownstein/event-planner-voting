@@ -1,32 +1,35 @@
 class SessionsController < ApplicationController
-
-  before_action :prevent_duplicate_sign_in, only: [:create, :new]
+  def new
+    @token = params[:invite_token]
+    session[:token] = @token
+  end
 
   def create
-    if params[:session][:login].match(User::EMAIL_REGEXP)
-      user = User.find_by(email: params[:session][:login].downcase)
-    else
-      user = User.find_by(handle: params[:session][:login])
-    end
+    user = User.find_by(email: params[:session][:email].downcase)
+    session[:user_id] = user.id
     if user && user.authenticate(params[:session][:password])
-      if user.confirmed?
-        flash[:success] = "Signed in as #{user.handle}."
-        sign_in(user)
-        params[:session][:remember_me] == "1" ? remember(user) : forget(user)
-        redirect_to post_auth_path
-      else
-        flash.now[:alert] = "You need to confirm your email address before continuing."
-        render :new
-      end
+      invited_user_joins_group
+      redirect_to event_members_path
     else
-      flash.now[:alert] = "Invalid email/username & password combination."
-      render :new
+      flash[:danger] = 'Invalid email/password combination'
+      redirect_to root_path
     end
   end
 
   def destroy
-    sign_out
-    flash[:success] = "Signed out."
-    redirect_to root_url
+    session.delete(:user_id)
+    @current_user = nil
+    redirect_to root_path
+  end
+
+  private
+
+  def invited_user_joins_group
+    if session[:token] != nil
+       org =  Invite.find_by_token(session[:token]).usergroup
+       @membership = Membership.new(user_id: current_user.id, usergroup_id: org.id)
+       @membership.save
+       flash[:notice] = "You joined the group you were invited to!"
+    end
   end
 end

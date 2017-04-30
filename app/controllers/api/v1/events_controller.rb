@@ -4,6 +4,11 @@ class Api::V1::EventsController < ApplicationController
     render json: @events
   end
 
+  def new
+    binding.pry
+    @event = Event.new
+  end
+
   def create
     if user_signed_in?
       @event = Event.create!(event_params)
