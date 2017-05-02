@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import EventShowTile from '../components/EventShowTile';
 import AllLocations from '../components/AllLocations';
-import NewLocationForm from '../components/NewLocationForm';
-// import AllDatetimes from '../components/AllDatetimes';
-// import NewDatetimeForm from '../components/NewDatetimeForm';
+import AllDatetimes from '../components/AllDatetimes';
 
 class EventShowContainer extends Component {
   constructor(props) {
@@ -20,6 +18,7 @@ class EventShowContainer extends Component {
   componentDidMount(){
     this.getEventData();
     this.getLocationData();
+    this.getDatetimeData();
   }
 
   getEventData(){
@@ -44,16 +43,16 @@ class EventShowContainer extends Component {
     })
   }
 
-  // getDatetimesData(){
-  //   let eventId = this.props.params.id
-  //   fetch(`/api/v1/events/${eventId}/datetimes`, {
-  //     method: 'GET'
-  //   })
-  //   .then(response => response.json())
-  //   .then(responseData => {
-  //     this.setState({ datetimes: responseData })
-  //   })
-  // }
+  getDatetimeData(){
+    let eventId = this.props.params.id
+    fetch(`/api/v1/events/${eventId}/datetimes`, {
+      method: 'GET'
+    })
+    .then(response => response.json())
+    .then(responseData => {
+      this.setState({ datetimes: responseData })
+    })
+  }
 
   handleEventDelete(){
     let eventId = this.props.params.id;
@@ -87,9 +86,13 @@ class EventShowContainer extends Component {
             suggested_location = {this.state.event.suggested_location}
           />
           <AllLocations
-          locations={this.state.locations}
-          id = {this.state.event.id}
+            locations={this.state.locations}
+            id = {this.state.event.id}
+          />
 
+          <AllDatetimes
+            datetimes={this.state.datetimes}
+            id={this.state.event.id}
           />
         </div>
       </div>

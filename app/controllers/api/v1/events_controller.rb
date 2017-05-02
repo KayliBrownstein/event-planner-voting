@@ -31,6 +31,7 @@ skip_before_filter :verify_authenticity_token
     @user = current_user
     @event = Event.find(params[:id])
     @locations = @event.locations
+    @datetimes = @event.datetimes
     render json: @event
   end
 
@@ -44,6 +45,6 @@ skip_before_filter :verify_authenticity_token
   private
 
   def event_params
-    params.permit(:name, :user_id, :cutoff_time, :description, :date, :time, :location)
+    params.permit(:name, :user_id, :cutoff_time, :description, :suggested_date, :suggested_time, :suggested_location)
   end
 end
