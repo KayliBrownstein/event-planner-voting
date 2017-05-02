@@ -13,10 +13,10 @@ class ProfileContainer extends Component {
   }
 
   getUserData() {
-    fetch(`/api/v1/users`, { credentials: 'same-origin' })
+    fetch(`/api/v1/users.json`, { credentials: 'same-origin' })
       .then(response => response.json())
       .then(responseData => {
-        this.setState({ user: responseData })
+        this.setState({ user: responseData.current_user })
     });
   }
 

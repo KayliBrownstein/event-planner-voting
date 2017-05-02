@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AllEvents from '../components/AllEvents';
 import NewEventContainer from './NewEventContainer';
+
 class IndexContainer extends Component {
   constructor(props){
     super(props);
@@ -24,7 +25,6 @@ class IndexContainer extends Component {
   render(){
     return(
       <div className="column row">
-        <NewEventContainer />
         <AllEvents
           events={this.state.events}
         />

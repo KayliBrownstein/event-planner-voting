@@ -1,15 +1,14 @@
 class Api::V1::EventsController < ApplicationController
+skip_before_filter :verify_authenticity_token
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
   def index
-    # @current_user = User.find(session[:user_id])
     @events = Event.where(user_id: @current_user.id)
-      render json: @events
+    render json: @events
   end
-
 
   def new
     @event = Event.new
@@ -31,6 +30,7 @@ class Api::V1::EventsController < ApplicationController
   def show
     @user = current_user
     @event = Event.find(params[:id])
+    @locations = @event.locations
     render json: @event
   end
 

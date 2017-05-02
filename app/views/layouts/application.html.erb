@@ -25,11 +25,6 @@
           <% end %>
         </div>
         <div>
-      <ul class="header-subnav">
-        <% if current_user %>
-          <li> <%= link_to 'Add New Event', new_event_path, method: :get, class:"header-button" %></li>
-        <% end %>
-      </ul>
     </header>
     <% flash.each do |key, value| %>
       <div class="flash-container">

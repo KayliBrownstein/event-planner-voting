@@ -19,17 +19,15 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :profiles
-      resources :events
       resources :users
+      resources :events do
+        resources :locations
+        resources :datetimes
+      end
     end
   end
 
   resources :events
-  #   resources :event_members
-  #   resources :users
-  #   resources :locations
-  #   resources :datetimes
-  # end
 
   resources :invites, only: [:new, :create]
 end
