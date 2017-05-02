@@ -1,0 +1,14 @@
+<div class="welcome">
+<h1 class="show-header">Welcome</h1>
+
+<% unless current_user %>
+  <p class="home-page"> Please sign in before continuing!</p>
+<% end %>
+
+<% if current_user %>
+  <p class="home-page"> If you're new to IDKWDYW, feel free to get started by making a new group. <br> Once you've done that
+  you can send an invitation by email to whoever else <br>you want to join that group. You and your S.O. can input preferences for
+  what <br> you want to eat. After each group member has input preferences you will receive <br> a recommendation for where you should
+  go out to eat. <br>We hope you enjoy your meal!</p>
+<% end %>
+</div>

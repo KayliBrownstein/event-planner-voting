@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import EventTile from '../components/EventTile';
-import AllEvents from '../components/AllEvents';
+import EventShowTile from '../components/EventShowTile';
+import AllLocations from '../components/AllLocations';
+import NewLocationForm from '../components/NewLocationForm';
+// import AllDatetimes from '../components/AllDatetimes';
+// import NewDatetimeForm from '../components/NewDatetimeForm';
 
 class EventShowContainer extends Component {
   constructor(props) {
@@ -8,15 +11,15 @@ class EventShowContainer extends Component {
     this.state = {
       errors: {},
       event: {},
-      name: '',
-      description: '',
-      cutoff_time: ''
+      datetimes: [],
+      locations: []
     }
-    this.handleDelete = this.handleDelete.bind(this);
+    this.handleEventDelete = this.handleEventDelete.bind(this);
   }
 
   componentDidMount(){
     this.getEventData();
+    this.getLocationData();
   }
 
   getEventData(){
@@ -30,7 +33,29 @@ class EventShowContainer extends Component {
     });
   }
 
-  handleDelete(){
+  getLocationData(){
+    let eventId = this.props.params.id
+    fetch(`/api/v1/events/${eventId}/locations`, {
+      method: 'GET'
+    })
+    .then(response => response.json())
+    .then(responseData => {
+      this.setState({ locations: responseData })
+    })
+  }
+
+  // getDatetimesData(){
+  //   let eventId = this.props.params.id
+  //   fetch(`/api/v1/events/${eventId}/datetimes`, {
+  //     method: 'GET'
+  //   })
+  //   .then(response => response.json())
+  //   .then(responseData => {
+  //     this.setState({ datetimes: responseData })
+  //   })
+  // }
+
+  handleEventDelete(){
     let eventId = this.props.params.id;
     fetch(`/api/v1/events/${eventId}`, {
       method: 'DELETE',
@@ -51,13 +76,21 @@ class EventShowContainer extends Component {
     return(
       <div>
         <div className="column row">
-          <EventTile
-              key = {this.state.event.id}
-              id = {this.state.event.id}
-              name = {this.state.event.name}
-              description = {this.state.event.description}
-              cutoff_time = {this.state.event.cutoff_time}
-            />
+          <EventShowTile
+            key = {this.state.event.id}
+            id = {this.state.event.id}
+            name = {this.state.event.name}
+            description = {this.state.event.description}
+            cutoff_time = {this.state.event.cutoff_time}
+            suggested_date = {this.state.event.suggested_date}
+            suggested_time = {this.state.event.suggested_time}
+            suggested_location = {this.state.event.suggested_location}
+          />
+          <AllLocations
+          locations={this.state.locations}
+          id = {this.state.event.id}
+
+          />
         </div>
       </div>
     )

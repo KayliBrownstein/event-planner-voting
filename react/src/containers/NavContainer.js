@@ -13,8 +13,7 @@ class NavContainer extends Component {
           <div className="small-12 large-12 columns" id="nav-bar">
             <div className="menu">
               <ul className="menu align-right">
-                <li><Link to="/">My Profile</Link></li>
-                <li><a href="/users/edit">Login/Signup</a></li>
+                <li><Link to="/users">My Profile</Link></li>
                 <li><a href="#">Search</a></li>
                 <li id="logo"><Link to="/">EVENT</Link></li>
               </ul>

@@ -4,16 +4,20 @@ RSpec.describe Event, type: :model do
   let(:event) do
     User.create(
       id: 1,
-      first_name: "John",
-      last_name: "Smith",
-      email: "jsmith@launchacademy.com",
-      universally_unique_id: 001
+      username: "jarlax3",
+      email: "jarlax3@launchacademy.com",
+      password: 'password',
+      first_name: 'Jar',
+      last_name: 'Smith'
     )
     Event.create(
       user_id: 1,
       name: "Birthday Party",
       description: 'This is a description. This is a description. This is a description. This is a description. This is a description. This is a description.',
-      cutoff_time: "Monday"
+      cutoff_time: "Monday",
+      suggested_date: 'Tuesday',
+      suggested_time: '7:00PM',
+      suggested_location: 'Regina\'s'
     )
   end
 
