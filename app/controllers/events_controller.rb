@@ -1,13 +1,13 @@
 class EventsController < ApplicationController
-    def index
-      @event_members = EventMember.where(user_id: current_user.id)
-      unless @event_members.nil?
-        @events = []
-        @event_members.each do |event_member|
-          @events << Event.find(event_member.event_id)
-        end
-      end
-    end
+    # def index
+    #   @event_members = EventMember.where(user_id: current_user.id)
+    #   unless @event_members.nil?
+    #     @events = []
+    #     @event_members.each do |event_member|
+    #       @events << Event.find(event_member.event_id)
+    #     end
+    #   end
+    # end
 
     def show
       @location = Location.new

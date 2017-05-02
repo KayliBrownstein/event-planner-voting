@@ -1,12 +1,10 @@
 class UsersController < ApplicationController
 
-  def index
-    @users = User.all
-    @current_user = current_user
-    respond_to do |format|
-      format.json  { render :json => {:admins => @admins, :current_user => @current_user }}
-    end
-  end
+  # def index
+  #   @users = User.all
+  #   @current_user = current_user
+  #   render json: @current_user
+  # end
 
   # def show
   #   @user = current_user

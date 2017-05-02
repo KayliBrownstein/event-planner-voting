@@ -6,6 +6,7 @@ gem "haml-rails"
 gem "jbuilder", "~> 2.0"
 gem "jquery-rails"
 gem "pg"
+gem "responders"
 gem 'listen'
 gem "omniauth-google-oauth2", "~> 0.2.1"
 gem "rails"

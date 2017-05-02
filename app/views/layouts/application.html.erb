@@ -28,8 +28,6 @@
       <ul class="header-subnav">
         <% if current_user %>
           <li> <%= link_to 'Add New Event', new_event_path, method: :get, class:"header-button" %></li>
-          <li><%= link_to 'Your Events', events_path, method: :get, class:"header-button" %></li>
-          <li><%= link_to 'Your Profile', user_path(current_user), method: :get, class:"header-button" %></li>
         <% end %>
       </ul>
     </header>

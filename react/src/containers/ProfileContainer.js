@@ -4,7 +4,7 @@ class ProfileContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      user: {},
+      user: {}
     }
   }
 
@@ -13,19 +13,20 @@ class ProfileContainer extends Component {
   }
 
   getUserData() {
-    fetch(`/api/v1/profiles`, { credentials: 'same-origin' })
+    fetch(`/api/v1/users`, { credentials: 'same-origin' })
       .then(response => response.json())
       .then(responseData => {
-        this.setState({ user: responseData.user })
+        this.setState({ user: responseData })
     });
   }
 
   render() {
     return(
       <div className="column row">
-      <p>{this.state.user.username}</p>
-      <p>{this.state.user.first_name}</p>
-
+        <p>{this.state.user.username}</p>
+        <p>{this.state.user.first_name}</p>
+        <p>{this.state.user.last_name}</p>
+        <p>{this.state.user.email}</p>
       </div>
     )
   }

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   # get 'current_user' => "users#current_user"
 
-  match '/users/destroy', :to => "users#destroy", via: [:get, :post]
+  # match '/users/destroy', :to => "users#destroy", via: [:get, :post]
   resources :users
 
   root 'events#index'
@@ -24,12 +24,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :events do
-    resources :event_members
-    resources :users
-    resources :locations
-    resources :datetimes
-  end
+  resources :events
+  #   resources :event_members
+  #   resources :users
+  #   resources :locations
+  #   resources :datetimes
+  # end
 
   resources :invites, only: [:new, :create]
 end
