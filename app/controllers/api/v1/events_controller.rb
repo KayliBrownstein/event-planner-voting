@@ -3,9 +3,8 @@ class Api::V1::EventsController < ApplicationController
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
-  
+
   def index
-    binding.pry
     # @current_user = User.find(session[:user_id])
     @events = Event.where(user_id: @current_user.id)
       render json: @events
@@ -18,7 +17,6 @@ class Api::V1::EventsController < ApplicationController
   end
 
   def create
-    binding.pry
     if user_signed_in?
       @event = Event.create!(event_params)
       @event.user_id = current_user.id

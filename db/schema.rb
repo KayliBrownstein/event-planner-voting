@@ -32,9 +32,12 @@ ActiveRecord::Schema.define(version: 20170429201310) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.string   "name",        null: false
-    t.text     "description", null: false
-    t.string   "cutoff_time", null: false
+    t.string   "name",               null: false
+    t.text     "description",        null: false
+    t.string   "cutoff_time",        null: false
+    t.string   "suggested_date",     null: false
+    t.string   "suggested_time",     null: false
+    t.string   "suggested_location", null: false
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -42,7 +45,7 @@ ActiveRecord::Schema.define(version: 20170429201310) do
 
   create_table "invites", force: :cascade do |t|
     t.string   "email"
-    t.integer  "user_group_id"
+    t.integer  "event_id"
     t.integer  "sender_id"
     t.integer  "recipient_id"
     t.string   "token"
@@ -63,15 +66,13 @@ ActiveRecord::Schema.define(version: 20170429201310) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "name"
-    t.string   "oauth_token"
-    t.datetime "oauth_expires_at"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "username"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 

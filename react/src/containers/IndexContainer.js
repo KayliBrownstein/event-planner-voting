@@ -5,20 +5,20 @@ class IndexContainer extends Component {
   constructor(props){
     super(props);
       this.state = {
-        events: []
+        events: [],
+        user: {}
       }
     }
 
   componentDidMount(){
-    this.getData();
+    this.getUserData();
   }
 
-  getData(){
-    fetch(`/api/v1/events`)
+  getUserData(){
+    fetch(`/api/v1/profiles`, { credentials: 'same-origin' })
       .then(response => response.json())
       .then(responseData => {
-        debugger;
-        this.setState({ events: responseData });
+        this.setState({ user: responseData.user, events: responseData.events });
       });
   }
 
