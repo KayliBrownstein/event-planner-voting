@@ -12,9 +12,6 @@
   </head>
 
   <body class="body">
-    <header class="header">
-      <h1 class="headline"> Eventor
-      <h4 class="headline-sub"> The Event Planning Solution</h4><br>
         <div class="login-name">
           <% if current_user %>
             Signed in as <strong><%= current_user.username %></strong>!
@@ -24,8 +21,6 @@
             <%= link_to "Log In", login_path, class:"sign-up", id: "sign_in"%>
           <% end %>
         </div>
-        <div>
-    </header>
     <% flash.each do |key, value| %>
       <div class="flash-container">
         <%= value %>

@@ -14,15 +14,15 @@ const NewEventForm = props => {
        <textarea name="description" onChange={props.descriptionChange} value={props.descriptionValue}/>
 
        <label> Cutoff Time: </label>
-       <input name="cutoff_time" type="text" onChange={props.cutOffChange} value={props.cutOffValue}/>
+       <input name="cutoffTime" type="text" onChange={props.cutOffChange} value={props.cutOffValue}/>
 
-       <label> Date: </label>
+       <label> Suggest a Date: </label>
        <input name="date" type="text" onChange={props.dateChange} value={props.dateValue}/>
 
-       <label> Time: </label>
+       <label> Suggest a Time: </label>
        <input name="time" type="text" onChange={props.timeChange} value={props.timeValue}/>
 
-       <label> Location: </label>
+       <label> Suggest a Location: </label>
        <input name="location" type="text" onChange={props.locationChange} value={props.locationValue}/>
 
        <input className= 'create-event-submit' type="submit" value="Submit"/>
