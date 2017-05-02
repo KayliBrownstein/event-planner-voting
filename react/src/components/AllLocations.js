@@ -23,7 +23,9 @@ class AllLocations extends Component {
     this.handleStateChange = this.handleStateChange.bind(this)
   }
 
-  
+  // componentDidMount(){
+  //   // this.getLocationData();
+  // }
 
   handleSubmit(event){
     event.preventDefault();
@@ -50,6 +52,15 @@ class AllLocations extends Component {
       this.setState({ locations: [...this.state.locations, responseData] });
     });
   }
+
+  // getLocationData(){
+  //   let eventId = this.props.id;
+  //   fetch(`/api/v1/events/${eventId}/locations`)
+  //     .then(response => response.json())
+  //     .then(responseData => {
+  //       this.setState({ locations: responseData })
+  //     });
+  // }
 
   handleLocationFormButtonClick(){
     if (this.state.formToggle == false) {
