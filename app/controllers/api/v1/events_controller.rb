@@ -6,6 +6,7 @@ skip_before_filter :verify_authenticity_token
   end
 
   def index
+    @current_user = current_user
     @events = Event.where(user_id: @current_user.id)
     render json: @events
   end
@@ -16,15 +17,13 @@ skip_before_filter :verify_authenticity_token
   end
 
   def create
-    if user_signed_in?
       @event = Event.create!(event_params)
       @event.user_id = current_user.id
       if @event.save!
         render json: @event
+      else
+        flash[:error] = "Error"
       end
-    else
-      flash[:error] = "Error"
-    end
   end
 
   def show
@@ -45,6 +44,6 @@ skip_before_filter :verify_authenticity_token
   private
 
   def event_params
-    params.permit(:name, :user_id, :cutoff_time, :description, :suggested_date, :suggested_time, :suggested_location)
+    params.require(:event).permit(:name, :user_id, :cutoff_time, :description, :suggested_date, :suggested_time, :suggested_location)
   end
 end
