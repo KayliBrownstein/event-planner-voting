@@ -4,7 +4,6 @@ RSpec.describe User, type: :model do
   let(:user) do
     User.create(
       username: "jarlax3",
-      avatar: "https://avatars2.githubusercontent.com/u/174825?v=3&s=400",
       email: "jarlax3@launchacademy.com",
       password: 'password',
       first_name: 'Jar',
