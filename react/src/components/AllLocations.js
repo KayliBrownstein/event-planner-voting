@@ -14,18 +14,52 @@ class AllLocations extends Component {
       city: '',
       state: ''
     };
-    this.handleLocationFormButtonClick = this.handleLocationFormButtonClick.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleNameChange = this.handleNameChange.bind(this)
-    this.handleDescriptionChange = this.handleDescriptionChange.bind(this)
-    this.handleAddressChange = this.handleAddressChange.bind(this)
-    this.handleCityChange = this.handleCityChange.bind(this)
-    this.handleStateChange = this.handleStateChange.bind(this)
+    this.handleLocationFormButtonClick = this.handleLocationFormButtonClick.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+    this.handleAddressChange = this.handleAddressChange.bind(this);
+    this.handleCityChange = this.handleCityChange.bind(this);
+    this.handleStateChange = this.handleStateChange.bind(this);
+    this.updateLocationVote = this.updateLocationVote.bind(this);
   }
 
   // componentDidMount(){
   //   // this.getLocationData();
   // }
+  updateLocationVote(location_id, upvote){
+    let votePayload = {
+      location_vote: {
+        upvote: upvote
+      }
+    }
+    let eventId = this.props.id;
+    let locationId = location_id;
+
+    fetch(`/api/v1/events/${eventId}/locations/${locationId}`, {
+      credentials: 'same-origin',
+      method: 'PUT',
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(votePayload)
+    })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+            error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then(response => response.json())
+    .then(body => {
+      this.setState({
+        locations: body.locations,
+      });
+      this.getLocationVote(location_id);
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
 
   handleSubmit(event){
     event.preventDefault();
@@ -53,14 +87,20 @@ class AllLocations extends Component {
     });
   }
 
-  // getLocationData(){
-  //   let eventId = this.props.id;
-  //   fetch(`/api/v1/events/${eventId}/locations`)
-  //     .then(response => response.json())
-  //     .then(responseData => {
-  //       this.setState({ locations: responseData })
-  //     });
-  // }
+  getLocationVote(location_id){
+    let eventId = this.props.id;
+    let locationId = location_id;
+
+    fetch(`/api/v1/events/${eventId}/locations/${locationId}`, {
+      credentials: 'same-origin',
+      method: 'GET'
+    })
+    .then(response => response.json())
+    .then(responseData => {
+      debugger;
+      this.setState({ votes: responseData.location_votes })
+    })
+  }
 
   handleLocationFormButtonClick(){
     if (this.state.formToggle == false) {
@@ -103,6 +143,12 @@ class AllLocations extends Component {
     };
 
     let locations = this.props.locations.map((location) => {
+      let upvoteHandler = () => {
+        this.updateLocationVote(location.id, true)
+      }
+      let downvoteHandler = () => {
+        this.updateLocationVote(location.id, false)
+      }
       return (
         <LocationTile
           key = {location.id}
@@ -114,6 +160,9 @@ class AllLocations extends Component {
           city = {location.city}
           state = {location.state}
           description = {location.description}
+          votes = {location.vote_count}
+          upvoteHandler = {upvoteHandler}
+          downvoteHandler = {downvoteHandler}
         />
       )
     })
