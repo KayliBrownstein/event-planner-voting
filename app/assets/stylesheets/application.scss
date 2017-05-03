@@ -8,6 +8,21 @@
   margin-top: 30px;
 }
 
+#delete-button {
+  text-transform: uppercase;
+  font-family: Avenir;
+  color: #878787;
+  margin-left: 5px;
+}
+
+#delete-button:hover {
+  color: #494949;
+}
+
+#edit-button:hover {
+  color: #494949;
+}
+
 .hidden {
   display: none;
 }

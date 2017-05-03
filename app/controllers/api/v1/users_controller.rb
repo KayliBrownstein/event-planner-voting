@@ -4,8 +4,9 @@ class Api::V1::UsersController < ApplicationController
 
   def index
     @current_user = current_user
+    @admins = User.where(admin: true)
     @events = Event.where(user_id: @current_user.id)
-    render json: {current_user: @current_user, events: @events }
+    render json: {current_user: @current_user, events: @events, admins: @admins }
   end
 
   def create
@@ -26,5 +27,4 @@ private
   def make_admin
     user.update_attribute(:admin, true)
   end
-
 end

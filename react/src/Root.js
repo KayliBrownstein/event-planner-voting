@@ -14,6 +14,7 @@ const Root = (props, state, params) => {
           <IndexRoute component={IndexContainer}/>
           <Route path='events' component={IndexContainer} />
           <Route path='events/:id' component={EventShowContainer} />
+          <Route path='events/:id/edit' component={EventShowContainer} />
           <Route path='users' component={ProfileContainer} />
         </Route>
       </Router>
