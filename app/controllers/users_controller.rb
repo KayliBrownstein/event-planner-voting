@@ -27,7 +27,7 @@ class UsersController < ApplicationController
          flash[:notice] = "You joined the event you were invited to!"
       end
       flash[:notice] = "You have signed up successfully!"
-      redirect_to events_path
+      redirect_to root_path
     else
       render :new
     end

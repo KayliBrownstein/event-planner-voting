@@ -14,7 +14,7 @@ class EventsController < ApplicationController
       @datetime = Datetime.new
       @event = Event.find(params[:id])
       session[:ugid] = @event.id
-      belongs_to_event?(@event.id)
+      # belongs_to_event?(@event.id)
     end
 
     def new

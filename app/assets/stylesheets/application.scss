@@ -8,12 +8,36 @@
   margin-top: 30px;
 }
 
+.welcome-image {
+  position: relative;
+  z-index: -1;
+  background-repeat: repeat-y;
+}
+
+.show-header {
+  padding: 10px;
+  text-align: center;
+}
+
+.home-page {
+  padding: 20px;
+}
+
+.welcome {
+  background-color: #D7D8C5;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .hidden {
   display: none;
 }
 
 .login-name {
-  float: right;
+  text-align: right;
+  background-color: #D1D0D7;
 }
 
 .box-content {
