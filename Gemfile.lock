@@ -114,6 +114,7 @@ GEM
       haml (~> 4.0.0)
       nokogiri (~> 1.6.0)
       ruby_parser (~> 3.5)
+    httpclient (2.8.3)
     i18n (0.8.1)
     jbuilder (2.6.3)
       activesupport (>= 3.0.0, < 5.2)
@@ -306,6 +307,7 @@ DEPENDENCIES
   font-awesome-rails
   foundation-rails (= 6.3.0.0)
   haml-rails
+  httpclient
   jbuilder (~> 2.0)
   jquery-rails
   launchy
