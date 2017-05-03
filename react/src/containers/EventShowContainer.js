@@ -10,7 +10,9 @@ class EventShowContainer extends Component {
       errors: {},
       event: {},
       datetimes: [],
-      locations: []
+      locations: [],
+      email: '',
+      invites: []
     }
     this.handleEventDelete = this.handleEventDelete.bind(this);
   }
@@ -62,6 +64,31 @@ class EventShowContainer extends Component {
     })
   }
 
+  // handleSubmit(event){
+  //   event.preventDefault();
+  //   let invitePayload = {
+  //      email: this.state.email
+  //     }
+  //     this.sendInput(invitePayload);
+  //  }
+
+  //  handleEmailChange(event) {
+  //    this.setState({ email: event.target.value });
+  //  }
+
+  sendInput(invitePayload) {
+    fetch(`/api/v1/events/${eventId}/invites`, {
+      credentials: 'same-origin',
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(invitePayload)
+    })
+    .then(response => response.json())
+    .then(responseData => {
+      this.setState({ invites: [...this.state.invites, responseData] });
+    });
+ }
+
   render(){
     let errorDiv;
     let errorItems;
@@ -85,6 +112,7 @@ class EventShowContainer extends Component {
             suggested_time = {this.state.event.suggested_time}
             suggested_location = {this.state.event.suggested_location}
             handleDelete = {this.handleEventDelete}
+            handleSubmit = {this.handleSubmit}
           />
           <AllLocations
             locations={this.state.locations}
