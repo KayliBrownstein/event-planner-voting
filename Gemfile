@@ -15,6 +15,7 @@ gem "sass-rails", "~> 5.0"
 gem "sdoc", "~> 0.4.0", group: :doc
 gem "uglifier", ">= 1.3.0"
 gem 'bcrypt', "~> 3.1.11"
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem "dotenv-rails"

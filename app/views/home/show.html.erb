@@ -7,8 +7,12 @@
 
 <% if current_user %>
   <p class="home-page"> If you're new to Eventor, feel free to get started by creating your very first event. Go you! <br> Once you've done that,
-  you can send an invitation by email to whomever you'd <br>like to invite. You and your fellow attendees can vote on dates, times, and locations that work for you.
+  you can send an invitation by email to whomever you'd like to invite. You and your fellow attendees can vote on dates, times, and locations that work for you.
+  <br>
+  <center><%= link_to "Get Started", events_path, class:"button get-started", id: "get_started" %></center>
 <% end %>
+
+
 </div>
 
 <%= image_tag href="http://g68qpy3g1w-flywheel.netdna-ssl.com/wp-content/uploads/2016/02/food-on-table.jpg", class:"welcome-image" %>

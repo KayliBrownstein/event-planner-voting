@@ -2,8 +2,8 @@ import React from 'react';
 
 const LocationTile = (props) => {
   return(
-    <div className="small-12 medium-6 large-4 columns location-tile">
-      <div className='box-content'>
+    <div className="small-12 medium-5 large-3 columns location-tile">
+      <div className='location-box-content'>
         <h3 className='location-title'>{props.name}</h3>
         <p>{props.description}</p>
         <p>{props.address}</p>

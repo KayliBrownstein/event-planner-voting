@@ -6,7 +6,7 @@ const NewEventForm = props => {
      <div className= 'new-event-button large-12 columns'>
        <center> <button type="button" onClick={props.handleFormButtonClick} className= 'create-event'>Create an Event</button> </center>
      </div>
-     <form onSubmit={props.handleSubmit} className={props.className} id="new-site">
+     <form onSubmit={props.handleSubmit} className={props.className} id="new-event">
        <label> Name: </label>
        <input name="name" type="text" onChange={props.nameChange} value={props.nameValue}/>
 

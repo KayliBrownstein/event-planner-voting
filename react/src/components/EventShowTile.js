@@ -38,9 +38,9 @@ class EventShowTile extends Component {
          <p>{this.props.description}</p>
        </div>
        <div className="row">
-          <a href={`/events/${this.props.id}/edit`} onClick={this.props.handleUpdate} className={deleteClassName} id='edit-button'>Edit</a>
+          <a href={`/events/${this.props.id}/edit`} onClick={this.props.handleUpdate} className="button {deleteClassName}" id='edit-button'>Edit</a>
           <Link to='/'>
-          <button type='button' className={deleteClassName} onClick={this.props.handleDelete} id='delete-button'>Delete</button>
+          <button type='button' className="button {deleteClassName}" onClick={this.props.handleDelete} id='delete-button'>Delete</button>
           </Link>
         </div>
      </div>
