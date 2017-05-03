@@ -46,8 +46,8 @@ skip_before_filter :verify_authenticity_token
   end
 
   def destroy
-      @event = Event.find(params[:id])
-      @event.destroy
+    @event = Event.find(params[:id])
+    @event.destroy
   end
 
   private

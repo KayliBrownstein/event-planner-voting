@@ -20,6 +20,6 @@ class LocationsController < ApplicationController
 
   def locations_params
     params.require(:location).permit(:user_id, :event_id, :name,
-    :street_address, :city, :state, :description)
+    :street_address, :city, :state, :description, :location_vote)
   end
 end

@@ -84,6 +84,7 @@ class EventShowContainer extends Component {
             suggested_date = {this.state.event.suggested_date}
             suggested_time = {this.state.event.suggested_time}
             suggested_location = {this.state.event.suggested_location}
+            handleDelete = {this.handleEventDelete}
           />
           <AllLocations
             locations={this.state.locations}

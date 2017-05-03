@@ -4,9 +4,17 @@ class Api::V1::LocationsController < ApplicationController
   def index
     @event = Event.find(params[:event_id])
     @locations = @event.locations
-    render json: @locations
+    render :json => @locations.to_json(:methods => :vote_count)
     @user = current_user
   end
+
+  def show
+    @user = current_user
+    @location = Location.find(params[:id])
+    @location_votes = @location.location_votes
+    render json: @location_votes
+  end
+
 
   def create
     @location = Location.new(location_params)
@@ -23,12 +31,38 @@ class Api::V1::LocationsController < ApplicationController
   end
 
   def update
+    if !current_user.nil? && (location_vote_params[:upvote] == true || location_vote_params[:upvote] == false)
     @location = Location.find(params[:id])
-    @location.update(location_params)
-    if @location.save!
-      render json: @location
+    location_votes = @location.location_votes
+      if @location.did_user_vote?(current_user)
+        vote = location_votes.find { |v| v.user == current_user }
+        if location_vote_params[:upvote] && !vote.upvote && !vote.downvote
+          LocationVote.update(vote, upvote: true)
+        elsif location_vote_params[:upvote] && !vote.upvote && vote.downvote
+          LocationVote.update(vote, downvote: false)
+        elsif !location_vote_params[:upvote] && !vote.upvote && !vote.downvote
+          LocationVote.update(vote, downvote: true)
+        elsif !location_vote_params[:upvote] && vote.upvote && !vote.downvote
+          LocationVote.update(vote, upvote: false)
+        end
+      elsif location_vote_params[:upvote]
+        LocationVote.create(location: @location, upvote: true, user: current_user)
+      elsif !location_vote_params[:upvote]
+        LocationVote.create(location: @location, downvote: true, user: current_user)
+      end
     end
-  end
+    locations = Event.find(params[:event_id]).locations
+    locations.each do |l|
+      l.check_belongs_to_user(current_user)
+    end
+    render json: @location.location_votes
+    end
+
+  #   @location.update(location_params)
+  #   if @location.save!
+  #     render json: @location
+  #   end
+  # end
 
   private
 
@@ -36,4 +70,7 @@ class Api::V1::LocationsController < ApplicationController
     params.permit(:id, :name, :user_id, :event_id, :description, :street_address, :city, :state)
   end
 
+  def location_vote_params
+    params.require(:location_vote).permit(:upvote, :downvote)
+  end
 end
