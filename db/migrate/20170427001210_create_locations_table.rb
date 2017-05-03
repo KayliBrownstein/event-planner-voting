@@ -6,7 +6,6 @@ class CreateLocationsTable < ActiveRecord::Migration
       t.string :city, null: false
       t.string :state, null: false
       t.text :description, null: false
-      t.integer :votes, default: 0
 
       t.belongs_to :user
       t.belongs_to :event
