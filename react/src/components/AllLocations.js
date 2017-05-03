@@ -25,8 +25,9 @@ class AllLocations extends Component {
   }
 
   // componentDidMount(){
-  //   // this.getLocationData();
+  //   this.getLocationsInfo();
   // }
+
   updateLocationVote(location_id, upvote){
     let votePayload = {
       location_vote: {
@@ -97,7 +98,6 @@ class AllLocations extends Component {
     })
     .then(response => response.json())
     .then(responseData => {
-      debugger;
       this.setState({ votes: responseData.location_votes })
     })
   }

@@ -90,6 +90,7 @@
 
 .welcome {
   background-color: #D7D8C5;
+  opacity: 0.8;
   padding-top: 10px;
   position: absolute;
   top: 50%;
@@ -149,6 +150,10 @@
   margin: 30px;
   border-radius: 30px;
   overflow: hidden;
+}
+
+#home-sign-up-button {
+  font-weight: 600;
 }
 
 .location-box-content {

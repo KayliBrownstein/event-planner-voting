@@ -4,8 +4,7 @@ class Api::V1::LocationsController < ApplicationController
   def index
     @event = Event.find(params[:event_id])
     @locations = @event.locations
-    render json: @locations
-    PASS DOWN THE VOTE_COUNT METHOD
+    render :json => @locations.to_json(:methods => :vote_count)
     @user = current_user
   end
 

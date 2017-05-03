@@ -2,7 +2,7 @@
 <h1 class="show-header">Welcome</h1>
 
 <% unless current_user %>
-  <p class="home-page"> Please <%= link_to "Sign Up", signup_path %> or <%= link_to "Log In", login_path%> before continuing!</p>
+  <p class="home-page"> Please <%= link_to "Sign Up", signup_path, class:"home-sign-up-button", id:"home-sign-up-button" %> or <%= link_to "Log In", login_path, class:"home-sign-up-button", id:"home-sign-up-button" %> before continuing!</p>
 <% end %>
 
 <% if current_user %>
