@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     session[:user_id] = user.id
     if user && user.authenticate(params[:session][:password])
       invited_user_joins_event
-      redirect_to events_path
+      redirect_to root_path
     else
       flash[:danger] = 'Invalid email/password combination'
       redirect_to root_path
