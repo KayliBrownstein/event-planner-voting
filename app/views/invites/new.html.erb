@@ -3,7 +3,7 @@
 
   <div class="no-top-padding">
     <%= form_for @invite , :url => invites_path do |f| %>
-      <div class="field">
+      <div class="column row">
         <%= f.hidden_field :event_member_id, value: @event_member_id %>
         <%= f.label :email %>
         <%= f.email_field :email %>

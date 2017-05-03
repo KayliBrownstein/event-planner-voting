@@ -20,7 +20,7 @@ class InvitesController < ApplicationController
       end
     else
       flash[:notice] = "Invite Did NOT Send"
-      redirect_to events_path
+      redirect_to event_path
     end
   end
 

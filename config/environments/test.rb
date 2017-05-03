@@ -25,8 +25,8 @@ Rails.application.configure do
     address: 'smtp.gmail.com',
     port: 587,
     domain: "http://localhost:3000",
-    user_name: "idkwdywmailer",
-    password: "idkwdyw16",
+    user_name: "seeyouwhen.herokuapp",
+    password: "Password123pop",
     authentication: "plain",
     enable_starttls_auto: true
   }

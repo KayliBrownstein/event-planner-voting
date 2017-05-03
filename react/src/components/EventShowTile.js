@@ -42,8 +42,9 @@ class EventShowTile extends Component {
           <Link to='/'>
           <button type='button' className="button {deleteClassName}" onClick={this.props.handleDelete} id='delete-button'>Delete</button>
           </Link>
-        </div>
-     </div>
+          <a href={`/events/${this.props.id}/invite`} className="button {deleteClassName}" id='edit-button'>Invite Friends</a>
+      </div>
+    </div>
    )
  }
 }

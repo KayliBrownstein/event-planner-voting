@@ -10,9 +10,10 @@
 }
 
 .welcome-image {
-  position: relative;
+  // position: relative;
   z-index: -1;
-  background-repeat: repeat-y;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 #new-event {
@@ -161,22 +162,18 @@
   padding: 20px 30px 10px 30px;
   height: 250px;
   width: 300px;
-  margin: 3px;
-  border-radius: 40px;
+  margin: 15px;
+  border-radius: 20px;
   overflow: hidden;
 }
 
-// .location-box-content p {
-//   padding: 5px;
-// }
-
 .datetime-box-content {
   background-color: #e6e6e6;
-  padding: 10px 30px 10px 30px;
+  padding: 20px 30px 10px 30px;
   height: 250px;
   width: 300px;
-  margin: 3px;
-  border-radius: 40px;
+  margin: 15px;
+  border-radius: 20px;
   overflow: hidden;
 }
 
@@ -187,10 +184,6 @@
 h1, h2, h3, h4, h5, h6, p {
   font-family: 'Ubuntu', sans-serif;
 }
-
-// h1 {
-//   text-transform: uppercase;
-// }
 
 .event-title {
   margin-bottom: 30px;
@@ -247,10 +240,6 @@ p {
   letter-spacing: 1px;
   text-align: right;
 }
-
-// .navbar-text a {
-//   color: white;
-// }
 
 .navbar-text a:hover {
   color: black;

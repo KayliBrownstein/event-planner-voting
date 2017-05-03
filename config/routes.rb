@@ -5,8 +5,6 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   get '/logout',  to: 'sessions#destroy'
 
-  # get 'current_user' => "users#current_user"
-
   # match '/users/destroy', :to => "users#destroy", via: [:get, :post]
   resources :users
 
@@ -18,6 +16,7 @@ Rails.application.routes.draw do
 
   get 'events/:id/edit', to: 'events#edit', as: :edit_event
   put 'events/:id', to: 'events#update', as: :update_event
+  get 'events/:id/invite', to: 'invites#new'
 
   namespace :api do
     namespace :v1 do
@@ -31,6 +30,5 @@ Rails.application.routes.draw do
   end
 
   resources :events
-
-  resources :invites, only: [:new, :create]
+  resources :invites
 end
