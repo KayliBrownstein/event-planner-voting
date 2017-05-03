@@ -8,6 +8,8 @@ gem "jquery-rails"
 gem "pg"
 gem "responders"
 gem 'listen'
+gem 'dotenv'
+gem 'dotenv-rails'
 gem "omniauth-google-oauth2", "~> 0.2.1"
 gem "rails"
 gem 'actionmailer', '~> 5.0', '>= 5.0.0.1'

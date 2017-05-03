@@ -300,6 +300,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   coveralls
   database_cleaner
+  dotenv
   dotenv-rails
   factory_girl_rails
   font-awesome-rails
