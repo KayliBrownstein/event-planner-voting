@@ -9,6 +9,7 @@ class EventsController < ApplicationController
     #   end
     # end
 
+
   def show
     @location = Location.new
     @datetime = Datetime.new
@@ -16,6 +17,7 @@ class EventsController < ApplicationController
     session[:ugid] = @event.id
     belongs_to_event?(@event.id)
   end
+
 
   def new
     @event = Event.new

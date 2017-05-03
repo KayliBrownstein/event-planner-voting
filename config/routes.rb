@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   # match '/users/destroy', :to => "users#destroy", via: [:get, :post]
   resources :users
 
-  root 'events#index'
+  root 'home#show'
 
   # match '/event_members/search', :to => "event_members#search", via: [:get, :post]
 
