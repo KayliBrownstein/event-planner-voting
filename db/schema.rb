@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170503152134) do
+ActiveRecord::Schema.define(version: 20170503171243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "datetime_votes", force: :cascade do |t|
+    t.integer  "datetime_id"
+    t.boolean  "upvote",      default: false
+    t.boolean  "downvote",    default: false
+    t.integer  "user_id"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["datetime_id"], name: "index_datetime_votes_on_datetime_id", using: :btree
+    t.index ["user_id"], name: "index_datetime_votes_on_user_id", using: :btree
+  end
 
   create_table "datetimes", force: :cascade do |t|
     t.string   "date",       null: false

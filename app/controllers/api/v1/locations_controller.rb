@@ -15,7 +15,6 @@ class Api::V1::LocationsController < ApplicationController
     render json: @location_votes
   end
 
-
   def create
     @location = Location.new(location_params)
     @location.user_id = current_user.id
