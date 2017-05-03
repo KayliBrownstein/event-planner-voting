@@ -34,11 +34,20 @@ skip_before_filter :verify_authenticity_token
     render json: @event
   end
 
+  def edit
+    @event = Event.find(params[:id])
+    render :update
+  end
+
+  def update
+    @event = Event.find(params[:id])
+    @event.update(event_params)
+    redirect_to edit_event_path(@event)
+  end
+
   def destroy
-    if user_signed_in?
       @event = Event.find(params[:id])
       @event.destroy
-    end
   end
 
   private

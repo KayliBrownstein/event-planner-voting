@@ -16,6 +16,9 @@ Rails.application.routes.draw do
 
   # match '/events/new', :to => "events#new", via: [:get, :post]
 
+  get 'events/:id/edit', to: 'events#edit', as: :edit_event
+  put 'events/:id', to: 'events#update', as: :update_event
+
   namespace :api do
     namespace :v1 do
       resources :profiles
