@@ -3,8 +3,8 @@ import React from 'react';
 const NewEventForm = props => {
  return(
    <div className="column row submit-event">
-     <div className= 'new-event-button large-12 columns'>
-       <center> <button type="button" onClick={props.handleFormButtonClick} className= 'create-event'>Create an Event</button> </center>
+     <div className= 'new-event-button'>
+       <center><button type="button" onClick={props.handleFormButtonClick} className='button create-event small-12 medium-10 large-6 medium-centered large-centered columns'>Create an Event</button></center>
      </div>
      <form onSubmit={props.handleSubmit} className={props.className} id="new-event">
        <label> Name: </label>
