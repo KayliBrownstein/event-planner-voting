@@ -24,10 +24,10 @@ class EventShowContainer extends Component {
       state: ''
     }
     this.handleEventDelete = this.handleEventDelete.bind(this);
-    this.handleDatetimeFormButtonClick = this.handleDatetimeFormButtonClick.bind(this)
-    this.handleDatetimeSubmit = this.handleDatetimeSubmit.bind(this)
-    this.handleDateChange = this.handleDateChange.bind(this)
-    this.handleTimeChange = this.handleTimeChange.bind(this)
+    this.handleDatetimeFormButtonClick = this.handleDatetimeFormButtonClick.bind(this);
+    this.handleDatetimeSubmit = this.handleDatetimeSubmit.bind(this);
+    this.handleDateChange = this.handleDateChange.bind(this);
+    this.handleTimeChange = this.handleTimeChange.bind(this);
     this.handleLocationFormButtonClick = this.handleLocationFormButtonClick.bind(this);
     this.handleLocationSubmit = this.handleLocationSubmit.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
@@ -100,21 +100,21 @@ class EventShowContainer extends Component {
  handleDatetimeFormButtonClick(){
    if (this.state.datetimeformToggle == false) {
      this.setState({
-       datetimeformToggle: true,
+       datetimeformToggle: true
      })
    } else {
      this.setState({
-       datetimeformToggle: false,
+       datetimeformToggle: false
      })
    }
  }
 
  handleDateChange(event){
-   this.setState({ date: event.target.value })
+   this.setState({ date: event.target.value });
  }
 
  handleTimeChange(event){
-   this.setState({ time: event.target.value })
+   this.setState({ time: event.target.value });
  }
 
  handleDatetimeSubmit(event){
@@ -122,7 +122,7 @@ class EventShowContainer extends Component {
    let datetimePayload = {
      date: this.state.date,
      time: this.state.time
-   }
+   };
    this.sendDatetimeInput(datetimePayload);
    this.getDatetimeData();
  }
@@ -130,33 +130,33 @@ class EventShowContainer extends Component {
  handleLocationFormButtonClick(){
    if (this.state.locationformToggle == false) {
      this.setState({
-       locationformToggle: true,
+       locationformToggle: true
      })
    } else {
      this.setState({
-       locationformToggle: false,
+       locationformToggle: false
      })
    }
  }
 
  handleNameChange(event){
-   this.setState({ name: event.target.value })
+   this.setState({ name: event.target.value });
  }
 
  handleDescriptionChange(event){
-   this.setState({ description: event.target.value })
+   this.setState({ description: event.target.value });
  }
 
  handleAddressChange(event){
-   this.setState({ street_address: event.target.value })
+   this.setState({ street_address: event.target.value });
  }
 
  handleCityChange(event){
-   this.setState({ city: event.target.value })
+   this.setState({ city: event.target.value });
  }
 
  handleStateChange(event){
-   this.setState({ state: event.target.value })
+   this.setState({ state: event.target.value });
  }
 
  handleLocationSubmit(event){
