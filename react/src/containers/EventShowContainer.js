@@ -167,7 +167,7 @@ class EventShowContainer extends Component {
      street_address: this.state.street_address,
      city: this.state.city,
      state: this.state.state
-   }
+   };
    this.sendLocationInput(locationPayload);
  }
 
