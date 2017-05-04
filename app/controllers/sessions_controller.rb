@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
 
   def invited_user_joins_event
     if session[:token] != nil
-       org =  Invite.find_by_token(session[:token]).event
+       org =  Invite.find_by_token(session[:token]).event_id
        @event_member = EventMember.new(user_id: current_user.id, event_id: org.id)
        @event_member.save
        flash[:notice] = "You joined the event you were invited to!"
