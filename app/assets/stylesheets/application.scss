@@ -4,9 +4,50 @@
 @import url('https://fonts.googleapis.com/css?family=Anaheim|Poiret+One');
 @import url('https://fonts.googleapis.com/css?family=Anaheim|Poiret+One|Raleway');
 @import "font-awesome";
+@import url('https://fonts.googleapis.com/css?family=Londrina+Sketch');
+
+
+html, #app {
+  background-image: url('http://www.myfreetextures.com/wp-content/uploads/2014/11/wooden-cork-texture.jpg');
+}
 
 .all-events {
+  margin: 30px;
+}
+
+.vote-count{
+  font-size: 20px;
+  padding: 5px;
+  height: 25px;
+  width: 25px;
+  background-color: white;
+  text-align: center;
+}
+
+.thumbs-up-button, .thumbs-down-button {
+  background-color: #5E9FA3;
+  height: 30px;
+  width: 25px;
+  padding: 5px;
+  text-align: center;
+}
+
+.thumbs-up-button:hover, .thumbs-down-button:hover {
+  background-color: black;
+}
+
+.userinfo {
+  color: black;
+  margin-top: 15px;
+  text-align: center;
+  font-size: 100%;
+}
+
+.userinfoBox {
+  border: solid black 1.5px;
+  display: block;
   margin-top: 30px;
+  background-color: #FFF1C1;
 }
 
 .welcome-image {
@@ -14,6 +55,19 @@
   z-index: -1;
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  height: 100%;
+  width: 100%;
+}
+
+.get-started {
+  background-color: #D7D8C5;
+  border: solid black 2px;
+  color: black;
+  text-align: center;
+  padding: 8px;
+  width: 35%;
 }
 
 #new-event {
@@ -35,41 +89,41 @@
   border-radius: 10px;
 }
 
-#new-location {
+#new-location, #new-datetime {
   width: 500px;
-  border: 2px solid black;
-  background-color: white;
+  // border: 2px solid black;
+  // background-color: white;
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 40px;
   padding-right: 40px;
   text-align: center;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
+  // left: 0;
+  // right: 0;
+  // margin-left: auto;
+  // margin-right: auto;
   margin-top: 20px;
-  box-shadow: 20px 20px 5px rgba(0, 0, 0, 0.4);
-  border-radius: 10px;
+  // box-shadow: 20px 20px 5px rgba(0, 0, 0, 0.4);
+  // border-radius: 10px;
 }
 
-#new-datetime {
-  width: 500px;
-  border: 2px solid black;
-  background-color: white;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 40px;
-  padding-right: 40px;
-  text-align: center;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 20px;
-  box-shadow: 20px 20px 5px rgba(0, 0, 0, 0.4);
-  border-radius: 10px;
-}
+// #new-datetime {
+//   width: 500px;
+//   border: 2px solid black;
+//   background-color: white;
+//   padding-top: 20px;
+//   padding-bottom: 20px;
+//   padding-left: 40px;
+//   padding-right: 40px;
+//   text-align: center;
+//   left: 0;
+//   right: 0;
+//   margin-left: auto;
+//   margin-right: auto;
+//   margin-top: 20px;
+//   box-shadow: 20px 20px 5px rgba(0, 0, 0, 0.4);
+//   border-radius: 10px;
+// }
 
 .sign-in {
   color: red;
@@ -82,18 +136,22 @@
 .show-header {
   padding: 10px;
   text-align: center;
+  font-size: 50px;
 }
 
 .home-page {
   padding: 15px;
-  font-size: 25px;
+  font-size: 110%;
+  text-align: center;
 }
 
 .welcome {
   background-color: #D7D8C5;
-  opacity: 0.8;
+  opacity: 0.9;
   padding-top: 10px;
   position: absolute;
+  // height: 30%;
+  // width: 30%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -103,7 +161,7 @@
   text-transform: uppercase;
   font-family: Avenir;
   color: black;
-  background-color: #D7D8C5;
+  background-color: #FFF1C1;
   margin: 15px;
   width: 80px;
   height: 45px;
@@ -118,7 +176,7 @@
   text-transform: uppercase;
   font-family: Avenir;
   color: black;
-  background-color: #D7D8C5;
+  background-color: #FFF1C1;
   margin: 15px;
   width: 80px;
   height: 45px;
@@ -139,17 +197,30 @@
   padding-right: 30px;
 }
 
+.profile-header, .login-header, .signup-header, .invite-header, .edit-event-header {
+  margin-left: 15px;
+  margin-top: 15px;
+  text-align: center;
+  font-size: 40px;
+}
+
 .sign-up {
   padding: 10px;
 }
 
+.login-button, #edit-event-button, .signup-button, #invite-button {
+  background-color: #D7D8C5;
+  border: solid black 1px;
+  color: black;
+  text-align: center;
+}
+
 .box-content {
-  background-color: #e6e6e6;
-  padding: 40px 50px 50px 50px;
+  background-color: #E2BBE3;
+  padding: 30px 50px 50px 50px;
   height: 300px;
   width: 350px;
-  margin: 30px;
-  border-radius: 30px;
+  margin: 20px;
   overflow: hidden;
 }
 
@@ -157,17 +228,7 @@
   font-weight: 600;
 }
 
-.location-box-content {
-  background-color: #e6e6e6;
-  padding: 20px 30px 10px 30px;
-  height: 250px;
-  width: 300px;
-  margin: 15px;
-  border-radius: 20px;
-  overflow: hidden;
-}
-
-.datetime-box-content {
+.location-box-content, .datetime-box-content {
   background-color: #e6e6e6;
   padding: 20px 30px 10px 30px;
   height: 250px;
@@ -186,16 +247,17 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .event-title {
+  margin-top: 30px;
   margin-bottom: 30px;
   color: #041122;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 30px;
   text-align: center;
-  font-weight: 350;
+  font-weight: 400;
 }
 
 .event-title:hover {
-  color: #7FDA89;
+  color: #5E9FA3;
   font-weight: bold;
 }
 
@@ -204,14 +266,9 @@ p {
   font-family: 'Anaheim', sans-serif;
 }
 
-// a {
-//   color:#45c09d;
-//   z-index: 3;
-// }
-
 #nav-bar {
   max-width: 2000px;
-  background-color: #7FDA89;
+  background-color: #5E9FA3;
   height: 60px;
   margin-bottom: 30px;
 }
@@ -255,4 +312,21 @@ p {
   text-align: left;
   font-size: 40px;
   font-weight: bold;
+}
+
+#short-logo{
+  display: none;
+}
+
+@media only screen and (max-width: 640px) {
+  #logo{
+    display: none;
+  }
+  #short-logo {
+    display: inline;
+    float: left;
+    text-align: left;
+    font-size: 40px;
+    font-weight: bold;
+  }
 }

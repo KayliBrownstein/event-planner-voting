@@ -1,14 +1,19 @@
 <div class="index-page">
-  <h1 class="show-header">Invite</h1>
+  <h1 class="invite-header">Invite</h1>
 
-  <div class="no-top-padding">
-    <%= form_for @invite , :url => invites_path do |f| %>
-      <div class="column row">
-        <%= f.hidden_field :event_member_id, value: @event_member_id %>
-        <%= f.label :email %>
-        <%= f.email_field :email %>
-        <%= f.submit 'Send' %>
-      </div>
-    <% end %>
+  <div class='column row'>
+    <div class="small-12 medium-6 large-4 medium-centered large-centered columns">
+      <%= form_for @invite , :url => invites_path do |f| %>
+        <div class="column row">
+          <%= f.hidden_field :event_member_id, value: @event_member_id %>
+          <%= f.label :email %>
+          <%= f.email_field :email %>
+        </div>
+
+        <div class='button' id='invite-button'>
+          <center><i class="fa fa-envelope-o" aria-hidden="true"></i><%= f.submit 'Send' %></center>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
