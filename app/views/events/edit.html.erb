@@ -1,29 +1,38 @@
-<div class="column row">
-<%= form_for @event, :url => event_path(@event), method: "put" do %>
+<h1 class="edit-event-header">Edit Your Event</h1>
+<br>
+  <div class="column row">
+    <div class="small-12 medium-6 large-4 medium-centered large-centered columns">
+      <%= form_for @event, :url => event_path(@event), method: "put" do %>
+        <div class="column row">
+          <label>Name:</label><br>
+          <%= text_field_tag :name, @event.name %> <br>
 
-  <label>Name:</label><br>
-  <%= text_field_tag :name, @event.name %> <br>
+          <%= hidden_field :user_id, value: @event.user_id %>
 
-  <%= hidden_field :user_id, value: @event.user_id %>
+          <label>Description</label><br>
+          <%= text_area_tag :description, @event.description %><br>
 
-  <label>Description</label><br>
-  <%= text_area_tag :description, @event.description %><br>
+          <label>Cutoff Time:</label><br>
+          <%= text_field_tag :cutoff_time, @event.cutoff_time %> <br>
 
-  <label>Cutoff Time:</label><br>
-  <%= text_field_tag :cutoff_time, @event.cutoff_time %> <br>
+          <label>Suggest a Date</label><br>
+          <%= text_field_tag :suggested_date, @event.suggested_date %> <br>
 
-  <label>Suggest a Date</label><br>
-  <%= text_field_tag :suggested_date, @event.suggested_date %> <br>
+          <label>Suggest a Time</label><br>
+          <%= text_field_tag :suggested_time, @event.suggested_time %> <br>
 
-  <label>Suggest a Time</label><br>
-  <%= text_field_tag :suggested_time, @event.suggested_time %> <br>
+          <label>Suggest a Location</label><br>
+          <%= text_field_tag :suggested_location, @event.suggested_location %> <br>
+        </div>
 
-  <label>Suggest a Location</label><br>
-  <%= text_field_tag :suggested_location, @event.suggested_location %> <br>
-
-  <%= submit_tag "Save Changes" %>
-<% end %>
-</div>
+        <div class='button' id='edit-event-button'>
+          <center><%= submit_tag "Save Changes" %></center>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<br>
+<br>
 
 <div id='app'>
 </div>

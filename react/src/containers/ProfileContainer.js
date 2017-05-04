@@ -23,10 +23,13 @@ class ProfileContainer extends Component {
   render() {
     return(
       <div className="column row">
-        <p>{this.state.user.username}</p>
-        <p>{this.state.user.first_name}</p>
-        <p>{this.state.user.last_name}</p>
-        <p>{this.state.user.email}</p>
+        <div className="userinfoBox small-12 medium-8 large-6 small-centered medium-centered large-centered columns">
+          <h1 className="profile-header">My Profile</h1>
+          <p className="userinfo">Username: {this.state.user.username}</p>
+          <p className="userinfo">First Name: {this.state.user.first_name}</p>
+          <p className="userinfo">Last Name: {this.state.user.last_name}</p>
+          <p className="userinfo">Email: {this.state.user.email}</p>
+        </div>
       </div>
     )
   }

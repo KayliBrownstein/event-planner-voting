@@ -132,7 +132,7 @@ class IndexContainer extends Component {
     };
 
     return(
-      <div className="column row">
+      <div className="column row indexcontainer">
       <NewEventForm
          className = {className}
          handleFormButtonClick = {this.handleFormButtonClick}

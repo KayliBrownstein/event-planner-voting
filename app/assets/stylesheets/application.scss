@@ -4,8 +4,23 @@
 @import url('https://fonts.googleapis.com/css?family=Anaheim|Poiret+One');
 @import url('https://fonts.googleapis.com/css?family=Anaheim|Poiret+One|Raleway');
 @import "font-awesome";
+@import url('https://fonts.googleapis.com/css?family=Londrina+Sketch');
+
 
 .all-events {
+  margin: 30px;
+}
+
+.userinfo {
+  color: black;
+  margin-top: 15px;
+  text-align: center;
+  font-size: 100%;
+}
+
+.userinfoBox {
+  border: solid black 1.5px;
+  display: block;
   margin-top: 30px;
 }
 
@@ -14,6 +29,19 @@
   z-index: -1;
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  height: 100%;
+  width: 100%;
+}
+
+.get-started {
+  background-color: #D7D8C5;
+  border: solid black 2px;
+  color: black;
+  text-align: center;
+  padding: 8px;
+  width: 35%;
 }
 
 #new-event {
@@ -82,16 +110,18 @@
 .show-header {
   padding: 10px;
   text-align: center;
+  font-size: 50px;
 }
 
 .home-page {
   padding: 15px;
-  font-size: 25px;
+  font-size: 95%;
+  // font-weight: bold;
 }
 
 .welcome {
   background-color: #D7D8C5;
-  opacity: 0.8;
+  opacity: 0.9;
   padding-top: 10px;
   position: absolute;
   top: 50%;
@@ -139,8 +169,22 @@
   padding-right: 30px;
 }
 
+.profile-header, .login-header, .signup-header, .invite-header, .edit-event-header {
+  margin-left: 15px;
+  margin-top: 15px;
+  text-align: center;
+  font-size: 40px;
+}
+
 .sign-up {
   padding: 10px;
+}
+
+.login-button, #edit-event-button, .signup-button, #invite-button {
+  background-color: #D7D8C5;
+  border: solid black 1px;
+  color: black;
+  text-align: center;
 }
 
 .box-content {
@@ -186,6 +230,7 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .event-title {
+  margin-top: 30px;
   margin-bottom: 30px;
   color: #041122;
   font-family: 'Raleway', sans-serif;
@@ -211,7 +256,7 @@ p {
 
 #nav-bar {
   max-width: 2000px;
-  background-color: #7FDA89;
+  background-color: #5E9FA3;
   height: 60px;
   margin-bottom: 30px;
 }
@@ -255,4 +300,21 @@ p {
   text-align: left;
   font-size: 40px;
   font-weight: bold;
+}
+
+#short-logo{
+  display: none;
+}
+
+@media only screen and (max-width: 640px) {
+  #logo{
+    display: none;
+  }
+  #short-logo {
+    display: inline;
+    float: left;
+    text-align: left;
+    font-size: 40px;
+    font-weight: bold;
+  }
 }

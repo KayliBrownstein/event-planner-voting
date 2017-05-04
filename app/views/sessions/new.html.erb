@@ -1,10 +1,10 @@
 <div class="index-page">
   <div class="log-in-page">
     <% provide(:title, "Log in") %>
-    <h1 class="groups-list">Log In</h1>
+    <h1 class="login-header">Log In</h1>
 
     <div class="column row">
-      <div class="col-md-6 col-md-offset-3">
+      <div class="small-12 medium-6 large-4 medium-centered large-centered columns">
         <%= form_for(:session, url: login_path) do |f| %>
           <% if @token != nil %>
             <%= hidden_field_tag :invite_token, session[:token] %>
@@ -16,7 +16,7 @@
           <%= f.label :password %>
           <%= f.password_field :password, class: 'form-control' %>
 
-          <%= f.submit "Log In", class:"button" %>
+          <center><%= f.submit "Log In", class:"button login-button" %></center>
         <% end %>
         <br>
         <p>New user? <%= link_to "Sign up now!", signup_path %></p>
