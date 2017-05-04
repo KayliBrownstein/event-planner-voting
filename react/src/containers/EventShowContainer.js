@@ -12,9 +12,16 @@ class EventShowContainer extends Component {
       datetimes: [],
       locations: [],
       email: '',
-      invites: []
+      invites: [],
+      formToggle: false,
+      date: '',
+      time: ''
     }
     this.handleEventDelete = this.handleEventDelete.bind(this);
+    this.handleDatetimeFormButtonClick = this.handleDatetimeFormButtonClick.bind(this)
+    this.handleDatetimeSubmit = this.handleDatetimeSubmit.bind(this)
+    this.handleDateChange = this.handleDateChange.bind(this)
+    this.handleTimeChange = this.handleTimeChange.bind(this)
   }
 
   componentDidMount(){
@@ -57,24 +64,12 @@ class EventShowContainer extends Component {
   }
 
   handleEventDelete(){
-    let eventId = this.props.params.id;
+    let eventId = this.state.event.id;
     fetch(`/api/v1/events/${eventId}`, {
       method: 'DELETE',
       headers: { "Content-Type": "application/json" }
     })
   }
-
-  // handleSubmit(event){
-  //   event.preventDefault();
-  //   let invitePayload = {
-  //      email: this.state.email
-  //     }
-  //     this.sendInput(invitePayload);
-  //  }
-
-  //  handleEmailChange(event) {
-  //    this.setState({ email: event.target.value });
-  //  }
 
   sendInput(invitePayload) {
     fetch(`/api/v1/events/${eventId}/invites`, {
@@ -89,15 +84,57 @@ class EventShowContainer extends Component {
     });
  }
 
+ handleDatetimeFormButtonClick(){
+   if (this.state.formToggle == false) {
+     this.setState({
+       formToggle: true,
+     })
+   } else {
+     this.setState({
+       formToggle: false,
+     })
+   }
+ }
+
+ handleDateChange(event){
+   this.setState({ date: event.target.value })
+ }
+
+ handleTimeChange(event){
+   this.setState({ time: event.target.value })
+ }
+
+ handleDatetimeSubmit(event){
+   event.preventDefault();
+   let datetimePayload = {
+     date: this.state.date,
+     time: this.state.time
+   }
+   this.sendInput(datetimePayload);
+   this.getDatetimeData();
+ }
+
+ sendInput(datetimePayload){
+   let eventId = this.props.params.id;
+   fetch(`/api/v1/events/${eventId}/datetimes`, {
+     credentials: 'same-origin',
+     method: "POST",
+     headers: { "Content-Type": "application/json" },
+     body: JSON.stringify(datetimePayload)
+   })
+   .then(response => response.json())
+   .then(responseData => {
+     this.setState({ datetimes: [...this.state.datetimes, responseData] });
+   });
+ }
+
   render(){
-    let errorDiv;
-    let errorItems;
-    if (Object.keys(this.state.errors).length > 0) {
-      errorItems = Object.values(this.state.errors).map(error => {
-        return(<li key={error}>{error}</li>)
-      });
-      errorDiv = <div className="callout alert">{errorItems}</div>
-    }
+    let className;
+    if (this.state.formToggle) {
+      className = 'selected'
+    } else {
+      className = 'hidden'
+    };
 
     return(
       <div>
@@ -112,7 +149,6 @@ class EventShowContainer extends Component {
             suggested_time = {this.state.event.suggested_time}
             suggested_location = {this.state.event.suggested_location}
             handleDelete = {this.handleEventDelete}
-            handleSubmit = {this.handleSubmit}
           />
           <AllLocations
             locations={this.state.locations}
@@ -120,8 +156,15 @@ class EventShowContainer extends Component {
           />
 
           <AllDatetimes
+            handleDatetimeSubmit = {this.handleDatetimeSubmit}
+            handleDateChange = {this.handleDateChange}
+            handleTimeChange = {this.handleTimeChange}
+            handleDatetimeFormButtonClick = {this.handleDatetimeFormButtonClick}
             datetimes={this.state.datetimes}
+            date={this.state.date}
+            time={this.state.time}
             id={this.state.event.id}
+            className={className}
           />
         </div>
       </div>

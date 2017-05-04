@@ -6,7 +6,7 @@ const NewDatetimeForm = props => {
      <div className= 'new-datetime-button large-12 columns'>
        <button type="button" onClick={props.handleDatetimeFormButtonClick} className= 'button create-datetime'>Add a Date and Time</button>
      </div>
-     <form onSubmit={props.handleSubmit} className={props.className} id="new-datetime">
+     <form onSubmit={props.handleDatetimeSubmit} className={props.className} id="new-datetime">
        <label> Date: </label>
        <input name="date" type="text" onChange={props.dateChange} value={props.dateValue}/>
 

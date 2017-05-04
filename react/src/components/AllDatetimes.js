@@ -6,15 +6,7 @@ class AllDatetimes extends Component {
   constructor(props){
     super(props);
     this.state = {
-      datetimes: [],
-      formToggle: false,
-      date: '',
-      time: ''
     };
-    this.handleDatetimeFormButtonClick = this.handleDatetimeFormButtonClick.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleDateChange = this.handleDateChange.bind(this)
-    this.handleTimeChange = this.handleTimeChange.bind(this)
     this.updateDatetimeVote = this.updateDatetimeVote.bind(this);
   }
 
@@ -52,29 +44,6 @@ class AllDatetimes extends Component {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
-  handleSubmit(event){
-    event.preventDefault();
-    let datetimePayload = {
-      date: this.state.date,
-      time: this.state.time
-    }
-    this.sendInput(datetimePayload);
-  }
-
-  sendInput(datetimePayload){
-    let eventId = this.props.id;
-    fetch(`/api/v1/events/${eventId}/datetimes`, {
-      credentials: 'same-origin',
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(datetimePayload)
-    })
-    .then(response => response.json())
-    .then(responseData => {
-      this.setState({ datetimes: [...this.state.datetimes, responseData] });
-    });
-  }
-
   getDatetimeVote(datetime_id){
     let eventId = this.props.id;
     let datetimeId = datetime_id;
@@ -89,33 +58,27 @@ class AllDatetimes extends Component {
     })
   }
 
-  handleDatetimeFormButtonClick(){
-    if (this.state.formToggle == false) {
-      this.setState({
-        formToggle: true,
-      })
-    } else {
-      this.setState({
-        formToggle: false,
-      })
-    }
-  }
-
-  handleDateChange(event){
-    this.setState({ date: event.target.value })
-  }
-
-  handleTimeChange(event){
-    this.setState({ time: event.target.value })
-  }
+  // handleDatetimeFormButtonClick(){
+  //   if (this.state.formToggle == false) {
+  //     this.setState({
+  //       formToggle: true,
+  //     })
+  //   } else {
+  //     this.setState({
+  //       formToggle: false,
+  //     })
+  //   }
+  // }
+  //
+  // handleDateChange(event){
+  //   this.setState({ date: event.target.value })
+  // }
+  //
+  // handleTimeChange(event){
+  //   this.setState({ time: event.target.value })
+  // }
 
   render(){
-    let className;
-    if (this.state.formToggle) {
-      className = 'selected'
-    } else {
-      className = 'hidden'
-    };
 
     let datetimes = this.props.datetimes.map((datetime) => {
       let upvoteHandler = () => {
@@ -141,18 +104,18 @@ class AllDatetimes extends Component {
 
     return(
       <div>
-        {datetimes}
         <NewDatetimeForm
-          className = {className}
-          handleDatetimeFormButtonClick = {this.handleDatetimeFormButtonClick}
-          dateValue = {this.state.date}
-          timeValue = {this.state.time}
+          className = {this.props.className}
+          handleDatetimeFormButtonClick = {this.props.handleDatetimeFormButtonClick}
+          dateValue = {this.props.date}
+          timeValue = {this.props.time}
 
-          dateChange = {this.handleDateChange}
-          timeChange = {this.handleTimeChange}
+          dateChange = {this.props.handleDateChange}
+          timeChange = {this.props.handleTimeChange}
 
-          handleSubmit = {this.handleSubmit}
+          handleDatetimeSubmit = {this.props.handleDatetimeSubmit}
         />
+        {datetimes}
       </div>
     )
   }

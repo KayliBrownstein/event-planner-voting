@@ -169,7 +169,6 @@ class AllLocations extends Component {
 
     return(
       <div>
-        {locations}
         <NewLocationForm
           className = {className}
           handleLocationFormButtonClick = {this.handleLocationFormButtonClick}
@@ -187,6 +186,7 @@ class AllLocations extends Component {
 
           handleSubmit = {this.handleSubmit}
         />
+        {locations}
       </div>
     )
   }
