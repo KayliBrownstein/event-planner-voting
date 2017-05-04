@@ -77,11 +77,13 @@ class EventShowContainer extends Component {
   }
 
   handleEventDelete(){
+    if (confirm("Are you sure?")) {
     let eventId = this.state.event.id;
     fetch(`/api/v1/events/${eventId}`, {
       method: 'DELETE',
       headers: { "Content-Type": "application/json" }
     })
+    }
   }
 
   sendInviteInput(invitePayload) {
