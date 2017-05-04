@@ -1,6 +1,6 @@
 class InvitesController < ApplicationController
   def new
-    @event_id = session[:ugid]
+    @event_id = params[:id]
     @invite = Invite.new
   end
 
