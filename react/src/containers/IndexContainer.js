@@ -29,7 +29,6 @@ class IndexContainer extends Component {
   }
 
   componentDidMount() {
-    // this.getUserData();
     this.getEventData();
   }
 
@@ -51,14 +50,6 @@ class IndexContainer extends Component {
       this.setState({ formToggle: false })
     }
   }
-
-  // getUserData() {
-  //   fetch(`/api/v1/users`)
-  //     .then(response => response.json())
-  //     .then(responseData => {
-  //       this.setState({ user_id: responseData.current_user.id })
-  //   });
-  // }
 
   handleSubmit(event){
     event.preventDefault();
