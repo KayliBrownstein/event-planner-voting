@@ -1,5 +1,5 @@
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   config.cache_classes = false
 
@@ -39,19 +39,18 @@ Rails.application.configure do
   # yet still be able to expire them through the digest params.
   config.assets.quiet = true
 
-  config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.delivery_method = :sendmail
-  config.action_mailer.sendmail_settings = {
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
     port: 587,
-    domain: "http://localhost:3000",
+    domain: "gmail.com",
     user_name: ENV['GMAIL_USERNAME'],
     password: ENV['GMAIL_PASSWORD'],
     authentication: "plain",
     enable_starttls_auto: true
   }
-
+  config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 end
