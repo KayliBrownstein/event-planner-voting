@@ -132,29 +132,31 @@ class IndexContainer extends Component {
     };
 
     return(
-      <div className="column row indexcontainer">
-      <NewEventForm
-         className = {className}
-         handleFormButtonClick = {this.handleFormButtonClick}
-         nameValue = {this.state.name}
-         descriptionValue = {this.state.description}
-         cutOffValue = {this.state.cutoff_time}
-         dateValue = {this.state.suggested_date}
-         timeValue = {this.state.suggested_time}
-         locationValue = {this.state.suggested_location}
+      <div>
+        <NewEventForm
+           className = {className}
+           handleFormButtonClick = {this.handleFormButtonClick}
+           nameValue = {this.state.name}
+           descriptionValue = {this.state.description}
+           cutOffValue = {this.state.cutoff_time}
+           dateValue = {this.state.suggested_date}
+           timeValue = {this.state.suggested_time}
+           locationValue = {this.state.suggested_location}
 
-         nameChange = {this.handleNameChange}
-         descriptionChange = {this.handleDescriptionChange}
-         cutOffChange = {this.handleCutOffChange}
-         dateChange = {this.handleDateChange}
-         timeChange = {this.handleTimeChange}
-         locationChange = {this.handleLocationChange}
+           nameChange = {this.handleNameChange}
+           descriptionChange = {this.handleDescriptionChange}
+           cutOffChange = {this.handleCutOffChange}
+           dateChange = {this.handleDateChange}
+           timeChange = {this.handleTimeChange}
+           locationChange = {this.handleLocationChange}
 
-         handleSubmit = {this.handleSubmit}
-       />
-       <AllEvents
-        events={this.state.events}
-        />
+           handleSubmit = {this.handleSubmit}
+         />
+        <div className='column row'>
+         <AllEvents
+            events={this.state.events}
+          />
+        </div>
       </div>
     )
   }
