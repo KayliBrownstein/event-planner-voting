@@ -6,7 +6,7 @@ const NewLocationForm = props => {
      <div className= 'new-location-button large-12 columns'>
        <button type="button" onClick={props.handleLocationFormButtonClick} className= 'button create-location'>Add a Location</button>
      </div>
-     <form onSubmit={props.handleSubmit} className={props.className} id="new-location">
+     <form onSubmit={props.handleLocationSubmit} className={props.className} id="new-location">
        <label> Name: </label>
        <input name="name" type="text" onChange={props.nameChange} value={props.nameValue}/>
 
