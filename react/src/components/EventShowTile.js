@@ -25,12 +25,13 @@ class EventShowTile extends Component {
   }
 
   render(){
-    let deleteClassName;
-    if (this.state.current_user.id == this.props.id){
-      deleteClassName = "show"
+    let className;
+    if (this.state.current_user.id == this.props.event.user_id){
+      className = 'show';
     } else {
-      deleteClassName = "hidden"
+      className = 'hidden';
     }
+
    return(
      <div className="small-12 medium-12 large-12 large-centered columns event-show-tile">
        <div className='show-box-content'>
@@ -38,11 +39,11 @@ class EventShowTile extends Component {
          <p>{this.props.description}</p>
        </div>
        <div className="row">
-          <a href={`/events/${this.props.id}/edit`} onClick={this.props.handleUpdate} className="button {deleteClassName}" id='edit-button'>Edit</a>
+          <a href={`/events/${this.props.id}/edit`} onClick={this.props.handleUpdate} className={className} id='edit-button'>Edit</a>
           <Link to='/'>
-          <button type='button' className="button {deleteClassName}" onClick={this.props.handleDelete} id='delete-button'>Delete</button>
+          <button type='button' className={className} onClick={this.props.handleDelete} id='delete-button'>Delete</button>
           </Link>
-          <a href={`/events/${this.props.id}/invite`} className="button {deleteClassName}" id='edit-button'>Invite Friends</a>
+          <a href={`/events/${this.props.id}/invite`} className={className} id='edit-button'>Invite Friends</a>
       </div>
     </div>
    )
