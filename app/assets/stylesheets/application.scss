@@ -16,11 +16,12 @@ html, #app {
 }
 
 .create-event {
-  background-image: linear-gradient(90deg, #3bd1d3, #7b81ec);
+  // background-color: orange;
+  background-image: linear-gradient(90deg, orange, #FF9999);
   margin: 2em auto;
   display: block;
   border: 6px solid rgba(255, 255, 255, 0.45);
-  border-radius: 50px;
+  // border-radius: 50px;
   padding: 1em 3em;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -28,8 +29,9 @@ html, #app {
   position: relative;
   color: white;
   font-weight: bolder;
-  font-size: 100%;
+  font-size: 120%;
   font-family: 'Ubuntu';
+  letter-spacing: 2.5px;
   text-transform: uppercase;
 }
 
