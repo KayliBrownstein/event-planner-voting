@@ -15,6 +15,50 @@ html, #app {
   margin: 30px;
 }
 
+.create-event {
+  // background-color: orange;
+  background-image: linear-gradient(90deg, orange, #FF9999);
+  margin: 2em auto;
+  display: block;
+  border: 6px solid rgba(255, 255, 255, 0.45);
+  // border-radius: 50px;
+  padding: 1em 3em;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-clip: padding-box;
+  position: relative;
+  color: white;
+  font-weight: bolder;
+  font-size: 120%;
+  font-family: 'Ubuntu';
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
+
+.create-event:before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  border-radius: 50px;
+  z-index: -1;
+  filter: blur(14px);
+}
+
+.create-event:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border-radius: 50px;
+  z-index: -1;
+  filter: blur(14px);
+}
+
 .vote-count{
   font-size: 20px;
   padding: 5px;
@@ -216,12 +260,14 @@ html, #app {
 }
 
 .box-content {
-  background-color: #E2BBE3;
+  background-image: url('https://lh3.ggpht.com/YQTo-0hQ0ISjIZMnJPbl7C7FK52hWZfek5h0G4Zq7rwtemiZXwUJawghxsPQzu1KPJo=w300');
+  background-size: cover;
   padding: 30px 50px 50px 50px;
-  height: 300px;
-  width: 350px;
+  height: 400px;
+  width: 400px;
   margin: 20px;
   overflow: hidden;
+  // box-shadow: 20px 20px 5px rgba(0, 0, 0, 0.4);
 }
 
 #home-sign-up-button {
@@ -268,10 +314,21 @@ p {
 
 #nav-bar {
   max-width: 2000px;
-  background-color: #5E9FA3;
-  height: 60px;
+  // background-color: #55443D;
+  // background-image: linear-gradient(90deg, #703800, #55443D);
+  height: 80px;
+  padding-top: 8px;
   margin-bottom: 30px;
-}
+  background:
+  linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+  linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+  linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+  linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+  linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+  linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+  background-color: #131313;
+  background-size: 20px 20px;
+  }
 
 #nav-bar a {
   text-transform: uppercase;

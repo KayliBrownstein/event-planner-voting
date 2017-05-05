@@ -15,8 +15,8 @@ class NavContainer extends Component {
               <ul className="menu align-right">
                 <li><Link to="/users"><i className="fa fa-user fa-fw"></i>My Profile</Link></li>
                 <li><a href="#">Search</a></li>
-                <li id="short-logo"><Link to="/">SYW</Link></li>
-                <li id="logo"><Link to="/">SeeYouWhen</Link></li>
+                <li id="short-logo"><Link to="/events">SYW</Link></li>
+                <li id="logo"><Link to="/events">SeeYouWhen</Link></li>
               </ul>
             </div>
           </div>
