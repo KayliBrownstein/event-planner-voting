@@ -15,7 +15,7 @@ class EventsController < ApplicationController
     @datetime = Datetime.new
     @event = Event.find(params[:id])
     session[:ugid] = @event.id
-    belongs_to_event?(@event.id)
+    # belongs_to_event?(@event.id)
   end
 
 
@@ -53,11 +53,11 @@ class EventsController < ApplicationController
    params.permit(:name, :user_id, :description, :cutoff_time, :suggested_date, :suggested_location, :suggested_time)
  end
 
- def belongs_to_event?(event_id)
-   @event_member = EventMember.find_by(user_id: current_user.id, event_id: event_id)
-   if @event_member.nil?
-     redirect_to events_path
-     flash[:notice] = "You Do Not Belong to That Event"
-   end
- end
+ # def belongs_to_event?(event_id)
+ #   @event_member = EventMember.find_by(user_id: current_user.id, event_id: event_id)
+ #   if @event_member.nil?
+ #     redirect_to events_path
+ #     flash[:notice] = "You Do Not Belong to That Event"
+ #   end
+ # end
 end

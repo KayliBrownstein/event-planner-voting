@@ -8,6 +8,8 @@ class InvitesController < ApplicationController
     @invite = Invite.new(invite_params)
     recipient = User.find_by(email: @invite.email)
     @invite.sender_id = current_user.id
+    # @event_id = params[:id]
+
     if @invite.save
       if recipient.nil?
        InviteMailer.new_user_invite(@invite, root_path(:invite_token => @invite.token)).deliver_now
@@ -19,8 +21,8 @@ class InvitesController < ApplicationController
         redirect_to events_path
       end
     else
-      flash[:notice] = "Invite Did NOT Send"
-      redirect_to event_path
+      flash[:notice] = "Invite Did NOT Send. Please provide an email address."
+      redirect_to events_path
     end
   end
 
