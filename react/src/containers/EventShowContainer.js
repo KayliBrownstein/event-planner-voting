@@ -221,6 +221,7 @@ class EventShowContainer extends Component {
         <div className="column row">
           <EventShowTile
             key = {this.state.event.id}
+            event = {this.state.event}
             id = {this.state.event.id}
             name = {this.state.event.name}
             description = {this.state.event.description}
