@@ -34,6 +34,9 @@ class EventShowTile extends Component {
    return(
      <div className="small-12 medium-12 large-12 large-centered columns event-show-tile">
        <div className='show-box-content'>
+       <Link to='/events'>
+       <button type='button' className="button" id='back-button'>Back to Events</button>
+       </Link>
          <h3 className='event-title'>{this.props.name}</h3>
          <p>{this.props.description}</p>
        </div>
