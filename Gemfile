@@ -19,6 +19,7 @@ gem "sdoc", "~> 0.4.0", group: :doc
 gem "uglifier", ">= 1.3.0"
 gem 'bcrypt', "~> 3.1.11"
 gem 'font-awesome-rails'
+gem 'carrierwave', '~> 1.0'
 
 group :development, :test do
   gem "dotenv-rails"
