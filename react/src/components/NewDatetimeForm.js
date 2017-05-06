@@ -8,10 +8,10 @@ const NewDatetimeForm = props => {
      </div>
      <form onSubmit={props.handleDatetimeSubmit} className={props.className} id="new-datetime">
        <label> Date: </label>
-       <input name="date" type="text" onChange={props.dateChange} value={props.dateValue}/>
+       <input name="date" type="date" onChange={props.dateChange} value={props.dateValue}/>
 
        <label> Time: </label>
-       <textarea name="time" onChange={props.timeChange} value={props.timeValue}/>
+       <input name="time" type="time" onChange={props.timeChange} value={props.timeValue}/>
 
        <input className= 'create-datetime-submit' type="submit" value="Submit"/>
      </form>

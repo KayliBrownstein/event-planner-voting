@@ -40,6 +40,7 @@ class EventShowTile extends Component {
        </Link>
          <h3 className='event-title'>{this.props.name}</h3>
          <p>{this.props.description}</p>
+         <p>{this.props.cutoff_time}</p>
        </div>
        <div className="row">
           <a href={`/events/${this.props.id}/edit`} onClick={this.props.handleUpdate} className={className} id='edit-button'>Edit</a>
