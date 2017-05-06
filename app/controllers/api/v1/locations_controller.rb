@@ -69,7 +69,7 @@ class Api::V1::LocationsController < ApplicationController
 
   def location_params
     params.permit(:id, :name, :user_id, :event_id, :description,
-    :street_address, :city, :state)
+      :street_address, :city, :state)
   end
 
   def location_vote_params
