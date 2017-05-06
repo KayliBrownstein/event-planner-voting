@@ -29,6 +29,7 @@ class ProfileContainer extends Component {
         <button type='button' className="button" id='back-button'>Back to Events</button>
         </Link>
           <h1 className="profile-header">My Profile</h1>
+          <img src={this.state.user.avatar} id='avatar' width='200' />
           <p className="userinfo">Username: {this.state.user.username}</p>
           <p className="userinfo">First Name: {this.state.user.first_name}</p>
           <p className="userinfo">Last Name: {this.state.user.last_name}</p>

@@ -4,6 +4,7 @@ class Api::V1::UsersController < ApplicationController
 
   def index
     @current_user = current_user
+    @avatar = current_user.avatar.url
     # @admins = User.where(admin: true)
     events_by_user = Event.where(user_id: @current_user.id)
 
@@ -11,7 +12,7 @@ class Api::V1::UsersController < ApplicationController
     events_invited_to = Event.where(id: event_ids)
 
     @events = events_by_user + events_invited_to
-    render json: {current_user: @current_user, events: @events }
+    render json: {current_user: @current_user, events: @events, avatar: @avatar }
   end
 
   def create
