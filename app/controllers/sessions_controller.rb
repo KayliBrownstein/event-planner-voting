@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       invited_user_joins_event
       redirect_to root_path
     else
-      flash[:danger] = 'Invalid email/password combination'
+      # flash[:danger] = 'Invalid email/password combination'
       redirect_to root_path
     end
   end
