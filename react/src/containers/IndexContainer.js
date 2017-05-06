@@ -207,7 +207,7 @@ class IndexContainer extends Component {
        className = 'selected'
      } else {
       className = 'hidden'
-    };
+    }
 
     let errorDiv;
     let errorItems;
