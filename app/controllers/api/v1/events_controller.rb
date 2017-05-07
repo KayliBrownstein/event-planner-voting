@@ -32,10 +32,11 @@ skip_before_filter :verify_authenticity_token
     @locations = @event.locations
     @datetimes = @event.datetimes
     emails = Invite.where(event_id: @event.id).pluck(:email).uniq
-    recipients = User.where(email: emails)
-    @invitees = recipients
+    @invitees = User.where(email: emails)
     render json: @event
     # render json: {event: @event, invitees: @invitees }
+    # render json: {invitees: @invitees, event: @event }
+
   end
 
   def edit
