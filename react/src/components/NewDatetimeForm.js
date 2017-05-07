@@ -4,7 +4,7 @@ const NewDatetimeForm = props => {
  return(
    <div className="column row submit-location">
      <div className= 'new-datetime-button large-12 columns'>
-       <button type="button" onClick={props.handleDatetimeFormButtonClick} className= 'button create-datetime'>Add a Date and Time</button>
+       <center><button type="button" onClick={props.handleDatetimeFormButtonClick} className= 'button create-datetime'>Add a Date and Time</button></center>
      </div>
      <form onSubmit={props.handleDatetimeSubmit} className={props.className} id="new-datetime">
        <label> Date: </label>

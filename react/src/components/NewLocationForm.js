@@ -4,7 +4,7 @@ const NewLocationForm = props => {
  return(
    <div className="column row submit-location">
      <div className= 'new-location-button large-12 columns'>
-       <button type="button" onClick={props.handleLocationFormButtonClick} className= 'button create-location'>Add a Location</button>
+       <center><button type="button" onClick={props.handleLocationFormButtonClick} className= 'button create-location'>Add a Location</button></center>
      </div>
      <form onSubmit={props.handleLocationSubmit} className={props.className} id="new-location">
        <label> Name: </label>

@@ -21,7 +21,8 @@ class EventShowContainer extends Component {
       street_address: '',
       description: '',
       city: '',
-      state: ''
+      state: '',
+      eventId: this.props.params.id
     }
     this.handleEventDelete = this.handleEventDelete.bind(this);
     this.handleDatetimeFormButtonClick = this.handleDatetimeFormButtonClick.bind(this);
@@ -44,8 +45,7 @@ class EventShowContainer extends Component {
   }
 
   getEventData(){
-    let eventId = this.props.params.id;
-    fetch(`/api/v1/events/${eventId}`, {
+    fetch(`/api/v1/events/${this.state.eventId}`, {
       method: 'GET'
     })
     .then(response => response.json())
@@ -55,8 +55,7 @@ class EventShowContainer extends Component {
   }
 
   getLocationData(){
-    let eventId = this.props.params.id
-    fetch(`/api/v1/events/${eventId}/locations`, {
+    fetch(`/api/v1/events/${this.state.eventId}/locations`, {
       method: 'GET'
     })
     .then(response => response.json())
@@ -66,8 +65,7 @@ class EventShowContainer extends Component {
   }
 
   getDatetimeData(){
-    let eventId = this.props.params.id
-    fetch(`/api/v1/events/${eventId}/datetimes`, {
+    fetch(`/api/v1/events/${this.state.eventId}/datetimes`, {
       method: 'GET'
     })
     .then(response => response.json())
@@ -78,8 +76,7 @@ class EventShowContainer extends Component {
 
   handleEventDelete(){
     if (confirm("Are you sure?")) {
-    let eventId = this.state.event.id;
-    fetch(`/api/v1/events/${eventId}`, {
+    fetch(`/api/v1/events/${this.state.eventId}`, {
       method: 'DELETE',
       headers: { "Content-Type": "application/json" }
     })
@@ -87,7 +84,7 @@ class EventShowContainer extends Component {
   }
 
   sendInviteInput(invitePayload) {
-    fetch(`/api/v1/events/${eventId}/invites`, {
+    fetch(`/api/v1/events/${this.state.eventId}/invites`, {
       credentials: 'same-origin',
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -174,8 +171,7 @@ class EventShowContainer extends Component {
  }
 
  sendLocationInput(locationPayload){
-   let eventId = this.props.params.id;
-   fetch(`/api/v1/events/${eventId}/locations`, {
+   fetch(`/api/v1/events/${this.state.eventId}/locations`, {
      credentials: 'same-origin',
      method: "POST",
      headers: { "Content-Type": "application/json" },
@@ -218,17 +214,19 @@ class EventShowContainer extends Component {
 
     return(
       <div>
-        <div className="column row">
+        <div className="small-12 medium-12 large-12 center columns event-show-all">
           <EventShowTile
             key = {this.state.event.id}
-            event = {this.state.event}
-            id = {this.state.event.id}
-            name = {this.state.event.name}
-            description = {this.state.event.description}
-            cutoff_time = {this.state.event.cutoff_time}
-            suggested_date = {this.state.event.suggested_date}
-            suggested_time = {this.state.event.suggested_time}
-            suggested_location = {this.state.event.suggested_location}
+            event = {this.state.event.event}
+            user_id = {this.state.event.event && this.state.event.event.user_id}
+            eventId={this.state.eventId}
+            id = {this.state.event.event && this.state.event.event.id}
+            name = {this.state.event.event && this.state.event.event.name}
+            description = {this.state.event.event && this.state.event.event.description}
+            cutoff_time = {this.state.event.event && this.state.event.event.cutoff_time}
+            suggested_date = {this.state.event.event && this.state.event.event.suggested_date}
+            suggested_time = {this.state.event.event && this.state.event.event.suggested_time}
+            suggested_location = {this.state.event.event && this.state.event.event.suggested_location}
             handleDelete = {this.handleEventDelete}
           />
           <AllLocations
