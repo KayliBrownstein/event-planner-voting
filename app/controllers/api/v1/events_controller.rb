@@ -17,13 +17,13 @@ skip_before_filter :verify_authenticity_token
   end
 
   def create
-      @event = Event.create!(event_params)
-      @event.user_id = current_user.id
-      if @event.save!
-        render json: @event
-      else
-        flash[:error] = "Error"
-      end
+    @event = Event.create!(event_params)
+    @event.user_id = current_user.id
+    if @event.save!
+      render json: @event
+    else
+      flash[:error] = "Error"
+    end
   end
 
   def show
@@ -31,7 +31,11 @@ skip_before_filter :verify_authenticity_token
     @event = Event.find(params[:id])
     @locations = @event.locations
     @datetimes = @event.datetimes
+    emails = Invite.where(event_id: @event.id).pluck(:email).uniq
+    recipients = User.where(email: emails)
+    @invitees = recipients
     render json: @event
+    # render json: {event: @event, invitees: @invitees }
   end
 
   def edit
@@ -53,6 +57,7 @@ skip_before_filter :verify_authenticity_token
   private
 
   def event_params
-    params.require(:event).permit(:name, :user_id, :cutoff_time, :description, :suggested_date, :suggested_time, :suggested_location)
+    params.require(:event).permit(:name, :user_id, :cutoff_time, :description,
+      :suggested_date, :suggested_time, :suggested_location)
   end
 end

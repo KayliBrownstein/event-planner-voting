@@ -16,6 +16,19 @@ html, #app {
   margin: 30px;
 }
 
+.row {
+  max-width: 2000px;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+p {
+  color: #041122;
+  font-family: 'Anaheim', sans-serif;
+}
+
 /*PROFILE STYLING */
 
 #user-profile-area.row {
@@ -305,14 +318,6 @@ html, #app {
   overflow: hidden;
 }
 
-.row {
-  max-width: 2000px;
-}
-
-h1, h2, h3, h4, h5, h6, p {
-  font-family: 'Ubuntu', sans-serif;
-}
-
 .event-title {
   margin-top: 30px;
   margin-bottom: 30px;
@@ -328,28 +333,16 @@ h1, h2, h3, h4, h5, h6, p {
   font-weight: bold;
 }
 
-p {
-  color: #041122;
-  font-family: 'Anaheim', sans-serif;
-}
+/* NAVBAR STYLING */
 
 #nav-bar {
   max-width: 2000px;
-  // background-color: #55443D;
+  background-color: #0CA5B0;
   // background-image: linear-gradient(90deg, #703800, #55443D);
   height: 80px;
   padding-top: 8px;
   margin-bottom: 30px;
-  background:
-  linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
-  linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
-  linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
-  linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
-  linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
-  linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
-  background-color: #131313;
-  background-size: 20px 20px;
-  }
+}
 
 #nav-bar a {
   text-transform: uppercase;
@@ -362,34 +355,17 @@ p {
 }
 
 #nav-bar a:hover {
-  color: red;
-}
-
-.navbar-text {
-  color: white;
-  background-color: #a7a9ac;
-  padding-top: 5px;
-  padding-right: 10px;
-  margin-bottom: 0px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  text-align: right;
-}
-
-.navbar-text a:hover {
   color: black;
 }
 
 #logo a {
   margin-top: 0px;
-  font-size: 40px;
+  font-size: 45px;
 }
 
 #logo {
   float: left;
   text-align: left;
-  font-size: 40px;
-  font-weight: bold;
 }
 
 #short-logo{

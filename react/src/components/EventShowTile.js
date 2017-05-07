@@ -5,13 +5,14 @@ class EventShowTile extends Component {
   constructor(props){
     super(props);
     this.state = {
-      event_id: [],
-      current_user: ''
+      current_user: '',
+      invitees: []
     }
   }
 
   componentDidMount(){
     this.getUserData();
+    this.getAttendees();
   }
 
   getUserData(){
@@ -22,6 +23,16 @@ class EventShowTile extends Component {
         current_user: responseData.current_user
       });
     });
+  }
+
+  getAttendees(){
+      fetch(`/api/v1/events/${this.props.event.id}`, {credentials: 'same-origin' })
+      .then(response => response.json())
+      .then(responseData => {
+        this.setState({
+          invitees: responseData.invitees
+        });
+      });
   }
 
   render(){

@@ -1,0 +1,45 @@
+<div class="index-page">
+  <div class="edit-profile-page">
+    <% provide(:title, 'Edit Profile') %>
+    <h1 class="edit-profile-header">Edit My Profile</h1>
+
+    <div class="column row">
+      <div class="small-12 medium-6 large-4 medium-centered large-centered columns">
+        <%= form_for(@current_user) do |f| %>
+          <%= render 'shared/error_messages' %>
+
+          <%= f.label :username %>
+          <%= f.text_field :username, class: 'form-control' %>
+
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name, class: 'form-control' %>
+
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name, class: 'form-control' %>
+
+          <%= f.label :email %>
+          <%= f.email_field :email, class: 'form-control' %>
+
+          <%= f.label :password %><i>Please enter your password to make changes.</i>
+          <%= f.password_field :password, class: 'form-control' %>
+
+          <%= f.label :password_confirmation, "Password confirmation" %>
+          <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+          <%= f.label :avatar, "Avatar" %>
+          <%= f.file_field :avatar, class: 'form-control' %>
+
+          <center><%= f.submit "Edit my profile", class:"button signup-button" %></center>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= button_to "Delete my account", '/users/destroy', data: { confirm: "Are you sure?" } %></p>
+
+<%= link_to "Back", :back %>
+
+</div>

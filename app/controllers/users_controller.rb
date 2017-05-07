@@ -1,15 +1,5 @@
 class UsersController < ApplicationController
 
-  # def index
-  #   @users = User.all
-  #   @current_user = current_user
-  #   render json: @current_user
-  # end
-
-  # def show
-  #   @user = current_user
-  # end
-
   def new
     @user = User.new
     @token = params[:invite_token]
@@ -31,6 +21,16 @@ class UsersController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    @current_user = current_user
+  end
+
+  def update
+    @current_user = current_user
+    @current_user.update(user_params)
+    redirect_to user_path(@current_user)
   end
 
   def destroy

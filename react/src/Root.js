@@ -18,6 +18,8 @@ const Root = (props, state, params) => {
           <Route path='events/:id/invite' component={EventShowContainer} />
           <Route path='events/:id/edit' component={EventShowContainer} />
           <Route path='users' component={ProfileContainer} />
+          <Route path='users/:id' component={ProfileContainer} />
+          <Route path='users/:id/edit' component={ProfileContainer} />
         </Route>
       </Router>
     )
