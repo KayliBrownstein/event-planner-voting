@@ -12,7 +12,7 @@ class EventShowTile extends Component {
 
   componentDidMount(){
     this.getUserData();
-    // this.getAttendees();
+    this.getAttendees();
   }
 
   getUserData(){
@@ -25,15 +25,15 @@ class EventShowTile extends Component {
     });
   }
 
-  // getAttendees(){
-  //     fetch(`/api/v1/events/${this.props.event.id}`, {credentials: 'same-origin' })
-  //     .then(response => response.json())
-  //     .then(responseData => {
-  //       this.setState({
-  //         invitees: responseData.invitees
-  //       });
-  //     });
-  // }
+  getAttendees(){
+      fetch(`/api/v1/events/${this.props.eventId}`, {credentials: 'same-origin' })
+      .then(response => response.json())
+      .then(responseData => {
+        this.setState({
+          invitees: responseData.invitees
+        });
+      });
+  }
 
   render(){
     let className;
