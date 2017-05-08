@@ -214,7 +214,7 @@ class EventShowContainer extends Component {
 
     return(
       <div>
-        <div className="small-12 medium-12 large-10 large-centered columns event-show-all">
+        <div className="small-12 medium-12 large-8 large-centered columns event-show-all">
           <EventShowTile
             key = {this.state.event.id}
             event = {this.state.event.event}
