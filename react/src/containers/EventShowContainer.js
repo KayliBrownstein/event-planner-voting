@@ -214,20 +214,23 @@ class EventShowContainer extends Component {
 
     return(
       <div>
-        <div className="column row">
+        <div className="small-12 medium-12 large-8 large-centered columns event-show-all">
           <EventShowTile
             key = {this.state.event.id}
-            event = {this.state.event}
+            event = {this.state.event.event}
+            user_id = {this.state.event.event && this.state.event.event.user_id}
             eventId={this.state.eventId}
-            id = {this.state.event.id}
-            name = {this.state.event.name}
-            description = {this.state.event.description}
-            cutoff_time = {this.state.event.cutoff_time}
-            suggested_date = {this.state.event.suggested_date}
-            suggested_time = {this.state.event.suggested_time}
-            suggested_location = {this.state.event.suggested_location}
+            id = {this.state.event.event && this.state.event.event.id}
+            name = {this.state.event.event && this.state.event.event.name}
+            description = {this.state.event.event && this.state.event.event.description}
+            cutoff_time = {this.state.event.event && this.state.event.event.cutoff_time}
+            suggested_date = {this.state.event.event && this.state.event.event.suggested_date}
+            suggested_time = {this.state.event.event && this.state.event.event.suggested_time}
+            suggested_location = {this.state.event.event && this.state.event.event.suggested_location}
             handleDelete = {this.handleEventDelete}
           />
+          </div>
+          <div className="small-12 medium-12 large-10 large-centered columns">
           <AllLocations
             locations={this.state.locations}
             id = {this.state.event.id}

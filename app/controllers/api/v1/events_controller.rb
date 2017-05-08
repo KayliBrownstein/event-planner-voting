@@ -1,5 +1,5 @@
 class Api::V1::EventsController < ApplicationController
-skip_before_filter :verify_authenticity_token
+  skip_before_filter :verify_authenticity_token
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -31,12 +31,9 @@ skip_before_filter :verify_authenticity_token
     @event = Event.find(params[:id])
     @locations = @event.locations
     @datetimes = @event.datetimes
-    emails = Invite.where(event_id: @event.id).pluck(:email).uniq
-    @invitees = User.where(email: emails)
-    render json: @event
-    # render json: {event: @event, invitees: @invitees }
-    # render json: {invitees: @invitees, event: @event }
+    @invitee_emails = Invite.where(event_id: @event.id).pluck(:email).uniq.join(', ')
 
+    render json: { event: @event, invitee_emails: @invitee_emails }
   end
 
   def edit

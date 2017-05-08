@@ -103,7 +103,10 @@ class AllDatetimes extends Component {
     })
 
     return(
-      <div>
+      <div className='small-12 medium-12 large-10 large-centered columns'>
+      <br />
+      <h1 className='datetimes-title'>Dates and Times</h1>
+      {datetimes}
         <NewDatetimeForm
           className = {this.props.className}
           handleDatetimeFormButtonClick = {this.props.handleDatetimeFormButtonClick}
@@ -115,7 +118,6 @@ class AllDatetimes extends Component {
 
           handleDatetimeSubmit = {this.props.handleDatetimeSubmit}
         />
-        {datetimes}
       </div>
     )
   }

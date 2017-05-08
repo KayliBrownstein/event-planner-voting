@@ -92,7 +92,11 @@ class AllLocations extends Component {
     })
 
     return(
-      <div>
+      <div className='column row centered'>
+      <div className='small-12 medium-12 large-10 large-centered columns'>
+      <br />
+      <h1 className='locations-title'>Locations</h1>
+      {locations}
         <NewLocationForm
           className = {this.props.className}
           handleLocationFormButtonClick = {this.props.handleLocationFormButtonClick}
@@ -110,7 +114,7 @@ class AllLocations extends Component {
 
           handleLocationSubmit = {this.props.handleLocationSubmit}
         />
-        {locations}
+      </div>
       </div>
     )
   }

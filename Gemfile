@@ -6,20 +6,20 @@ gem "haml-rails"
 gem "jbuilder", "~> 2.0"
 gem "jquery-rails"
 gem "pg"
-gem "responders"
-gem 'listen'
 gem 'dotenv'
+gem 'listen'
+gem "responders"
 gem 'dotenv-rails'
 gem 'httpclient'
 gem "omniauth-google-oauth2", "~> 0.2.1"
-gem "rails"
 gem 'actionmailer', '~> 5.0', '>= 5.0.0.1'
+gem "rails"
 gem "sass-rails", "~> 5.0"
 gem "sdoc", "~> 0.4.0", group: :doc
-gem "uglifier", ">= 1.3.0"
 gem 'bcrypt', "~> 3.1.11"
-gem 'font-awesome-rails'
+gem "uglifier", ">= 1.3.0"
 gem 'carrierwave', '~> 1.0'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem "dotenv-rails"
@@ -29,8 +29,8 @@ group :development, :test do
 end
 
 group :development do
-  gem "web-console", "~> 2.0"
   gem "spring"
+  gem "web-console", "~> 2.0"
 end
 
 group :test do

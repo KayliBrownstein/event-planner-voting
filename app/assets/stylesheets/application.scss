@@ -1,15 +1,20 @@
 @import "foundation_and_overrides";
 @import url('https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono');
-@import url('https://fonts.googleapis.com/css?family=Courgette|Damion|PT+Sans+Caption|Ubuntu|Voltaire');
-@import url('https://fonts.googleapis.com/css?family=Anaheim|Poiret+One');
-@import url('https://fonts.googleapis.com/css?family=Anaheim|Poiret+One|Raleway');
 @import "font-awesome";
 @import url('https://fonts.googleapis.com/css?family=Londrina+Sketch');
+
+$nav-bar-blue: #0CA5B0;
+$white: #000000;
+$black: #ffffff;
 
 /*GENERAL STYLING */
 
 body {
   background-image: url('http://www.publicdomainpictures.net/pictures/30000/velka/cork-board.jpg');
+}
+
+.hidden {
+  display: none;
 }
 
 .all-events {
@@ -20,30 +25,24 @@ body {
   max-width: 2000px;
 }
 
-h1, h2, h3, h4, h5, h6, p {
+h1, h3, h5, p {
   font-family: 'Ubuntu', sans-serif;
-}
-
-p {
-  color: #041122;
-  font-family: 'Anaheim', sans-serif;
+  text-align: center;
 }
 
 /*PROFILE STYLING */
 
 #user-profile-area.row {
   border-bottom: 35px solid #a7a9ac;
-  background-color: white;
-
+  background-color: $black;
   margin-bottom: 50px;
   margin-top: 50px;
-
 }
 
 #avatar-area {
-  border-bottom: 15px solid black;
+  border-bottom: 15px solid $white;
   height: 150px;
-  background-color: white;
+  background-color: $black;
   text-align: center;
   margin-top: 50px;
 }
@@ -55,7 +54,7 @@ p {
 }
 
 #info-area {
-  background-color: white;
+  background-color: $black;
   text-align: center;
 }
 
@@ -67,8 +66,8 @@ p {
 
 #new-event {
   width: 500px;
-  border: 2px solid black;
-  background-color: white;
+  border: 2px solid $white;
+  background-color: $black;
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 40px;
@@ -85,13 +84,11 @@ p {
 }
 
 .create-event {
-  color: white;
-  background-color: black;
-  // background-image: linear-gradient(90deg, orange, #FF9999);
+  color: $black;
+  background-color: $white;
   margin: 2em auto;
   display: block;
   border: 6px solid rgba(255, 255, 255, 0.45);
-  // border-radius: 50px;
   padding: 1em 3em;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -105,48 +102,40 @@ p {
 }
 
 .create-event:hover {
-  background-color: white;
-  color: black;
-}
-
-
-.create-event:before {
-  content: "";
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  border-radius: 50px;
-  z-index: -1;
-  filter: blur(14px);
-}
-
-.create-event:after {
-  content: "";
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  border-radius: 50px;
-  z-index: -1;
-  filter: blur(14px);
+  background-color: $black;
+  color: $white;
 }
 
 /* EVENT SHOW STYLING */
+
+.show-box-content {
+  margin: 10px;
+  background: $black;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+#back-button {
+  float: left;
+  background-color: $black;
+  color: $white;
+}
+
+.event-show-all {
+  background: $black;
+}
 
 .vote-count{
   font-size: 20px;
   padding: 5px;
   height: 25px;
   width: 25px;
-  background-color: white;
+  background-color: $black;
   text-align: center;
 }
 
 .thumbs-up-button, .thumbs-down-button {
-  background-color: #5E9FA3;
+  background-color: $nav-bar-blue;
   height: 30px;
   width: 25px;
   padding: 5px;
@@ -154,11 +143,10 @@ p {
 }
 
 .thumbs-up-button:hover, .thumbs-down-button:hover {
-  background-color: black;
+  background-color: $white;
 }
 
 .welcome-image {
-  // position: relative;
   z-index: -1;
   background-size: cover;
   background-repeat: no-repeat;
@@ -169,18 +157,18 @@ p {
 }
 
 .get-started {
-  background-color: #D7D8C5;
-  border: solid black 2px;
-  color: black;
+  background-color: $nav-bar-blue;
+  border: solid $white 2px;
+  color: $black;
   text-align: center;
+  font-weight: 500;
+  font-size: 22px;
   padding: 8px;
   width: 35%;
 }
 
 #new-location, #new-datetime {
   width: 500px;
-  // border: 2px solid black;
-  // background-color: white;
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 40px;
@@ -195,36 +183,14 @@ p {
   // border-radius: 10px;
 }
 
-// #new-datetime {
-//   width: 500px;
-//   border: 2px solid black;
-//   background-color: white;
-//   padding-top: 20px;
-//   padding-bottom: 20px;
-//   padding-left: 40px;
-//   padding-right: 40px;
-//   text-align: center;
-//   left: 0;
-//   right: 0;
-//   margin-left: auto;
-//   margin-right: auto;
-//   margin-top: 20px;
-//   box-shadow: 20px 20px 5px rgba(0, 0, 0, 0.4);
-//   border-radius: 10px;
-// }
-
-.sign-in {
-  color: red;
-}
-
 .logout-button {
   margin: 10px;
 }
 
 .show-header {
-  padding: 10px;
-  text-align: center;
   font-size: 50px;
+  padding: 20px;
+  text-align: center;
 }
 
 .home-page {
@@ -238,8 +204,6 @@ p {
   opacity: 0.9;
   padding-top: 10px;
   position: absolute;
-  // height: 30%;
-  // width: 30%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -249,24 +213,27 @@ p {
   color: #494949;
 }
 
+.create-location,
+.create-datetime {
+  background-color: $nav-bar-blue;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
 #edit-button, #delete-button, #invite-button {
   text-transform: uppercase;
   font-family: Avenir;
-  color: black;
-  background-color: white;
+  color: $white;
+  background-color: $black;
+  font-weight: 500;
+  font-size: 16px;
   margin: 15px;
   padding: 10px;
-  width: 10em;
-  height: 3em;
   text-align: center;
 }
 
 #edit-button:hover, #delete-button:hover, #invite-button:hover {
   color: #494949;
-}
-
-.hidden {
-  display: none;
 }
 
 .login-name {
@@ -288,8 +255,8 @@ p {
 
 .login-button, .signup-button {
   background-color: #D7D8C5;
-  border: solid black 1px;
-  color: black;
+  border: solid $white 1px;
+  color: $white;
   text-align: center;
 }
 
@@ -309,23 +276,35 @@ p {
 }
 
 .location-box-content, .datetime-box-content {
-  background-color: white;
+  background-color: $black;
   padding: 20px 30px 10px 30px;
   height: 250px;
   width: 300px;
-  margin: 15px;
-  // border-radius: 20px;
+  margin: 20px;
+  margin-top: 10px;
   overflow: hidden;
 }
 
+.profile-events-title,
+.locations-title,
+.datetimes-title {
+  background-color: $white;
+  color: $black;
+  font-size: 25px;
+  margin: 25px;
+  padding: 8px;
+  text-transform: uppercase;
+}
+
 .event-title {
-  margin-top: 70px;
-  margin-bottom: 30px;
   color: #041122;
   font-family: 'Ubuntu', sans-serif;
   font-size: 30px;
-  text-align: center;
   font-weight: 400;
+  margin-bottom: 30px;
+  margin-top: 70px;
+  padding: 20px;
+  text-align: center;
 }
 
 .event-title:hover {
@@ -337,8 +316,7 @@ p {
 
 #nav-bar {
   max-width: 2000px;
-  background-color: #0CA5B0;
-  // background-image: linear-gradient(90deg, #703800, #55443D);
+  background-color: $nav-bar-blue;
   height: 80px;
   padding-top: 8px;
   margin-bottom: 30px;
@@ -348,14 +326,14 @@ p {
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 1px;
-  color: white;
+  color: $black;
   height: 60px;
   margin-top: 11px;
   font-size: 18px;
 }
 
 #nav-bar a:hover {
-  color: black;
+  color: $white;
 }
 
 #logo a {
