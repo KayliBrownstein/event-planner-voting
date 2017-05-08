@@ -3,6 +3,10 @@
 @import "font-awesome";
 @import url('https://fonts.googleapis.com/css?family=Londrina+Sketch');
 
+$nav-bar-blue: #0CA5B0;
+$white: #000000;
+$black: #ffffff;
+
 /*GENERAL STYLING */
 
 body {
@@ -30,15 +34,15 @@ h1, h3, h5, p {
 
 #user-profile-area.row {
   border-bottom: 35px solid #a7a9ac;
-  background-color: #ffffff;
+  background-color: $black;
   margin-bottom: 50px;
   margin-top: 50px;
 }
 
 #avatar-area {
-  border-bottom: 15px solid #000000;
+  border-bottom: 15px solid $white;
   height: 150px;
-  background-color: #ffffff;
+  background-color: $black;
   text-align: center;
   margin-top: 50px;
 }
@@ -50,7 +54,7 @@ h1, h3, h5, p {
 }
 
 #info-area {
-  background-color: #ffffff;
+  background-color: $black;
   text-align: center;
 }
 
@@ -62,8 +66,8 @@ h1, h3, h5, p {
 
 #new-event {
   width: 500px;
-  border: 2px solid #000000;
-  background-color: #ffffff;
+  border: 2px solid $white;
+  background-color: $black;
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 40px;
@@ -80,8 +84,8 @@ h1, h3, h5, p {
 }
 
 .create-event {
-  color: #ffffff;
-  background-color: #000000;
+  color: $black;
+  background-color: $white;
   margin: 2em auto;
   display: block;
   border: 6px solid rgba(255, 255, 255, 0.45);
@@ -98,27 +102,27 @@ h1, h3, h5, p {
 }
 
 .create-event:hover {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: $black;
+  color: $white;
 }
 
 /* EVENT SHOW STYLING */
 
 .show-box-content {
   margin: 10px;
-  background: #ffffff;
+  background: $black;
   text-align: center;
   padding-bottom: 10px;
 }
 
 #back-button {
   float: left;
-  background-color: #ffffff;
-  color: #000000;
+  background-color: $black;
+  color: $white;
 }
 
 .event-show-all {
-  background: #ffffff;
+  background: $black;
 }
 
 .vote-count{
@@ -126,12 +130,12 @@ h1, h3, h5, p {
   padding: 5px;
   height: 25px;
   width: 25px;
-  background-color: #ffffff;
+  background-color: $black;
   text-align: center;
 }
 
 .thumbs-up-button, .thumbs-down-button {
-  background-color: #0CA5B0;
+  background-color: $nav-bar-blue;
   height: 30px;
   width: 25px;
   padding: 5px;
@@ -139,7 +143,7 @@ h1, h3, h5, p {
 }
 
 .thumbs-up-button:hover, .thumbs-down-button:hover {
-  background-color: #000000;
+  background-color: $white;
 }
 
 .welcome-image {
@@ -153,9 +157,9 @@ h1, h3, h5, p {
 }
 
 .get-started {
-  background-color: #0CA5B0;
-  border: solid #000000 2px;
-  color: #ffffff;
+  background-color: $nav-bar-blue;
+  border: solid $white 2px;
+  color: $black;
   text-align: center;
   font-weight: 500;
   font-size: 22px;
@@ -211,7 +215,7 @@ h1, h3, h5, p {
 
 .create-location,
 .create-datetime {
-  background-color: #0CA5B0;
+  background-color: $nav-bar-blue;
   font-weight: 400;
   text-transform: uppercase;
 }
@@ -219,8 +223,8 @@ h1, h3, h5, p {
 #edit-button, #delete-button, #invite-button {
   text-transform: uppercase;
   font-family: Avenir;
-  color: #000000;
-  background-color: #ffffff;
+  color: $white;
+  background-color: $black;
   font-weight: 500;
   font-size: 16px;
   margin: 15px;
@@ -251,8 +255,8 @@ h1, h3, h5, p {
 
 .login-button, .signup-button {
   background-color: #D7D8C5;
-  border: solid #000000 1px;
-  color: #000000;
+  border: solid $white 1px;
+  color: $white;
   text-align: center;
 }
 
@@ -272,7 +276,7 @@ h1, h3, h5, p {
 }
 
 .location-box-content, .datetime-box-content {
-  background-color: #ffffff;
+  background-color: $black;
   padding: 20px 30px 10px 30px;
   height: 250px;
   width: 300px;
@@ -284,8 +288,8 @@ h1, h3, h5, p {
 .profile-events-title,
 .locations-title,
 .datetimes-title {
-  background-color: #000000;
-  color: #ffffff;
+  background-color: $white;
+  color: $black;
   font-size: 25px;
   margin: 25px;
   padding: 8px;
@@ -312,7 +316,7 @@ h1, h3, h5, p {
 
 #nav-bar {
   max-width: 2000px;
-  background-color: #0CA5B0;
+  background-color: $nav-bar-blue;
   height: 80px;
   padding-top: 8px;
   margin-bottom: 30px;
@@ -322,14 +326,14 @@ h1, h3, h5, p {
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 1px;
-  color: #ffffff;
+  color: $black;
   height: 60px;
   margin-top: 11px;
   font-size: 18px;
 }
 
 #nav-bar a:hover {
-  color: #000000;
+  color: $white;
 }
 
 #logo a {
