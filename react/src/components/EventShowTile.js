@@ -49,18 +49,19 @@ class EventShowTile extends Component {
        <Link to='/events'>
        <button type='button' className="button" id='back-button'>Back to Events</button>
        </Link>
+       <br/>
          <h3 className='event-title'>{this.props.name}</h3>
          <p>{this.props.description}</p>
          <p>Cutoff time: {this.props.cutoff_time}</p>
          <p>People invited: {this.state.invitee_emails}</p>
        </div>
-       <div className="row">
+       <center><div className="row">
           <a href={`/events/${this.props.id}/edit`} onClick={this.props.handleUpdate} className={className} id='edit-button'>Edit</a>
           <Link to='/'>
           <button type='button' className={className} onClick={this.props.handleDelete} id='delete-button'>Delete</button>
           </Link>
           <a href={`/events/${this.props.id}/invite`} className={className} id='invite-button'>Invite Friends</a>
-      </div>
+      </div></center>
     </div>
    )
  }

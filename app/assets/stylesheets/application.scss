@@ -22,6 +22,7 @@ body {
 
 h1, h2, h3, h4, h5, h6, p {
   font-family: 'Ubuntu', sans-serif;
+  text-align: center;
 }
 
 p {
@@ -151,7 +152,6 @@ p {
 
 .event-show-all {
   background: white;
-  margin: 50px;
 }
 
 .vote-count{
@@ -270,21 +270,23 @@ p {
 }
 
 .create-location, .create-datetime {
-  background-color: black;
+  background-color: #0CA5B0;
   font-weight: 400;
+  text-transform: uppercase;
 }
-
-
 
 #edit-button, #delete-button, #invite-button {
   text-transform: uppercase;
   font-family: Avenir;
   color: black;
   background-color: white;
+  font-weight: 500;
+  font-size: 16px;
+  // border: solid black 1px;
   margin: 15px;
   padding: 10px;
-  width: 10em;
-  height: 3em;
+  // width: 10em;
+  // height: 3em;
   text-align: center;
 }
 
@@ -340,9 +342,18 @@ p {
   padding: 20px 30px 10px 30px;
   height: 250px;
   width: 300px;
-  margin: 15px;
+  margin: 20px;
   // border-radius: 20px;
   overflow: hidden;
+}
+
+.locations-title, .datetimes-title {
+  margin: 15px;
+  padding: 8px;
+  background-color: black;
+  color: white;
+  font-size: 25px;
+  text-transform: uppercase;
 }
 
 .event-title {

@@ -214,7 +214,7 @@ class EventShowContainer extends Component {
 
     return(
       <div>
-        <div className="small-12 medium-12 large-12 center columns event-show-all">
+        <div className="small-12 medium-12 large-10 large-centered columns event-show-all">
           <EventShowTile
             key = {this.state.event.id}
             event = {this.state.event.event}
@@ -229,6 +229,8 @@ class EventShowContainer extends Component {
             suggested_location = {this.state.event.event && this.state.event.event.suggested_location}
             handleDelete = {this.handleEventDelete}
           />
+          </div>
+          <div className="small-12 medium-12 large-10 large-centered columns">
           <AllLocations
             locations={this.state.locations}
             id = {this.state.event.id}
