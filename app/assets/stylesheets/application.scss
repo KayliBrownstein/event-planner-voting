@@ -10,7 +10,7 @@ $white: #ffffff;
 /*GENERAL STYLING */
 
 body {
-  background-image: url('background-image-with-gradient.jpg');
+  background-image: url("background-image-with-gradient.jpg");
   background-size: cover;
 }
 
@@ -87,20 +87,20 @@ h1, h3, h5, p {
 }
 
 .create-event {
-  color: $white;
+  background-clip: padding-box;
   background-color: $black;
-  margin: 2em auto;
-  display: block;
-  border: 6px solid rgba(255, 255, 255, 0.45);
-  padding: 1em 3em;
   background-repeat: no-repeat;
   background-size: 100%;
-  background-clip: padding-box;
-  position: relative;
-  font-weight: bolder;
-  font-size: 120%;
+  border: 6px solid rgba(255, 255, 255, 0.45);
+  color: $white;
+  display: block;
   font-family: 'Ubuntu';
+  font-size: 120%;
+  font-weight: bolder;
   letter-spacing: 2.5px;
+  margin: 2em auto;
+  padding: 1em 3em;
+  position: relative;
   text-transform: uppercase;
 }
 
@@ -125,7 +125,7 @@ h1, h3, h5, p {
 }
 
 .event-show-buttons-row {
-  background-color: white;
+  background-color: $white;
   margin: 10px;
 }
 
@@ -240,8 +240,8 @@ h1, h3, h5, p {
 #edit-button,
 #delete-button,
 #invite-button {
-  background-color: white;
-  color: black;
+  background-color: $white;
+  color: $black;
 }
 
 #edit-button:hover, #delete-button:hover, #invite-button:hover {
@@ -305,8 +305,8 @@ h1, h3, h5, p {
   background-color: $nav-bar-blue;
   color: $black;
   font-size: 25px;
-  margin-top: 25px;
   margin-bottom: 25px;
+  margin-top: 25px;
   padding: 8px;
   text-transform: uppercase;
 }
@@ -357,10 +357,6 @@ h1, h3, h5, p {
 }
 
 #logo a::first-letter {
-  font-size: 35px;
-}
-
-#logo a::fourth-letter {
   font-size: 35px;
 }
 
