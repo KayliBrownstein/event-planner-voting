@@ -3,17 +3,17 @@ class Api::V1::SearchesController < ApplicationController
 
   def create
     @current_user = current_user
-    # @events_by_user = Event.where(user_id: @current_user.id)
+    events_by_user = Event.where(user_id: @current_user.id)
     event_ids = Invite.where(email: @current_user.email).pluck(:event_id).uniq
     events_invited_to = Event.where(id: event_ids)
-    # @events = @events_by_user + events_invited_to
 
     if params[:query]
       query = params[:query]
-      @search_results = Event.where("name ilike ?", "%#{query}%")
+      resultsOne = events_by_user.where("name ilike ?", "%#{query}%")
+      resultsTwo = events_invited_to.where("name ilike ?", "%#{query}%")
+      @search_results = resultsOne + resultsTwo
+
       render json: @search_results
-    # else
-    #   @events = Event.all.order("created_at DESC")
     end
   end
 

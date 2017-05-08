@@ -6,43 +6,45 @@ class AllLocations extends Component {
   constructor(props){
     super(props);
     this.state = {
+      locations: [],
+      votes: ''
     };
-    this.updateLocationVote = this.updateLocationVote.bind(this);
+    // this.updateLocationVote = this.updateLocationVote.bind(this);
+    this.getLocationVote = this.getLocationVote.bind(this);
   }
 
-  updateLocationVote(location_id, upvote){
-    let votePayload = {
-      location_vote: {
-        upvote: upvote
-      }
-    }
-    let eventId = this.props.id;
-    let locationId = location_id;
-
-    fetch(`/api/v1/events/${eventId}/locations/${locationId}`, {
-      credentials: 'same-origin',
-      method: 'PUT',
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(votePayload)
-    })
-    .then(response => {
-      if (response.ok) {
-        return response;
-      } else {
-        let errorMessage = `${response.status} (${response.statusText})`,
-            error = new Error(errorMessage);
-        throw(error);
-      }
-    })
-    .then(response => response.json())
-    .then(body => {
-      this.setState({
-        locations: body.locations,
-      });
-      this.getLocationVote(location_id);
-    })
-    .catch(error => console.error(`Error in fetch: ${error.message}`));
-  }
+  // updateLocationVote(location_id, upvote){
+  //   let votePayload = {
+  //     location_vote: {
+  //       upvote: upvote
+  //     }
+  //   }
+  //   let eventId = this.props.id;
+  //   let locationId = location_id;
+  //
+  //   fetch(`/api/v1/events/${eventId}/locations/${locationId}`, {
+  //     credentials: 'same-origin',
+  //     method: 'PUT',
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify(votePayload)
+  //   })
+  //   .then(response => {
+  //     if (response.ok) {
+  //       return response;
+  //     } else {
+  //       let errorMessage = `${response.status} (${response.statusText})`,
+  //           error = new Error(errorMessage);
+  //       throw(error);
+  //     }
+  //   })
+  //   .then(response => response.json())
+  //   .then(body => {
+  //     this.setState({
+  //       locations: body.locations
+  //     })
+  //   })
+  //   .catch(error => console.error(`Error in fetch: ${error.message}`));
+  // }
 
   getLocationVote(location_id){
     let eventId = this.props.id;
@@ -56,6 +58,7 @@ class AllLocations extends Component {
     .then(responseData => {
       this.setState({ votes: responseData.location_votes })
     })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   render(){
@@ -85,8 +88,8 @@ class AllLocations extends Component {
           state = {location.state}
           description = {location.description}
           votes = {location.vote_count}
-          upvoteHandler = {upvoteHandler}
-          downvoteHandler = {downvoteHandler}
+          // upvoteHandler = {upvoteHandler}
+          // downvoteHandler = {downvoteHandler}
         />
       )
     })
