@@ -21,8 +21,10 @@ class AllEvents extends Component {
     })
 
     return(
-      <div className='all-events'>
-        {events}
+      <div className='column row small-12 medium-12 large-12 columns'>
+        <div className='all-events'>
+          {events}
+        </div>
       </div>
     )
   }
