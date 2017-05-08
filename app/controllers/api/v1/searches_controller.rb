@@ -9,9 +9,9 @@ class Api::V1::SearchesController < ApplicationController
 
     if params[:query]
       query = params[:query]
-      resultsOne = events_by_user.where("name ilike ?", "%#{query}%")
-      resultsTwo = events_invited_to.where("name ilike ?", "%#{query}%")
-      @search_results = resultsOne + resultsTwo
+      results_one = events_by_user.where("name ilike ?", "%#{query}%")
+      results_two = events_invited_to.where("name ilike ?", "%#{query}%")
+      @search_results = results_one + results_two
 
       render json: @search_results
     end

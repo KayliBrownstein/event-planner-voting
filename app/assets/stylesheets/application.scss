@@ -68,21 +68,21 @@ h1, h3, h5, p {
 /*FORM EVENT STYLING */
 
 #new-event {
-  width: 600px;
-  border: 2px solid $black;
   background-color: $white;
-  padding-top: 10px;
-  padding-bottom: 20px;
-  padding-left: 40px;
-  padding-right: 40px;
-  text-align: center;
+  border: 2px solid $black;
+  border-radius: 10px;
   left: 0;
-  right: 0;
   margin-left: auto;
   margin-right: auto;
   margin-top: 5px;
+  padding-bottom: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 10px;
   position: absolute;
-  border-radius: 10px;
+  right: 0;
+  text-align: center;
+  width: 600px;
 }
 
 .create-event {
@@ -175,21 +175,21 @@ h1, h3, h5, p {
 }
 
 #new-location, #new-datetime {
-  width: 600px;
-  border: 2px solid $black;
   background-color: $white;
-  padding-top: 20px;
+  border: 2px solid $black;
+  border-radius: 10px;
+  left: 0;
+  margin-bottom: 5px;
+  margin-left: auto;
+  margin-right: auto;
   padding-bottom: 10px;
   padding-left: 40px;
   padding-right: 40px;
-  text-align: center;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 5px;
+  padding-top: 20px;
   position: absolute;
-  border-radius: 10px;
+  right: 0;
+  text-align: center;
+  width: 600px;
 }
 
 .logout-button {
@@ -297,7 +297,7 @@ h1, h3, h5, p {
   width: 240px;
   margin: 20px;
   margin-bottom: 5px;
-  margin-top: 0px;
+  margin-top: 0;
   overflow: hidden;
   text-align: center;
 }
@@ -312,7 +312,7 @@ h1, h3, h5, p {
   background-color: $nav-bar-blue;
   color: $black;
   font-size: 25px;
-  margin-bottom: 0px;
+  margin-bottom: 0;
   margin-top: 25px;
   padding: 8px;
   text-transform: uppercase;
@@ -355,35 +355,34 @@ h1, h3, h5, p {
 }
 
 .search-wrapper {
-  position: relative;
   background: $white;
   border-radius: 20px;
-  // transform-origin: 100% 50%;
-  width: 100%;
-  height: 100%;
   cursor: pointer;
+  height: 100%;
   margin-top: 5px;
+  position: relative;
+  width: 100%;
 }
 
 .search-input {
   background: transparent;
   border: 0;
   color: $black;
-  outline: none;
   height: 40px;
-  width: 90%;
+  outline: none;
   overflow: hidden;
+  transition: 275ms ease;
+  width: 90%;
   // transform: scale(0);
   // transform-origin: 0 50%;
-  transition: 275ms ease;
 }
 
 #search {
-  position: absolute;
   color: $black;
   font-size: 18px;
-  top: 50%;
+  position: absolute;
   right: 13px;
+  top: 50%;
   transform: translateY(-50%);
 }
 
@@ -393,7 +392,7 @@ h1, h3, h5, p {
 }
 
 #logo a {
-  margin-top: 0px;
+  margin-top: 0;
   font-size: 30px;
 }
 

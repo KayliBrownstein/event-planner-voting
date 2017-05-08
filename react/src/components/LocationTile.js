@@ -55,7 +55,7 @@ class LocationTile extends Component {
     .then(response => response.json())
     .then(body => {
       this.setState({
-        locations: body.locations
+        locations: body.locations;
       })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
