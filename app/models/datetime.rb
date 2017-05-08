@@ -17,6 +17,10 @@ class Datetime < ApplicationRecord
     upvotes - downvotes
   end
 
+  def date_formatted
+    date.strftime '%m/%d/%Y'
+  end
+
   def did_user_vote?(user)
     if datetime_votes.where(user: user).empty?
       false

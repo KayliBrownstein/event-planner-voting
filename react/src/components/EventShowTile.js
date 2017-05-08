@@ -55,7 +55,7 @@ class EventShowTile extends Component {
          <p>Cutoff time: {this.props.cutoff_time}</p>
          <p>People invited: {this.state.invitee_emails}</p>
        </div>
-       <center><div className="row">
+       <center><div className="row event-show-buttons-row">
           <a href={`/events/${this.props.id}/edit`} onClick={this.props.handleUpdate} className={className} id='edit-button'>Edit</a>
           <Link to='/'>
           <button type='button' className={className} onClick={this.props.handleDelete} id='delete-button'>Delete</button>

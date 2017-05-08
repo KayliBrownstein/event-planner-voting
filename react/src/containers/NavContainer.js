@@ -14,7 +14,13 @@ class NavContainer extends Component {
             <div className="menu">
               <ul className="menu align-right">
                 <li><Link to="/users"><i className="fa fa-user fa-fw" id='profile'></i>My Profile</Link></li>
-                <li><a href="#">Search</a></li>
+                <li>
+                  <form>
+                    <div className="search-wrapper">
+                      <input className="search-input" type="text" placeholder="Search Events"/><i className="fa fa-search" aria-hidden="true"></i>
+                    </div>
+                  </form>
+                </li>
                 <li id="short-logo"><Link to="/events">SYW</Link></li>
                 <li id="logo"><Link to="/events">SeeYouWhen</Link></li>
               </ul>
