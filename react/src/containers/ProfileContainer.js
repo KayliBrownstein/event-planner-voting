@@ -50,7 +50,7 @@ class ProfileContainer extends Component {
           </div>
         </div>
 
-        <h1>Events I Created</h1>
+        <h1 className='profile-events-title'>Events I Created</h1>
 
         <AllEvents
           events={this.state.events_by_user}
