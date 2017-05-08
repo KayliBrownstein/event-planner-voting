@@ -29,12 +29,12 @@ body {
 h1, h3, h5, p {
   font-family: 'Ubuntu', sans-serif;
   text-align: center;
+  font-size: 12px;
 }
 
 /*PROFILE STYLING */
 
 #user-profile-area.row {
-  border-bottom: 35px solid #a7a9ac;
   background-color: $white;
   margin-bottom: 50px;
   margin-top: 50px;
@@ -68,10 +68,10 @@ h1, h3, h5, p {
 /*FORM EVENT STYLING */
 
 #new-event {
-  width: 500px;
-  border: 2px solid $white;
+  width: 600px;
+  border: 2px solid $black;
   background-color: $white;
-  padding-top: 20px;
+  padding-top: 10px;
   padding-bottom: 20px;
   padding-left: 40px;
   padding-right: 40px;
@@ -80,9 +80,8 @@ h1, h3, h5, p {
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 20px;
+  margin-top: 5px;
   position: absolute;
-  box-shadow: 20px 20px 5px rgba(0, 0, 0, 0.4);
   border-radius: 10px;
 }
 
@@ -176,19 +175,21 @@ h1, h3, h5, p {
 }
 
 #new-location, #new-datetime {
-  width: 500px;
+  width: 600px;
+  border: 2px solid $black;
+  background-color: $white;
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   padding-left: 40px;
   padding-right: 40px;
   text-align: center;
-  // left: 0;
-  // right: 0;
-  // margin-left: auto;
-  // margin-right: auto;
-  margin-top: 20px;
-  // box-shadow: 20px 20px 5px rgba(0, 0, 0, 0.4);
-  // border-radius: 10px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+  position: absolute;
+  border-radius: 10px;
 }
 
 .logout-button {
@@ -292,10 +293,11 @@ h1, h3, h5, p {
 .location-box-content, .datetime-box-content {
   background-color: $white;
   padding: 20px 30px 10px 30px;
-  height: 250px;
-  width: 300px;
+  height: 290px;
+  width: 240px;
   margin: 20px;
-  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-top: 0px;
   overflow: hidden;
 }
 
@@ -305,7 +307,7 @@ h1, h3, h5, p {
   background-color: $nav-bar-blue;
   color: $black;
   font-size: 25px;
-  margin-bottom: 25px;
+  margin-bottom: 0px;
   margin-top: 25px;
   padding: 8px;
   text-transform: uppercase;

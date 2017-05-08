@@ -3,10 +3,10 @@ class Api::V1::SearchesController < ApplicationController
 
   def create
     @current_user = current_user
-    @events_by_user = Event.where(user_id: @current_user.id)
+    # @events_by_user = Event.where(user_id: @current_user.id)
     event_ids = Invite.where(email: @current_user.email).pluck(:event_id).uniq
     events_invited_to = Event.where(id: event_ids)
-    @events = @events_by_user + events_invited_to
+    # @events = @events_by_user + events_invited_to
 
     if params[:query]
       query = params[:query]
