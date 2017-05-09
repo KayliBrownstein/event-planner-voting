@@ -8,7 +8,8 @@ class NavContainer extends Component {
     this.state = {
       query: '',
       filtered_data: [],
-      user_id: ''
+      user_id: '',
+      username: ''
     };
     this.handleSearchTermChange = this.handleSearchTermChange.bind(this);
   }
@@ -22,7 +23,8 @@ class NavContainer extends Component {
       .then(response => response.json())
       .then(responseData => {
         this.setState({
-          user_id: responseData.current_user.id
+          user_id: responseData.current_user.id,
+          username: responseData.current_user.username
         });
     });
   }
@@ -65,8 +67,9 @@ class NavContainer extends Component {
                 </li>
                 <ul className='profile-dropdown-menu' data-dropdown-menu>
                   <li>
-                    <Link to="/users"><i className="fa fa-user fa-fw" id='profile'></i>My Profile</Link>
+                    <i className="fa fa-user fa-fw" id='profile'></i>{this.state.username}
                     <ul className="user-profile-functions menu">
+                      <li><Link to="/users"><i className="fa fa-user-circle" aria-hidden="true"></i>My Profile</Link></li>
                       <li><a href={`/users/${this.state.user_id}/edit`}><i className="fa fa-pencil-square-o" aria-hidden="true"></i>Edit My Profile</a></li>
                       <li><a href='/logout'><i className="fa fa-sign-out" aria-hidden="true"></i>Log Out</a></li>
                     </ul>
