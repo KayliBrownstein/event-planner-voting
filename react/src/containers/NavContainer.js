@@ -8,7 +8,7 @@ class NavContainer extends Component {
     this.state = {
       query: '',
       filtered_data: []
-    }
+    };
     this.handleSearchTermChange = this.handleSearchTermChange.bind(this);
   }
 
@@ -22,12 +22,12 @@ class NavContainer extends Component {
     })
     .then(response => response.json())
     .then(responseData => {
-      this.setState({ filtered_data: responseData })
+      this.setState({ filtered_data: responseData });
     });
   }
 
   handleSearchTermChange(event){
-    this.setState({ query: event.target.value })
+    this.setState({ query: event.target.value });
     this.getSearchResults();
   }
 
