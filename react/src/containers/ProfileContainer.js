@@ -31,12 +31,10 @@ class ProfileContainer extends Component {
   render() {
     return(
       <div>
-
+        <div className="row" id='user-profile-area'>
         <Link to='/events'>
         <button type='button' className="button" id='back-button'>Back to Events</button>
         </Link>
-
-        <div className="row" id='user-profile-area'>
           <div className='small-12 large-4 small-centered large-centered columns' id='avatar-area'>
             <img src={this.state.avatar.url} id='avatar' />
           </div>
