@@ -342,6 +342,12 @@ h1, h3, h5, p {
   height: 50px;
   // padding-top: 1px;
   margin-bottom: 20px;
+  margin-top: 0;
+}
+
+.sticky {
+  width: 100%;
+  margin-top: 0;
 }
 
 #nav-bar a {
@@ -373,8 +379,17 @@ h1, h3, h5, p {
   overflow: hidden;
   transition: 275ms ease;
   width: 90%;
+  margin-left: 20px;
   // transform: scale(0);
   // transform-origin: 0 50%;
+}
+
+.profile-dropdown-menu {
+  float: right;
+  margin-top: -30px;
+  margin-right: 30px;
+  list-style: none;
+  color: black;
 }
 
 #search {

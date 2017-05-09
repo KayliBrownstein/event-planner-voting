@@ -7,9 +7,24 @@ class NavContainer extends Component {
     super(props);
     this.state = {
       query: '',
-      filtered_data: []
+      filtered_data: [],
+      user_id: ''
     };
     this.handleSearchTermChange = this.handleSearchTermChange.bind(this);
+  }
+
+  componentDidMount() {
+    this.getUserData();
+  }
+
+  getUserData() {
+    fetch(`/api/v1/users.json`, { credentials: 'same-origin' })
+      .then(response => response.json())
+      .then(responseData => {
+        this.setState({
+          user_id: responseData.current_user.id,
+        })
+    });
   }
 
   getSearchResults(){
@@ -33,12 +48,14 @@ class NavContainer extends Component {
 
   render() {
     return(
-      <div>
-        <div className="row" id="nav-bar">
-          <div className="small-12 large-12 columns" id="nav-bar">
+      <div id='progress'>
+      <div className="sticky-container" data-sticky-container>
+        <div className="sticky" id="nav-bar" data-sticky data-top-anchor='progress' data-margin-top="0">
+          <div className="flex-container align-right align-bottom" id="nav-bar">
             <div className="menu">
-              <ul className="menu align-right">
-                <li><Link to="/users"><i className="fa fa-user fa-fw" id='profile'></i>My Profile</Link></li>
+              <ul className="menu">
+                <li id="short-logo"><Link to="/events">SYW</Link></li>
+                <li id="logo"><Link to="/events">SeeYouWhen</Link></li>
                 <li>
                   <div className="search-wrapper">
                     <form>
@@ -46,11 +63,19 @@ class NavContainer extends Component {
                     </form>
                   </div>
                 </li>
-                <li id="short-logo"><Link to="/events">SYW</Link></li>
-                <li id="logo"><Link to="/events">SeeYouWhen</Link></li>
+                <ul className='profile-dropdown-menu' data-dropdown-menu>
+                  <li>
+                    <Link to="/users"><i className="fa fa-user fa-fw" id='profile'></i>My Profile</Link>
+                    <ul className="menu">
+                      <li><a href={`/users/${this.state.user_id}/edit`}>Edit My Profile</a></li>
+                      <li><a href='/logout'>Log Out</a></li>
+                    </ul>
+                  </li>
+                </ul>
               </ul>
             </div>
           </div>
+        </div>
         </div>
         <div className='search-results'>
           <AllEvents
