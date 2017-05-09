@@ -16,15 +16,6 @@ const NewEventForm = props => {
        <label> Cutoff Date: </label>
        <input name="cutoffTime" type="date" onChange={props.cutOffChange} value={props.cutOffValue}/>
 
-       <label> Suggest a Date: </label>
-       <input name="date" type="date" onChange={props.dateChange} value={props.dateValue}/>
-
-       <label> Suggest a Time: </label>
-       <input name="time" type="time" onChange={props.timeChange} value={props.timeValue}/>
-
-       <label> Suggest a Location: </label>
-       <input name="location" type="text" onChange={props.locationChange} value={props.locationValue}/>
-
        <input className= 'create-event-submit' type="submit" value="Submit"/>
      </form>
    </div>
