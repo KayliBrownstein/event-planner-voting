@@ -6,7 +6,7 @@ class LocationTile extends Component {
     this.state = {
       location_id: this.props.id,
       voteCount: this.props.voteCount,
-      name: this.props.description,
+      name: this.props.name,
       address: this.props.address,
       city: this.props.city,
       state: this.props.state,
@@ -17,7 +17,6 @@ class LocationTile extends Component {
   }
 
   // updatevote method plus or minus
-  //  fetch on votes api controller
   //  voteid
   // handleupvote patch request to votes controller
   // hits update of votes api controller, switch boolean
@@ -32,7 +31,7 @@ class LocationTile extends Component {
         upvote: true
       }
     }
-    fetch(`/api/v1/events/${this.props.id}/locations/${location_id}`, {
+    fetch(`/api/v1/votes/${this}/`, {
       credentials: 'same-origin',
       method: 'PUT',
       headers: { "Content-Type": "application/json" },
@@ -49,7 +48,6 @@ class LocationTile extends Component {
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
-  }
 
   handleDownVote(vote){
     let votePayload = {
@@ -57,7 +55,7 @@ class LocationTile extends Component {
         upvote: false
       }
     }
-    fetch(`/api/v1/events/${this.props.id}/locations/${location_id}`, {
+    fetch(`/api/v1/votes/${this}/`, {
       credentials: 'same-origin',
       method: 'PUT',
       headers: { "Content-Type": "application/json" },
