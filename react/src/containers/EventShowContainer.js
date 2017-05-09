@@ -224,9 +224,6 @@ class EventShowContainer extends Component {
             name = {this.state.event.event && this.state.event.event.name}
             description = {this.state.event.event && this.state.event.event.description}
             cutoff_time = {this.state.event.event && this.state.event.event.cutoff_time}
-            suggested_date = {this.state.event.event && this.state.event.event.suggested_date}
-            suggested_time = {this.state.event.event && this.state.event.event.suggested_time}
-            suggested_location = {this.state.event.event && this.state.event.event.suggested_location}
             handleDelete = {this.handleEventDelete}
           />
           </div>

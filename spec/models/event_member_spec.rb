@@ -17,10 +17,7 @@ RSpec.describe EventMember, type: :model do
       description: 'This is a description. This is a description. This is a
       description. This is a description. This is a description. This is a
       description.',
-      cutoff_time: "Monday",
-      suggested_date: 'Tuesday',
-      suggested_time: '7:00PM',
-      suggested_location: 'Regina\'s'
+      cutoff_time: "Monday"
     )
     EventMember.create(
       user_id: 1,

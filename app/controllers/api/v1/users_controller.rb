@@ -4,7 +4,13 @@ class Api::V1::UsersController < ApplicationController
 
   def index
     @current_user = current_user
-    @avatar = current_user.avatar.url
+    # if @current_user.avatar = nil
+    #   @random = "/images/default_avatar.png"
+    # else
+    #   @random = @current_user.avatar.url
+    # end
+    # @avatar = @random
+    @avatar = @current_user.avatar.url
     @events_by_user = Event.where(user_id: @current_user.id)
 
     event_ids = Invite.where(email: @current_user.email).pluck(:event_id).uniq
