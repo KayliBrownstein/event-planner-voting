@@ -53,13 +53,12 @@ class AllLocations extends Component {
         throw(error);
       }
     })
-    .then(response => response.json())
-    .then(body => {
-      debugger;
-      this.setState({
-        locations: body
-      })
-    })
+    // .then(response => response.json())
+    // .then(body => {
+    //   this.setState({
+    //     locations: body
+    //   })
+    // })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
