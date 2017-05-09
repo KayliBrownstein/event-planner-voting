@@ -6,7 +6,7 @@ gem "haml-rails"
 gem "jbuilder", "~> 2.0"
 gem "jquery-rails"
 gem "pg"
-gem "fog-aws"
+gem "fog"
 gem 'dotenv'
 gem 'listen'
 gem "responders"
