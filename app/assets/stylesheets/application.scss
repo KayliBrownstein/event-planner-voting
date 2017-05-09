@@ -337,10 +337,8 @@ h1, h3, h5, p {
 /* NAVBAR STYLING */
 
 #nav-bar {
-  // max-width: 2000px;
   background-color: $nav-bar-blue;
   height: 50px;
-  // padding-top: 1px;
   margin-bottom: 20px;
   margin-top: 0;
 }
@@ -380,8 +378,6 @@ h1, h3, h5, p {
   transition: 275ms ease;
   width: 90%;
   margin-left: 20px;
-  // transform: scale(0);
-  // transform-origin: 0 50%;
 }
 
 .profile-dropdown-menu {
@@ -389,7 +385,12 @@ h1, h3, h5, p {
   margin-top: -30px;
   margin-right: 30px;
   list-style: none;
+}
+
+.user-profile-functions {
   color: black;
+  background-color: $nav-bar-blue;
+  margin-right: 0;
 }
 
 #search {

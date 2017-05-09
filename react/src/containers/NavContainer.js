@@ -50,7 +50,7 @@ class NavContainer extends Component {
     return(
       <div id='progress'>
       <div className="sticky-container" data-sticky-container>
-        <div className="sticky" id="nav-bar" data-sticky data-top-anchor='progress' data-margin-top="0">
+        <div className="sticky" id="nav-bar" data-sticky data-top-anchor='progress' data-bottom-anchor='footer' data-margin-top="0">
           <div className="flex-container align-right align-bottom" id="nav-bar">
             <div className="menu">
               <ul className="menu">
@@ -66,9 +66,9 @@ class NavContainer extends Component {
                 <ul className='profile-dropdown-menu' data-dropdown-menu>
                   <li>
                     <Link to="/users"><i className="fa fa-user fa-fw" id='profile'></i>My Profile</Link>
-                    <ul className="menu">
-                      <li><a href={`/users/${this.state.user_id}/edit`}>Edit My Profile</a></li>
-                      <li><a href='/logout'>Log Out</a></li>
+                    <ul className="user-profile-functions menu">
+                      <li><a href={`/users/${this.state.user_id}/edit`}><i className="fa fa-pencil-square-o" aria-hidden="true"></i>Edit My Profile</a></li>
+                      <li><a href='/logout'><i className="fa fa-sign-out" aria-hidden="true"></i>Log Out</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -83,7 +83,10 @@ class NavContainer extends Component {
           />
         </div>
         {this.props.children}
+      <div className='footer'>
       </div>
+      </div>
+
     )
   }
 }
