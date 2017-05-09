@@ -16,22 +16,13 @@ class LocationTile extends Component {
     this.handleDownVote = this.handleDownVote.bind(this);
   }
 
-  // updatevote method plus or minus
-  //  voteid
-  // handleupvote patch request to votes controller
-  // hits update of votes api controller, switch boolean
-  // take argument in payload, switch
-  //
-  // in .then, send new votecount, in .then change state of votecount depending how upvoted or downvoted
-
-
   handleUpVote(upvote){
     let votePayload = {
       location_vote: {
         upvote: true
       }
     }
-    fetch(`/api/v1/votes/${this}/`, {
+    fetch(`/api/v1/votes/${this.state.location_id}/`, {
       credentials: 'same-origin',
       method: 'PUT',
       headers: { "Content-Type": "application/json" },
@@ -46,16 +37,22 @@ class LocationTile extends Component {
         throw(error);
       }
     })
+    .then(response => response.json())
+    .then(body => {
+      this.setState({
+        voteCount: body
+      });
+    })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
-  handleDownVote(vote){
+  handleDownVote(downvote){
     let votePayload = {
       location_vote: {
         upvote: false
       }
     }
-    fetch(`/api/v1/votes/${this}/`, {
+    fetch(`/api/v1/votes/${this.state.location_id}/`, {
       credentials: 'same-origin',
       method: 'PUT',
       headers: { "Content-Type": "application/json" },
@@ -69,6 +66,12 @@ class LocationTile extends Component {
             error = new Error(errorMessage);
         throw(error);
       }
+    })
+    .then(response => response.json())
+    .then(body => {
+      this.setState({
+        voteCount: body.location.location_votes.voteCount
+      });
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
