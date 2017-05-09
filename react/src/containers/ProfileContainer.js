@@ -44,7 +44,6 @@ class ProfileContainer extends Component {
             <h3>@{this.state.user.username}</h3>
             <h5>{this.state.user.first_name} {this.state.user.last_name}</h5>
             <h5>{this.state.user.email}</h5>
-            <a href={`/users/${this.state.user.id}/edit`} className='user-edit-profile' id='edit-button'>Edit My Profile</a>
             <br />
             <br />
           </div>

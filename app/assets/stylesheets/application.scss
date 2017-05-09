@@ -337,11 +337,15 @@ h1, h3, h5, p {
 /* NAVBAR STYLING */
 
 #nav-bar {
-  // max-width: 2000px;
   background-color: $nav-bar-blue;
   height: 50px;
-  // padding-top: 1px;
   margin-bottom: 20px;
+  margin-top: 0;
+}
+
+.sticky {
+  margin-top: 0;
+  width: 100%;
 }
 
 #nav-bar a {
@@ -373,8 +377,20 @@ h1, h3, h5, p {
   overflow: hidden;
   transition: 275ms ease;
   width: 90%;
-  // transform: scale(0);
-  // transform-origin: 0 50%;
+  margin-left: 20px;
+}
+
+.profile-dropdown-menu {
+  float: right;
+  list-style: none;
+  margin-right: 30px;
+  margin-top: -30px;
+}
+
+.user-profile-functions {
+  background-color: $nav-bar-blue;
+  color: $black;
+  margin-right: 0;
 }
 
 #search {
