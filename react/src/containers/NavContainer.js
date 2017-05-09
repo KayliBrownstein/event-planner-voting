@@ -22,8 +22,8 @@ class NavContainer extends Component {
       .then(response => response.json())
       .then(responseData => {
         this.setState({
-          user_id: responseData.current_user.id,
-        })
+          user_id: responseData.current_user.id
+        });
     });
   }
 
