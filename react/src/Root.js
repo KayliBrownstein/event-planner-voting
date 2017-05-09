@@ -6,8 +6,6 @@ import EventShowContainer from './containers/EventShowContainer';
 import NewEventContainer from './containers/NewEventContainer';
 import ProfileContainer from './containers/ProfileContainer';
 
-
-
 const Root = (props, state, params) => {
   return(
       <Router history={browserHistory}>

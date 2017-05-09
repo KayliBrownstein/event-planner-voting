@@ -29,12 +29,12 @@ body {
 h1, h3, h5, p {
   font-family: 'Ubuntu', sans-serif;
   text-align: center;
+  font-size: 12px;
 }
 
 /*PROFILE STYLING */
 
 #user-profile-area.row {
-  border-bottom: 35px solid #a7a9ac;
   background-color: $white;
   margin-bottom: 50px;
   margin-top: 50px;
@@ -68,22 +68,21 @@ h1, h3, h5, p {
 /*FORM EVENT STYLING */
 
 #new-event {
-  width: 500px;
-  border: 2px solid $white;
   background-color: $white;
-  padding-top: 20px;
+  border: 2px solid $black;
+  border-radius: 10px;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
   padding-bottom: 20px;
   padding-left: 40px;
   padding-right: 40px;
-  text-align: center;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 20px;
+  padding-top: 10px;
   position: absolute;
-  box-shadow: 20px 20px 5px rgba(0, 0, 0, 0.4);
-  border-radius: 10px;
+  right: 0;
+  text-align: center;
+  width: 600px;
 }
 
 .create-event {
@@ -176,19 +175,21 @@ h1, h3, h5, p {
 }
 
 #new-location, #new-datetime {
-  width: 500px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  background-color: $white;
+  border: 2px solid $black;
+  border-radius: 10px;
+  left: 0;
+  margin-bottom: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 10px;
   padding-left: 40px;
   padding-right: 40px;
+  padding-top: 20px;
+  position: absolute;
+  right: 0;
   text-align: center;
-  // left: 0;
-  // right: 0;
-  // margin-left: auto;
-  // margin-right: auto;
-  margin-top: 20px;
-  // box-shadow: 20px 20px 5px rgba(0, 0, 0, 0.4);
-  // border-radius: 10px;
+  width: 600px;
 }
 
 .logout-button {
@@ -292,11 +293,17 @@ h1, h3, h5, p {
 .location-box-content, .datetime-box-content {
   background-color: $white;
   padding: 20px 30px 10px 30px;
-  height: 250px;
-  width: 300px;
+  height: 290px;
+  width: 240px;
   margin: 20px;
-  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-top: 0;
   overflow: hidden;
+  text-align: center;
+}
+
+.datetime-box-content {
+  height: 180px;
 }
 
 .profile-events-title,
@@ -305,7 +312,7 @@ h1, h3, h5, p {
   background-color: $nav-bar-blue;
   color: $black;
   font-size: 25px;
-  margin-bottom: 25px;
+  margin-bottom: 0;
   margin-top: 25px;
   padding: 8px;
   text-transform: uppercase;
@@ -347,12 +354,45 @@ h1, h3, h5, p {
   font-size: 14px;
 }
 
+.search-wrapper {
+  background: $white;
+  border-radius: 20px;
+  cursor: pointer;
+  height: 100%;
+  margin-top: 5px;
+  position: relative;
+  width: 100%;
+}
+
+.search-input {
+  background: transparent;
+  border: 0;
+  color: $black;
+  height: 40px;
+  outline: none;
+  overflow: hidden;
+  transition: 275ms ease;
+  width: 90%;
+  // transform: scale(0);
+  // transform-origin: 0 50%;
+}
+
+#search {
+  color: $black;
+  font-size: 18px;
+  position: absolute;
+  right: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
 #nav-bar a:hover {
   color: $black;
 }
 
 #logo a {
-  margin-top: 0px;
+  margin-top: 0;
   font-size: 30px;
 }
 

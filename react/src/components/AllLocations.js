@@ -6,8 +6,29 @@ class AllLocations extends Component {
   constructor(props){
     super(props);
     this.state = {
+      locations: []
     };
     this.updateLocationVote = this.updateLocationVote.bind(this);
+  }
+
+  componentDidMount(){
+    fetch(`/api/v1/events/${this.props.id}/locations`, {credentials: 'same-origin'})
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+            error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then(response => response.json())
+    .then(body => {
+      this.setState({
+        locations: body
+      })
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   updateLocationVote(location_id, upvote){
@@ -16,10 +37,8 @@ class AllLocations extends Component {
         upvote: upvote
       }
     }
-    let eventId = this.props.id;
-    let locationId = location_id;
 
-    fetch(`/api/v1/events/${eventId}/locations/${locationId}`, {
+    fetch(`/api/v1/events/${this.props.id}/locations/${location_id}`, {
       credentials: 'same-origin',
       method: 'PUT',
       headers: { "Content-Type": "application/json" },
@@ -36,26 +55,12 @@ class AllLocations extends Component {
     })
     .then(response => response.json())
     .then(body => {
+      debugger;
       this.setState({
-        locations: body.locations,
-      });
-      this.getLocationVote(location_id);
+        locations: body
+      })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
-  }
-
-  getLocationVote(location_id){
-    let eventId = this.props.id;
-    let locationId = location_id;
-
-    fetch(`/api/v1/events/${eventId}/locations/${locationId}`, {
-      credentials: 'same-origin',
-      method: 'GET'
-    })
-    .then(response => response.json())
-    .then(responseData => {
-      this.setState({ votes: responseData.location_votes })
-    })
   }
 
   render(){
@@ -84,7 +89,7 @@ class AllLocations extends Component {
           city = {location.city}
           state = {location.state}
           description = {location.description}
-          votes = {location.vote_count}
+          voteCount = {location.vote_count}
           upvoteHandler = {upvoteHandler}
           downvoteHandler = {downvoteHandler}
         />

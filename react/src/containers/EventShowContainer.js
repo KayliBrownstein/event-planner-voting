@@ -233,7 +233,7 @@ class EventShowContainer extends Component {
           <div className="small-12 medium-12 large-10 large-centered columns">
           <AllLocations
             locations={this.state.locations}
-            id = {this.state.event.id}
+            id = {this.state.eventId}
             name={this.state.name}
             street_address={this.state.street_address}
             city={this.state.city}
