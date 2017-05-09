@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users, except: [:edit]
+      resources :votes
       resources :searches
       resources :events do
         resources :locations

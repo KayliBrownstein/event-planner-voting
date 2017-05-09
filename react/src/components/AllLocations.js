@@ -6,60 +6,7 @@ class AllLocations extends Component {
   constructor(props){
     super(props);
     this.state = {
-      locations: []
     };
-    this.updateLocationVote = this.updateLocationVote.bind(this);
-  }
-
-  componentDidMount(){
-    fetch(`/api/v1/events/${this.props.id}/locations`, {credentials: 'same-origin'})
-    .then(response => {
-      if (response.ok) {
-        return response;
-      } else {
-        let errorMessage = `${response.status} (${response.statusText})`,
-            error = new Error(errorMessage);
-        throw(error);
-      }
-    })
-    .then(response => response.json())
-    .then(body => {
-      this.setState({
-        locations: body
-      })
-    })
-    .catch(error => console.error(`Error in fetch: ${error.message}`));
-  }
-
-  updateLocationVote(location_id, upvote){
-    let votePayload = {
-      location_vote: {
-        upvote: upvote
-      }
-    }
-
-    fetch(`/api/v1/events/${this.props.id}/locations/${location_id}`, {
-      credentials: 'same-origin',
-      method: 'PUT',
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(votePayload)
-    })
-    .then(response => {
-      if (response.ok) {
-        return response;
-      } else {
-        let errorMessage = `${response.status} (${response.statusText})`,
-            error = new Error(errorMessage);
-        throw(error);
-      }
-    })
-    // .then(response => response.json())
-    // .then(body => {
-    //   this.setState({
-    //     locations: body
-    //   })
-    // })
-    .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   render(){
@@ -71,12 +18,6 @@ class AllLocations extends Component {
     };
 
     let locations = this.props.locations.map((location) => {
-      let upvoteHandler = () => {
-        this.updateLocationVote(location.id, true)
-      }
-      let downvoteHandler = () => {
-        this.updateLocationVote(location.id, false)
-      }
       return (
         <LocationTile
           key = {location.id}
@@ -89,8 +30,6 @@ class AllLocations extends Component {
           state = {location.state}
           description = {location.description}
           voteCount = {location.vote_count}
-          upvoteHandler = {upvoteHandler}
-          downvoteHandler = {downvoteHandler}
         />
       )
     })
