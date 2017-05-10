@@ -1,6 +1,7 @@
-class AvatarUploader < CarrierWave::Uploader::Base
+require 'fog/aws'
 
-  storage :file
+class AvatarUploader < CarrierWave::Uploader::Base
+  storage :aws
 
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
