@@ -27,7 +27,7 @@ body {
 }
 
 h1, h3, h5, p {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Unbuntu', sans-serif;
   text-align: center;
   font-size: 12px;
 }
@@ -132,6 +132,10 @@ h1, h3, h5, p {
 //   background: $white;
 // }
 
+.date-display, .time-display {
+  font-size: 17px;
+}
+
 .vote-count{
   font-size: 20px;
   padding: 5px;
@@ -150,7 +154,7 @@ h1, h3, h5, p {
 }
 
 .thumbs-up-button:hover, .thumbs-down-button:hover {
-  background-color: $white;
+  background-color: $black;
 }
 
 .welcome-image {
@@ -293,7 +297,6 @@ h1, h3, h5, p {
 .location-box-content, .datetime-box-content {
   background-color: $white;
   padding: 20px 30px 10px 30px;
-  height: 290px;
   width: 240px;
   margin: 20px;
   margin-bottom: 5px;
@@ -304,6 +307,12 @@ h1, h3, h5, p {
 
 .datetime-box-content {
   height: 180px;
+  width: 90%;
+}
+
+.location-box-content {
+  width: 90%;
+  height: 290px;
 }
 
 .profile-events-title,
