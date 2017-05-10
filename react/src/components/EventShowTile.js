@@ -50,6 +50,14 @@ class EventShowTile extends Component {
       eventEndedclassName = 'hidden';
     }
 
+    let eventWinnerclassName;
+    if (this.props.eventEnded == true){
+      eventWinnerclassName = 'show';
+    } else {
+      eventWinnerclassName = 'hidden';
+    }
+
+
    return(
      <div className="event-show-tile">
        <div className='show-box-content'>
@@ -57,6 +65,15 @@ class EventShowTile extends Component {
        <button type='button' className="button" id='back-button'>Back to Events</button>
        </Link>
        <br/>
+       <br/>
+       <br/>
+
+       <div className={eventWinnerclassName}>
+        <h3>This event is closed.</h3>
+        <p>Location: </p>
+        <p>Date & Time: </p>
+       </div>
+
          <h3 className='event-title'>{this.props.name}</h3>
          <p>{this.props.description}</p>
          <p>Cutoff time: {this.props.cutoff_time}</p>
