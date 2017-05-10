@@ -169,7 +169,7 @@ class IndexContainer extends Component {
 
            handleSubmit = {this.handleSubmit}
          />
-        <div className='column row'>
+        <div className='column row all-events-target'>
          <AllEvents
             events={this.state.events}
           />
