@@ -36,6 +36,7 @@ class EventShowContainer extends Component {
     this.handleAddressChange = this.handleAddressChange.bind(this);
     this.handleCityChange = this.handleCityChange.bind(this);
     this.handleStateChange = this.handleStateChange.bind(this);
+    this.handleClearForm = this.handleClearForm.bind(this);
   }
 
   componentDidMount(){
@@ -112,19 +113,51 @@ class EventShowContainer extends Component {
    this.setState({ date: event.target.value });
  }
 
+ validateDateChange(date){
+   if (date === '' || date === ' ') {
+     let newError = { date: 'Date should not be blank' };
+     this.setState({ errors: Object.assign(this.state.errors, newError) });
+     return false;
+   } else {
+     let errorState = this.state.errors;
+     delete errorState.date;
+     this.setState({ errors: errorState });
+     return true;
+   }
+ }
+
  handleTimeChange(event){
    this.setState({ time: event.target.value });
  }
 
+ validateTimeChange(time){
+   if (time === '' || time === ' ') {
+     let newError = { time: 'Time should not be blank' };
+     this.setState({ errors: Object.assign(this.state.errors, newError) });
+     return false;
+   } else {
+     let errorState = this.state.errors;
+     delete errorState.time;
+     this.setState({ errors: errorState });
+     return true;
+   }
+ }
+
  handleDatetimeSubmit(event){
    event.preventDefault();
+   if (
+     this.validateDateChange(this.state.date),
+     this.validateTimeChange(this.state.time)
+   ){
    let datetimePayload = {
      date: this.state.date,
      time: this.state.time
    };
    this.sendDatetimeInput(datetimePayload);
-   this.getDatetimeData();
- }
+   this.handleClearForm();
+  }
+  }
+
 
  handleLocationFormButtonClick(){
    if (this.state.locationformToggle == false) {
@@ -142,24 +175,95 @@ class EventShowContainer extends Component {
    this.setState({ name: event.target.value });
  }
 
+ validateNameChange(name){
+   if (name === '' || name === ' ') {
+     let newError = { name: 'Name should not be blank' };
+     this.setState({ errors: Object.assign(this.state.errors, newError) });
+     return false;
+   } else {
+     let errorState = this.state.errors;
+     delete errorState.name;
+     this.setState({ errors: errorState });
+     return true;
+   }
+ }
+
  handleDescriptionChange(event){
    this.setState({ description: event.target.value });
  }
 
+ validateDescriptionChange(description){
+   if (description === '' || description === ' ') {
+     let newError = { description: 'Description should not be blank' };
+     this.setState({ errors: Object.assign(this.state.errors, newError) });
+     return false;
+   } else {
+     let errorState = this.state.errors;
+     delete errorState.description;
+     this.setState({ errors: errorState });
+     return true;
+   }
+ }
  handleAddressChange(event){
    this.setState({ street_address: event.target.value });
+ }
+
+ validateAddressChange(street_address){
+   if (street_address === '' || street_address === ' ') {
+     let newError = { street_address: 'Address should not be blank' };
+     this.setState({ errors: Object.assign(this.state.errors, newError) });
+     return false;
+   } else {
+     let errorState = this.state.errors;
+     delete errorState.street_address;
+     this.setState({ errors: errorState });
+     return true;
+   }
  }
 
  handleCityChange(event){
    this.setState({ city: event.target.value });
  }
 
+ validateCityChange(city){
+   if (city === '' || city === ' ') {
+     let newError = { city: 'City should not be blank' };
+     this.setState({ errors: Object.assign(this.state.errors, newError) });
+     return false;
+   } else {
+     let errorState = this.state.errors;
+     delete errorState.city;
+     this.setState({ errors: errorState });
+     return true;
+   }
+ }
+
  handleStateChange(event){
    this.setState({ state: event.target.value });
  }
 
+ validateStateChange(state){
+   if (state === '' || state === ' ') {
+     let newError = { state: 'State should not be blank' };
+     this.setState({ errors: Object.assign(this.state.errors, newError) });
+     return false;
+   } else {
+     let errorState = this.state.errors;
+     delete errorState.state;
+     this.setState({ errors: errorState });
+     return true;
+   }
+ }
+
  handleLocationSubmit(event){
    event.preventDefault();
+   if (
+     this.validateNameChange(this.state.name),
+     this.validateDescriptionChange(this.state.description),
+     this.validateAddressChange(this.state.street_address),
+     this.validateCityChange(this.state.city),
+     this.validateStateChange(this.state.state)
+   ){
    let locationPayload = {
      name: this.state.name,
      description: this.state.description,
@@ -168,6 +272,8 @@ class EventShowContainer extends Component {
      state: this.state.state
    };
    this.sendLocationInput(locationPayload);
+   this.handleClearForm();
+ }
  }
 
  sendLocationInput(locationPayload){
@@ -184,8 +290,7 @@ class EventShowContainer extends Component {
  }
 
   sendDatetimeInput(datetimePayload){
-    let eventId = this.props.params.id;
-    fetch(`/api/v1/events/${eventId}/datetimes`, {
+    fetch(`/api/v1/events/${this.state.eventId}/datetimes`, {
       credentials: 'same-origin',
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -195,6 +300,18 @@ class EventShowContainer extends Component {
     .then(responseData => {
       this.setState({ datetimes: [...this.state.datetimes, responseData] });
     });
+  }
+
+  handleClearForm(){
+    this.setState({
+      name: '',
+      description: '',
+      street_address: '',
+      city: '',
+      state: '',
+      date: '',
+      time: ''
+    })
   }
 
   render(){
@@ -212,8 +329,18 @@ class EventShowContainer extends Component {
       locationclassName = 'hidden'
     };
 
+    let errorDiv;
+    let errorItems;
+    if (Object.keys(this.state.errors).length > 0) {
+      errorItems = Object.values(this.state.errors).map(error => {
+        return(<li key={error}>{error}</li>)
+      });
+      errorDiv = <div className="callout alert">{errorItems}</div>
+    }
+
     return(
       <div>
+
         <div className="small-12 medium-12 large-8 large-centered columns event-show-all">
           <EventShowTile
             key = {this.state.event.id}
@@ -227,7 +354,8 @@ class EventShowContainer extends Component {
             handleDelete = {this.handleEventDelete}
           />
           </div>
-          <div className="small-12 medium-12 large-10 large-centered columns">
+          <div className="small-12 medium-12 large-8 large-centered columns">
+          {errorDiv}
           <AllLocations
             locations={this.state.locations}
             id = {this.state.eventId}
@@ -249,7 +377,7 @@ class EventShowContainer extends Component {
 
           <AllDatetimes
             datetimes={this.state.datetimes}
-            id={this.state.event.id}
+            id={this.state.eventId}
             date={this.state.date}
             time={this.state.time}
             className={datetimeclassName}

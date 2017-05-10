@@ -20,7 +20,7 @@ class LocationTile extends Component {
     let votePayload = {
       location_vote: {
         upvote: true
-      } 
+      }
     };
     fetch(`/api/v1/locationvotes/${this.state.location_id}/`, {
       credentials: 'same-origin',
