@@ -18,7 +18,11 @@ class Datetime < ApplicationRecord
   end
 
   def date_formatted
-    date.strftime '%m/%d/%Y'
+    date.to_date.strftime('%A %B %e, %Y')
+  end
+
+  def time_formatted
+    time.to_time.strftime("%l:%M %P")
   end
 
   def did_user_vote?(user)

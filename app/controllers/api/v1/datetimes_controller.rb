@@ -4,8 +4,8 @@ class Api::V1::DatetimesController < ApplicationController
   def index
     @user = current_user
     @event = Event.find(params[:event_id])
-    @datetimes = @event.datetimes
-    render json: @datetimes.to_json(:methods => :vote_count)
+    @datetimes = @event.datetimes.order(:date, :time)
+    render json: @datetimes.to_json(:methods => [:vote_count, :date_formatted, :time_formatted])
   end
 
   def show
