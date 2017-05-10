@@ -21,7 +21,7 @@ class LocationTile extends Component {
       location_vote: {
         upvote: true
       }
-    }
+    };
     fetch(`/api/v1/locationvotes/${this.state.location_id}/`, {
       credentials: 'same-origin',
       method: 'PUT',
@@ -51,7 +51,7 @@ class LocationTile extends Component {
       location_vote: {
         upvote: false
       }
-    }
+    };
     fetch(`/api/v1/locationvotes/${this.state.location_id}/`, {
       credentials: 'same-origin',
       method: 'PUT',
