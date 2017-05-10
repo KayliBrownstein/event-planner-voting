@@ -74,10 +74,18 @@ class DatetimeTile extends Component {
   }
 
   render(){
+    let eventEndedclassName;
+    if (this.props.eventEnded == false){
+      eventEndedclassName = 'show';
+    } else {
+      eventEndedclassName = 'hidden';
+    }
     return(
       <div className="small-12 medium-6 large-3 columns location-tile">
         <div className='datetime-box-content'>
+        <div className={eventEndedclassName}>
         <center><span><button className="button thumbs-down-button" onClick={this.handleDownVote}><i className="fa fa-thumbs-down" aria-hidden="true"></i></button></span><span className="vote-count">{this.state.voteCount}</span><span><button className="button thumbs-up-button" onClick={this.handleUpVote}><i className="fa fa-thumbs-up" aria-hidden="true"></i></button></span></center>
+        </div>
           <h4 className='date-display'>{this.state.date}</h4>
           <h4 className='time-display'>{this.state.time}</h4>
         </div>

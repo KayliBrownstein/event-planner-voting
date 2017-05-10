@@ -43,6 +43,13 @@ class EventShowTile extends Component {
       className = 'hidden';
     }
 
+    let eventEndedclassName;
+    if (this.props.eventEnded == false){
+      eventEndedclassName = 'show';
+    } else {
+      eventEndedclassName = 'hidden';
+    }
+
    return(
      <div className="event-show-tile">
        <div className='show-box-content'>
@@ -55,6 +62,7 @@ class EventShowTile extends Component {
          <p>Cutoff time: {this.props.cutoff_time}</p>
          <p>People invited: {this.state.invitee_emails}</p>
        </div>
+       <div className={eventEndedclassName}>
        <center><div className="row event-show-buttons-row">
           <a href={`/events/${this.props.id}/edit`} onClick={this.props.handleUpdate} className={className} id='edit-button'>Edit</a>
           <Link to='/'>
@@ -62,6 +70,7 @@ class EventShowTile extends Component {
           </Link>
           <a href={`/events/${this.props.id}/invite`} className={className} id='invite-button'>Invite Friends</a>
       </div></center>
+      </div>
     </div>
    )
  }

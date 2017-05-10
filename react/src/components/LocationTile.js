@@ -77,11 +77,21 @@ class LocationTile extends Component {
   }
 
   render(){
+
+    let eventEndedclassName;
+    if (this.props.eventEnded == false){
+      eventEndedclassName = 'show';
+    } else {
+      eventEndedclassName = 'hidden';
+    }
+
     return(
       <div className="small-12 medium-6 large-4 columns location-tile">
         <div className='location-box-content'>
           <center><h4 className='location-title'>{this.state.name}</h4></center>
+          <div className={eventEndedclassName}>
           <center><span><button className="button thumbs-down-button" onClick={this.handleDownVote}><i className="fa fa-thumbs-down" aria-hidden="true"></i></button></span><span className="vote-count">{this.state.voteCount}</span><span><button className="button thumbs-up-button" onClick={this.handleUpVote}><i className="fa fa-thumbs-up" aria-hidden="true"></i></button></span></center>
+          </div>
           <p>{this.state.description}</p>
           <p>{this.state.address}</p>
           <p>{this.state.city}, {this.state.state}</p>
