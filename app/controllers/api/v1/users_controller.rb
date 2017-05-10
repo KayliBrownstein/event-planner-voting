@@ -4,13 +4,16 @@ class Api::V1::UsersController < ApplicationController
 
   def index
     @current_user = current_user
-    # if @current_user.avatar = nil
-    #   @random = "/images/default_avatar.png"
-    # else
-    #   @random = @current_user.avatar.url
-    # end
-    # @avatar = @random
-    @avatar = @current_user.avatar.url
+
+    @avatar =
+      if @current_user.avatar.present?
+        @current_user.avatar.url
+      else
+        "http://cdn3-www.dogtime.com/assets/uploads/gallery/old-english-sheepdog-dog-breed-pictures/running-7.jpg"
+      end
+
+
+    # @avatar = @current_user.avatar.url
     @events_by_user = Event.where(user_id: @current_user.id)
 
     event_ids = Invite.where(email: @current_user.email).pluck(:event_id).uniq
