@@ -7,7 +7,7 @@ class ProfileContainer extends Component {
     super(props);
     this.state = {
       user: {},
-      avatar: {},
+      avatar: '',
       events_by_user: []
     }
   }
@@ -22,7 +22,7 @@ class ProfileContainer extends Component {
       .then(responseData => {
         this.setState({
           user: responseData.current_user,
-          avatar: responseData.current_user.avatar,
+          avatar: responseData.avatar,
           events_by_user: responseData.events_by_user
         })
     });
@@ -36,7 +36,7 @@ class ProfileContainer extends Component {
         <button type='button' className="button" id='back-button'>Back to Events</button>
         </Link>
           <div className='small-12 large-4 small-centered large-centered columns' id='avatar-area'>
-            <img src={this.state.avatar.url} id='avatar' />
+            <img src={this.state.avatar} id='avatar' />
           </div>
           <div className='small-12 large-6 small-centered large-centered columns' id='info-area'>
             <h3>@{this.state.user.username}</h3>
