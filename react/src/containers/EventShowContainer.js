@@ -343,6 +343,7 @@ class EventShowContainer extends Component {
 
         <div className="small-12 medium-12 large-8 large-centered columns event-show-all">
           <EventShowTile
+            eventEnded = {this.state.event.event && this.state.event.event_ended}
             key = {this.state.event.id}
             event = {this.state.event.event}
             user_id = {this.state.event.event && this.state.event.event.user_id}
@@ -357,6 +358,7 @@ class EventShowContainer extends Component {
           <div className="small-12 medium-12 large-8 large-centered columns">
           {errorDiv}
           <AllLocations
+            eventEnded = {this.state.event.event && this.state.event.event_ended}
             locations={this.state.locations}
             id = {this.state.eventId}
             name={this.state.name}
@@ -376,6 +378,7 @@ class EventShowContainer extends Component {
           />
 
           <AllDatetimes
+            eventEnded = {this.state.event.event && this.state.event.event_ended}
             datetimes={this.state.datetimes}
             id={this.state.eventId}
             date={this.state.date}

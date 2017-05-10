@@ -29,11 +29,18 @@ class Api::V1::EventsController < ApplicationController
   def show
     @user = current_user
     @event = Event.find(params[:id])
+
+    if @event.cutoff_time.to_date >= Date.today
+      @event_ended = false
+    else
+      @event_ended = true
+    end
+
     @locations = @event.locations
     @datetimes = @event.datetimes
     @invitee_emails = Invite.where(event_id: @event.id).pluck(:email).uniq.join(', ')
 
-    render json: { event: @event, invitee_emails: @invitee_emails }
+    render json: { event: @event, event_ended: @event_ended, invitee_emails: @invitee_emails }
   end
 
   def edit

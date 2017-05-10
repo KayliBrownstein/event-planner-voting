@@ -24,9 +24,17 @@ class AllLocations extends Component {
           state = {location.state}
           description = {location.description}
           voteCount = {location.vote_count}
+          eventEnded = {this.props.eventEnded}
         />
       )
     })
+
+    let eventEndedclassName;
+    if (this.props.eventEnded == false){
+      eventEndedclassName = 'show';
+    } else {
+      eventEndedclassName = 'hidden';
+    }
 
     return(
       <div className='column row centered'>
@@ -34,6 +42,7 @@ class AllLocations extends Component {
       <br />
       <h1 className='locations-title'>Locations</h1>
       {locations}
+      <div className={eventEndedclassName}>
         <NewLocationForm
           className = {this.props.className}
           handleLocationFormButtonClick = {this.props.handleLocationFormButtonClick}
@@ -51,6 +60,7 @@ class AllLocations extends Component {
 
           handleLocationSubmit = {this.props.handleLocationSubmit}
         />
+        </div>
       </div>
       </div>
     )

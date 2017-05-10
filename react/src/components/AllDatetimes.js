@@ -21,15 +21,24 @@ class AllDatetimes extends Component {
           user_id = {datetime.user_id}
           event_id = {datetime.event_id}
           voteCount = {datetime.vote_count}
+          eventEnded = {this.props.eventEnded}
         />
       )
     })
+
+    let eventEndedclassName;
+    if (this.props.eventEnded == false){
+      eventEndedclassName = 'show';
+    } else {
+      eventEndedclassName = 'hidden';
+    }
 
     return(
       <div className='column row centered'>
       <br />
       <h1 className='datetimes-title'>Dates and Times</h1>
       {datetimes}
+      <div className={eventEndedclassName}>
         <NewDatetimeForm
           className = {this.props.className}
           handleDatetimeFormButtonClick = {this.props.handleDatetimeFormButtonClick}
@@ -41,6 +50,7 @@ class AllDatetimes extends Component {
 
           handleDatetimeSubmit = {this.props.handleDatetimeSubmit}
         />
+        </div>
       </div>
     )
   }
