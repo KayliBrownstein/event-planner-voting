@@ -10,12 +10,6 @@ class AllLocations extends Component {
   }
 
   render(){
-    let className;
-    if (this.state.formToggle) {
-      className = 'selected'
-    } else {
-      className = 'hidden'
-    };
 
     let locations = this.props.locations.map((location) => {
       return (

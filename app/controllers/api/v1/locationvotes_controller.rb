@@ -1,13 +1,5 @@
-class Api::V1::VotesController < ApplicationController
+class Api::V1::LocationvotesController < ApplicationController
   skip_before_action :verify_authenticity_token
-
-  #   @user_votes = @location.location_votes.where(user_id: @current_user.id)
-
-
-    # @location_votes = @location.location_votes.find(@location_vote.user_id)
-    # if there is a location vote, update it, otherwise create it
-    # @location_votes.update(vote_params)
-    # render new votecount
 
     def update
       @location = Location.find(params[:id])
@@ -43,7 +35,7 @@ class Api::V1::VotesController < ApplicationController
       locations.each do |l|
         l.check_belongs_to_user(current_user)
       end
-      render json: @location.location_votes(:methods => :vote_count)
+      render json: @location.vote_count
     end
 
   private

@@ -22,7 +22,7 @@ class LocationTile extends Component {
         upvote: true
       }
     }
-    fetch(`/api/v1/votes/${this.state.location_id}/`, {
+    fetch(`/api/v1/locationvotes/${this.state.location_id}/`, {
       credentials: 'same-origin',
       method: 'PUT',
       headers: { "Content-Type": "application/json" },
@@ -52,7 +52,7 @@ class LocationTile extends Component {
         upvote: false
       }
     }
-    fetch(`/api/v1/votes/${this.state.location_id}/`, {
+    fetch(`/api/v1/locationvotes/${this.state.location_id}/`, {
       credentials: 'same-origin',
       method: 'PUT',
       headers: { "Content-Type": "application/json" },
@@ -70,7 +70,7 @@ class LocationTile extends Component {
     .then(response => response.json())
     .then(body => {
       this.setState({
-        voteCount: body.location.location_votes.voteCount
+        voteCount: body
       });
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
