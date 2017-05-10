@@ -26,10 +26,10 @@ body {
   max-width: 2000px;
 }
 
-h1, h3, h5, p {
+h1, h3, h5, h6, p {
   font-family: 'Unbuntu', sans-serif;
   text-align: center;
-  font-size: 12px;
+  // font-size: 12px;
 }
 
 /*PROFILE STYLING */
@@ -83,6 +83,7 @@ h1, h3, h5, p {
   right: 0;
   text-align: center;
   width: 600px;
+  z-index: 1;
 }
 
 .create-event {
@@ -395,6 +396,7 @@ h1, h3, h5, p {
   list-style: none;
   margin-right: 30px;
   margin-top: -30px;
+  z-index: 3;
 }
 
 .user-profile-functions {
