@@ -9,7 +9,7 @@ class Api::V1::UsersController < ApplicationController
       if @current_user.avatar.present?
         @current_user.avatar.url
       else
-        "http://cdn3-www.dogtime.com/assets/uploads/gallery/old-english-sheepdog-dog-breed-pictures/running-7.jpg"
+        "https://lh4.googleusercontent.com/gFGu016l08MtNazJXCLRTjuNjwnSTuKDaodtDyGoGm_ImAzIaZD1hichsWIF042LxareGSAfsYI12w6Gw7377KVhI6B5XJRl739FnpIh8Yz7knFMQgweFMjGQScdD5ska-nXOfvu"
       end
 
 
