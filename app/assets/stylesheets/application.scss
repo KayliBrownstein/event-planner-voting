@@ -102,7 +102,7 @@ h1, h3, h5, h6, p {
   letter-spacing: 2.5px;
   position: absolute;
   text-transform: uppercase;
-  z-index: 0;
+  z-index: -1;
   left: 0;
   right: 0;
   margin-top: 40px;
@@ -453,7 +453,7 @@ h1, h3, h5, h6, p {
   background-color: $black;
   color: $white;
   margin-right: 0;
-  z-index: 1;
+  z-index: 3;
 }
 
 #search {
