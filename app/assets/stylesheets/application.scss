@@ -21,6 +21,7 @@ body {
 
 .all-events {
   margin: 3%;
+  margin-top: 130px;
 }
 
 .row {
@@ -75,7 +76,7 @@ h1, h3, h5, h6, p {
   left: 0;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 5%;
+  margin-top: 100px;
   padding-bottom: 20px;
   padding-left: 40px;
   padding-right: 40px;
@@ -99,12 +100,20 @@ h1, h3, h5, h6, p {
   font-size: 120%;
   font-weight: bolder;
   letter-spacing: 2.5px;
-  margin: 2em auto;
-  margin-top: 10%;
-  padding: 1em 3em;
-  position: relative;
+  position: absolute;
   text-transform: uppercase;
-  z-index: -1;
+  z-index: 0;
+  left: 0;
+  right: 0;
+  margin-top: 40px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 15px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 15px;
+  position: absolute;
 }
 
 .create-event:hover {
@@ -415,7 +424,7 @@ h1, h3, h5, h6, p {
   height: 100%;
   margin-top: 5px;
   position: relative;
-  width: 100%;
+  width: 80%;
 }
 
 .search-input {
@@ -427,7 +436,7 @@ h1, h3, h5, h6, p {
   overflow: hidden;
   transition: 275ms ease;
   width: 90%;
-  margin-left: 20px;
+  margin-left: 10px;
   padding: 7px;
 }
 
