@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import GoogleMapContainer from '../containers/GoogleMapContainer';
+
 
 class EventShowTile extends Component {
   constructor(props){
@@ -72,6 +74,7 @@ class EventShowTile extends Component {
         <h3>This event is closed.</h3>
         <p>Location: </p>
         <p>Date & Time: </p>
+        <GoogleMapContainer />
        </div>
 
          <h3 className='event-title'>{this.props.name}</h3>
