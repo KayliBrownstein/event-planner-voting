@@ -36,21 +36,21 @@ class AllDatetimes extends Component {
     return(
       <div className='column row centered'>
       <br />
+      <div className={eventEndedclassName}>
+      <NewDatetimeForm
+      className = {this.props.className}
+      handleDatetimeFormButtonClick = {this.props.handleDatetimeFormButtonClick}
+      dateValue = {this.props.date}
+      timeValue = {this.props.time}
+
+      dateChange = {this.props.handleDateChange}
+      timeChange = {this.props.handleTimeChange}
+
+      handleDatetimeSubmit = {this.props.handleDatetimeSubmit}
+      />
+      </div>
       <h1 className='datetimes-title'>Dates and Times</h1>
       {datetimes}
-      <div className={eventEndedclassName}>
-        <NewDatetimeForm
-          className = {this.props.className}
-          handleDatetimeFormButtonClick = {this.props.handleDatetimeFormButtonClick}
-          dateValue = {this.props.date}
-          timeValue = {this.props.time}
-
-          dateChange = {this.props.handleDateChange}
-          timeChange = {this.props.handleTimeChange}
-
-          handleDatetimeSubmit = {this.props.handleDatetimeSubmit}
-        />
-        </div>
       </div>
     )
   }

@@ -31,7 +31,7 @@ class ProfileContainer extends Component {
   render() {
     return(
       <div>
-        <div className="row" id='user-profile-area'>
+        <center><div className="row" id='user-profile-area'>
         <Link to='/events'>
         <button type='button' className="button" id='back-button'>Back to Events</button>
         </Link>
@@ -45,7 +45,7 @@ class ProfileContainer extends Component {
             <br />
             <br />
           </div>
-        </div>
+        </div></center>
 
         <h1 className='profile-events-title'>Events I Created</h1>
 

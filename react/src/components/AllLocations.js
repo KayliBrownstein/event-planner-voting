@@ -40,27 +40,27 @@ class AllLocations extends Component {
       <div className='column row centered'>
       <div className='small-12 medium-12 large-12 large-centered columns'>
       <br />
+      <div className={eventEndedclassName}>
+      <NewLocationForm
+      className = {this.props.className}
+      handleLocationFormButtonClick = {this.props.handleLocationFormButtonClick}
+      nameValue = {this.props.name}
+      descriptionValue = {this.props.description}
+      addressValue = {this.props.street_address}
+      cityValue = {this.props.city}
+      stateValue = {this.props.state}
+
+      nameChange = {this.props.handleNameChange}
+      descriptionChange = {this.props.handleDescriptionChange}
+      addressChange = {this.props.handleAddressChange}
+      cityChange = {this.props.handleCityChange}
+      stateChange = {this.props.handleStateChange}
+
+      handleLocationSubmit = {this.props.handleLocationSubmit}
+      />
+      </div>
       <h1 className='locations-title'>Locations</h1>
       {locations}
-      <div className={eventEndedclassName}>
-        <NewLocationForm
-          className = {this.props.className}
-          handleLocationFormButtonClick = {this.props.handleLocationFormButtonClick}
-          nameValue = {this.props.name}
-          descriptionValue = {this.props.description}
-          addressValue = {this.props.street_address}
-          cityValue = {this.props.city}
-          stateValue = {this.props.state}
-
-          nameChange = {this.props.handleNameChange}
-          descriptionChange = {this.props.handleDescriptionChange}
-          addressChange = {this.props.handleAddressChange}
-          cityChange = {this.props.handleCityChange}
-          stateChange = {this.props.handleStateChange}
-
-          handleLocationSubmit = {this.props.handleLocationSubmit}
-        />
-        </div>
       </div>
       </div>
     )

@@ -50,11 +50,9 @@ class NavContainer extends Component {
 
   render() {
     return(
-      <div id='progress'>
-      <div className="sticky-container" data-sticky-container>
-        <div className="sticky" id="nav-bar" data-sticky data-top-anchor='progress' data-bottom-anchor='footer' data-margin-top="0">
+      <div className="nav-container">
           <div className="flex-container align-right align-bottom" id="nav-bar">
-            <div className="menu">
+            <div className="sticky-menu">
               <ul className="menu">
                 <li id="short-logo"><Link to="/events">SYW</Link></li>
                 <li id="logo"><Link to="/events">SeeYouWhen</Link></li>
@@ -78,16 +76,12 @@ class NavContainer extends Component {
               </ul>
             </div>
           </div>
-        </div>
-        </div>
         <div className='search-results'>
           <AllEvents
             events = {this.state.filtered_data}
           />
         </div>
         {this.props.children}
-      <div className='footer'>
-      </div>
       </div>
 
     )

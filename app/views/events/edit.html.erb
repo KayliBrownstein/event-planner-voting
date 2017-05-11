@@ -1,5 +1,7 @@
+<div class="edit-event-box">
+<%= link_to "Back to Event", :back, id:'back-button' %>
 <h1 class="edit-event-header">Edit Your Event</h1>
-<br>
+
   <div class="column row">
     <div class="small-12 medium-6 large-4 medium-centered large-centered columns">
       <%= form_for @event, :url => event_path(@event), method: "put" do %>
@@ -16,9 +18,10 @@
           <%= date_field_tag :cutoff_time, @event.cutoff_time %> <br>
         </div>
 
-        <div class='button' id='edit-event-button'>
-          <center><%= submit_tag "Save Changes" %></center>
-        </div>
+        <center><div class='button' id='edit-event-button'>
+          <%= submit_tag "Save Changes", id:'rails-edit-event-button' %>
+        </div></center>
       <% end %>
     </div>
   </div>
+</div>

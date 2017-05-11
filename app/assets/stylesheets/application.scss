@@ -12,6 +12,7 @@ $white: #ffffff;
 body {
   background-image: url("gradient-food-on-table.png");
   background-size: cover;
+  repeat: none;
 }
 
 .hidden {
@@ -74,7 +75,7 @@ h1, h3, h5, h6, p {
   left: 0;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 5px;
+  margin-top: 5%;
   padding-bottom: 20px;
   padding-left: 40px;
   padding-right: 40px;
@@ -99,9 +100,11 @@ h1, h3, h5, h6, p {
   font-weight: bolder;
   letter-spacing: 2.5px;
   margin: 2em auto;
+  margin-top: 10%;
   padding: 1em 3em;
   position: relative;
   text-transform: uppercase;
+  z-index: -1;
 }
 
 .create-event:hover {
@@ -193,6 +196,7 @@ h1, h3, h5, h6, p {
   padding-right: 40px;
   padding-top: 20px;
   position: absolute;
+  margin-top: 50px;
   right: 0;
   text-align: center;
   width: 600px;
@@ -228,11 +232,13 @@ h1, h3, h5, h6, p {
   color: #494949;
 }
 
-.create-location,
-.create-datetime,
-#edit-button,
+.event-show-all {
+  margin-top: 10%;
+}
+
+#edit-event-show-button,
 #delete-button,
-#invite-button {
+#invite-show-button {
   text-transform: uppercase;
   font-family: Avenir;
   color: $white;
@@ -244,11 +250,47 @@ h1, h3, h5, h6, p {
   text-align: center;
 }
 
-#edit-button,
+.create-location,
+.create-datetime {
+  background-color: $nav-bar-blue;
+  color: $black;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: solid $nav-bar-blue 2px;
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+.create-datetime:hover, .create-location:hover {
+  background-color: $black;
+}
+
 #delete-button,
-#invite-button {
+#invite-show-button,
+#edit-event-show-button {
   background-color: $white;
   color: $black;
+}
+
+.edit-event-box, .edit-profile-page, .login-page, .invite-page {
+  background-color: #D7D8C5;
+  opacity: 0.9;
+  padding-top: 10px;
+  width: 50%;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#edit-event-button, #edit-account-button, .login-button {
+  background-color: $black;
+}
+
+#rails-edit-event-button, #delete-account-button, #invite-new-button {
+  background-color: $black;
+  border: none;
+  color: $white;
 }
 
 #edit-button:hover, #delete-button:hover, #invite-button:hover {
@@ -263,9 +305,9 @@ h1, h3, h5, h6, p {
   font-size: 10px;
 }
 
-.profile-header, .login-header, .signup-header, .invite-header, .edit-event-header {
+.profile-header, .login-header, .signup-header, .invite-header, .edit-event-header , .edit-profile-header {
   margin-left: 15px;
-  margin-top: 15px;
+  margin-top: 10%;
   text-align: center;
   font-size: 40px;
 }
@@ -274,7 +316,7 @@ h1, h3, h5, h6, p {
   padding: 10px;
 }
 
-.login-button, .signup-button {
+.signup-button {
   background-color: #D7D8C5;
   border: solid $white 1px;
   color: $white;
@@ -302,7 +344,7 @@ h1, h3, h5, h6, p {
   width: 240px;
   margin: 20px;
   margin-bottom: 5px;
-  margin-top: 0;
+  margin-top: 25px;
   overflow: hidden;
   text-align: center;
 }
@@ -320,8 +362,8 @@ h1, h3, h5, h6, p {
 .profile-events-title,
 .locations-title,
 .datetimes-title {
-  background-color: $nav-bar-blue;
-  color: $black;
+  background-color: $black;
+  color: $white;
   font-size: 25px;
   margin-bottom: 0;
   margin-top: 25px;
@@ -348,18 +390,15 @@ h1, h3, h5, h6, p {
 /* NAVBAR STYLING */
 
 #nav-bar {
-  background-color: $nav-bar-blue;
+  background-color: $black;
   height: 50px;
-  margin-bottom: 20px;
   margin-top: 0;
-}
-
-.sticky {
-  margin-top: 0;
+  position: fixed;
   width: 100%;
 }
 
 #nav-bar a {
+  padding-bottom: 5px;
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 1px;
@@ -389,6 +428,7 @@ h1, h3, h5, h6, p {
   transition: 275ms ease;
   width: 90%;
   margin-left: 20px;
+  padding: 7px;
 }
 
 .profile-dropdown-menu {
@@ -397,12 +437,14 @@ h1, h3, h5, h6, p {
   margin-right: 30px;
   margin-top: -30px;
   z-index: 3;
+  color: $nav-bar-blue;
 }
 
 .user-profile-functions {
-  background-color: $nav-bar-blue;
-  color: $black;
+  background-color: $black;
+  color: $white;
   margin-right: 0;
+  z-index: 1;
 }
 
 #search {
@@ -416,7 +458,7 @@ h1, h3, h5, h6, p {
 
 
 #nav-bar a:hover {
-  color: $black;
+  color: $nav-bar-blue;
 }
 
 #logo a {

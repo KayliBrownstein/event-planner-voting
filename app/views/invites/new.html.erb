@@ -1,4 +1,5 @@
-<div class="index-page">
+<div class="invite-page">
+  <p><%= link_to "Back to My Events", events_path, id: 'back-button' %></p>
   <h1 class="invite-header">Invite</h1>
 
   <div class='column row'>
@@ -10,11 +11,10 @@
           <%= f.email_field :email %>
         </div>
 
-        <div class='button' id='invite-button'>
-          <center><i class="fa fa-envelope-o" aria-hidden="true"></i><%= f.submit 'Send' %></center>
+        <div class='button' id='invite-new-button'>
+          <center><i class="fa fa-envelope-o" aria-hidden="true"></i><%= f.submit 'Send', id: 'invite-new-button' %></center>
         </div>
       <% end %>
     </div>
-    <p><%= link_to "Back to My Events", events_path %></p>
   </div>
 </div>
