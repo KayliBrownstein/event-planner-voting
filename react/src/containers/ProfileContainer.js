@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import AllEvents from '../components/AllEvents';
+import 'whatwg-fetch';
 
 class ProfileContainer extends Component {
   constructor(props){
