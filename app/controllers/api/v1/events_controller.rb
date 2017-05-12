@@ -35,13 +35,28 @@ class Api::V1::EventsController < ApplicationController
       @event_ended = false
     else
       @event_ended = true
+      @location_winner = @event.winning_location
+      @datetime_winner = @event.winning_datetime
+
+      @location_winner_name    = @location_winner ? @location_winner.name : ''
+      @location_winner_address = @location_winner ? @location_winner.address_to_s : ''
+      @datetime_winner_date    = @datetime_winner ? @datetime_winner.date : ''
+      @datetime_winner_time    = @datetime_winner ? @datetime_winner.time : ''
     end
 
     @locations = @event.locations
     @datetimes = @event.datetimes
     @invitee_emails = Invite.where(event_id: @event.id).pluck(:email).uniq.join(', ')
 
-    render json: { event: @event, event_ended: @event_ended, invitee_emails: @invitee_emails }
+    render json: {
+      event: @event,
+      event_ended: @event_ended,
+      datetime_winner_date: @datetime_winner_date,
+      datetime_winner_time: @datetime_winner_time,
+      location_winner_name: @location_winner_name,
+      location_winner_address: @location_winner_address,
+      invitee_emails: @invitee_emails
+    }
   end
 
   def edit

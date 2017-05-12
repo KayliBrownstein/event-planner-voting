@@ -8,7 +8,11 @@ class EventShowTile extends Component {
     super(props);
     this.state = {
       current_user: '',
-      invitee_emails: ''
+      invitee_emails: '',
+      location_winner_name: '',
+      location_winner_address: '',
+      datetime_winner_time: '',
+      datetime_winner_date: ''
     }
   }
 
@@ -32,7 +36,11 @@ class EventShowTile extends Component {
     .then(response => response.json())
     .then(responseData => {
       this.setState({
-        invitee_emails: responseData.invitee_emails
+        invitee_emails: responseData.invitee_emails,
+        location_winner_name: responseData.location_winner_name,
+        location_winner_address: responseData.location_winner_address,
+        datetime_winner_time: responseData.datetime_winner_time,
+        datetime_winner_date: responseData.datetime_winner_date
       });
     });
   }
@@ -72,8 +80,8 @@ class EventShowTile extends Component {
 
        <div className={eventWinnerclassName}>
         <h3>This event is closed.</h3>
-        <p>Location: </p>
-        <p>Date & Time: </p>
+        <p>Location: {this.state.location_winner_name}, {this.state.location_winner_address}</p>
+        <p>Date & Time: {this.state.datetime_winner_time}, {this.state.datetime_winner_date}</p>
         <MapComponent />
        </div>
 

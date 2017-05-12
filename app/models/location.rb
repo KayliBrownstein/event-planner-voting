@@ -36,4 +36,8 @@ class Location < ApplicationRecord
       @current_user = false
     end
   end
+
+  def address_to_s
+    "#{street_address}, #{city}, #{state}"
+  end
 end
