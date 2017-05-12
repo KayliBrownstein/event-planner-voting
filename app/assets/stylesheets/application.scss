@@ -43,6 +43,7 @@ h1, h3, h5, h6, p, a {
   margin-top: 50px;
   margin-right: 25px;
   margin-left: 25px;
+  border: solid $black 2px;
 }
 
 #avatar-area {
@@ -127,6 +128,7 @@ h1, h3, h5, h6, p, a {
   background: $white;
   text-align: center;
   padding-bottom: 20px;
+  border: solid $black 2px;
 }
 
 #back-button {
@@ -140,6 +142,7 @@ h1, h3, h5, h6, p, a {
 .event-show-buttons-row {
   background-color: $white;
   margin: 10px;
+  border: solid $black 2px;
 }
 
 // .all-events-target {
@@ -354,8 +357,7 @@ h1, h3, h5, h6, p, a {
   width: 100%;
   margin: 20px;
   overflow: hidden;
-  box-shadow: 10px 10px 3px rgba(0, 0, 0, 0.4);
-
+  border: solid $black 2px;
 }
 
 h6 {
@@ -377,6 +379,7 @@ h6 {
   margin-top: 25px;
   overflow: hidden;
   text-align: center;
+  border: solid $black 2px;
 }
 
 .datetime-box-content {
@@ -394,11 +397,14 @@ h6 {
 .datetimes-title {
   background-color: $black;
   color: $white;
-  font-size: 25px;
+  font-size: 30px;
+  font-weight: 500;
   margin-bottom: 0;
   margin-top: 25px;
   padding: 8px;
+  font-family: 'Pompiere', cursive;
   text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .event-title {

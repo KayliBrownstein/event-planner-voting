@@ -100,7 +100,7 @@ class MapComponent extends Component {
     }
     return(
       <div className="map-container">
-        <button onClick={this.panToLocation}>Go to Location</button>
+        <button className='button submit-button' onClick={this.panToLocation}>Go to Location</button>
         <center><div className="map" ref="map">MAP HERE</div></center>
       </div>
     )
