@@ -6,6 +6,8 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "SeeYouWhen" %></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbhAY35C9EkaQAV7Uu7-MT-bjMrANXjFA"
+    async defer></script>
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= favicon_link_tag "calendar_icon.png" %>
@@ -24,5 +26,4 @@
 
 
   </body>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbhAY35C9EkaQAV7Uu7-MT-bjMrANXjFA"></script>
 </html>
