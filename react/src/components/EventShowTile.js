@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import MapComponent from '../containers/MapComponent';
+import MapComponent from './MapComponent';
 
 
 class EventShowTile extends Component {
@@ -8,13 +8,16 @@ class EventShowTile extends Component {
     super(props);
     this.state = {
       current_user: '',
-      invitee_emails: ''
+      invitee_emails: '',
+      location_winner_name: '',
+      location_winner_address: '',
+      datetime_winner_time: '',
+      datetime_winner_date: ''
     }
   }
 
   componentDidMount(){
     this.getUserData();
-    this.getAttendees();
   }
 
   getUserData(){
@@ -25,6 +28,7 @@ class EventShowTile extends Component {
         current_user: responseData.current_user
       });
     });
+    this.getAttendees();
   }
 
   getAttendees(){
@@ -32,7 +36,11 @@ class EventShowTile extends Component {
     .then(response => response.json())
     .then(responseData => {
       this.setState({
-        invitee_emails: responseData.invitee_emails
+        invitee_emails: responseData.invitee_emails,
+        location_winner_name: responseData.location_winner_name,
+        location_winner_address: responseData.location_winner_address,
+        datetime_winner_time: responseData.datetime_winner_time,
+        datetime_winner_date: responseData.datetime_winner_date
       });
     });
   }
@@ -59,7 +67,6 @@ class EventShowTile extends Component {
       eventWinnerclassName = 'hidden';
     }
 
-
    return(
      <div className="event-show-tile">
        <div className='show-box-content'>
@@ -72,9 +79,11 @@ class EventShowTile extends Component {
 
        <div className={eventWinnerclassName}>
         <h3>This event is closed.</h3>
-        <p>Location: </p>
-        <p>Date & Time: </p>
-        <MapComponent />
+        <p>Location: {this.state.location_winner_name}, {this.state.location_winner_address}</p>
+        <p>Date & Time: {this.state.datetime_winner_time}, {this.state.datetime_winner_date}</p>
+        <MapComponent
+          winner_address = {this.state.location_winner_address}
+        />
        </div>
 
          <h3 className='event-title'>{this.props.name}</h3>
