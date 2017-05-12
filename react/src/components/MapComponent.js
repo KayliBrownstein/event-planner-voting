@@ -13,7 +13,7 @@ class MapComponent extends Component {
   constructor(props){
     super(props);
     this.state = {
-      winning_location_address: '10 Windsor Road, Medford, MA',
+      location_winner_address: '',
       coordinatesX: '',
       coordinatesY: '',
       mapLoaded: false,
@@ -22,13 +22,17 @@ class MapComponent extends Component {
     }
     this.panToLocation = this.panToLocation.bind(this);
     this.geocodeAddress = this.geocodeAddress.bind(this);
-  }
+    }
 
   componentDidMount(){
     let mapElement = this.mapElement;
+  }
+
+  componentWillReceiveProps(nextProps){
     this.initMap();
+    this.setState({ location_winner_address: nextProps.winner_address})
     this.makeMarker();
-    this.geocodeAddress(this.state.winning_location_address);
+    this.geocodeAddress(this.state.location_winner_address);
   }
 
   initMap(){

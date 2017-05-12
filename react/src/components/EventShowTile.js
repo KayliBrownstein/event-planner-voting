@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import MapComponent from '../containers/MapComponent';
+import MapComponent from './MapComponent';
 
 
 class EventShowTile extends Component {
@@ -18,7 +18,6 @@ class EventShowTile extends Component {
 
   componentDidMount(){
     this.getUserData();
-    this.getAttendees();
   }
 
   getUserData(){
@@ -29,6 +28,7 @@ class EventShowTile extends Component {
         current_user: responseData.current_user
       });
     });
+    this.getAttendees();
   }
 
   getAttendees(){
@@ -67,7 +67,6 @@ class EventShowTile extends Component {
       eventWinnerclassName = 'hidden';
     }
 
-
    return(
      <div className="event-show-tile">
        <div className='show-box-content'>
@@ -82,7 +81,9 @@ class EventShowTile extends Component {
         <h3>This event is closed.</h3>
         <p>Location: {this.state.location_winner_name}, {this.state.location_winner_address}</p>
         <p>Date & Time: {this.state.datetime_winner_time}, {this.state.datetime_winner_date}</p>
-        <MapComponent />
+        <MapComponent
+          winner_address = {this.state.location_winner_address}
+        />
        </div>
 
          <h3 className='event-title'>{this.props.name}</h3>
