@@ -61,11 +61,12 @@ class MapComponent extends Component {
     let that = this;
     this.geocoder.geocode({ 'address': address }, function handleResults(results, status){
       if (status === google.maps.GeocoderStatus.OK) {
+        if (results[0])
         that.setState({
           foundAddress: results[0].formatted_address,
           isGeocodingError: false,
-          coordinatesX: results[0].geometry.bounds.f.b,
-          coordinatesY: results[0].geometry.bounds.b.b
+          coordinatesX: results[0].geometry.location.lat,
+          coordinatesY: results[0].geometry.location.lng
         });
         that.map.setCenter(results[0].geometry.location);
         that.marker.setPosition(results[0].geometry.location);
