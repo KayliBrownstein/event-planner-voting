@@ -16,8 +16,8 @@ class AllDatetimes extends Component {
         <DatetimeTile
           key = {datetime.id}
           id = {datetime.id}
-          date = {datetime.date_formatted}
-          time = {datetime.time_formatted}
+          date = {datetime.date}
+          time = {datetime.time}
           user_id = {datetime.user_id}
           event_id = {datetime.event_id}
           voteCount = {datetime.vote_count}

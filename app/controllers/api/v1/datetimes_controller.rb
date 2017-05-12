@@ -20,6 +20,8 @@ class Api::V1::DatetimesController < ApplicationController
     @datetime.user_id = current_user.id
     @event = Event.find(params[:event_id])
     @datetime.event = @event
+    @datetime.date = datetime_params[:date].to_date.strftime('%A %B %e, %Y')
+    @datetime.time = datetime_params[:time].to_time.strftime("%l:%M %P")
     if @datetime.save!
       render json: @datetime
     end
