@@ -1,9 +1,10 @@
 @import "foundation_and_overrides";
 @import url('https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono');
 @import "font-awesome";
-@import url('https://fonts.googleapis.com/css?family=Londrina+Sketch');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Pompiere');
 
-$nav-bar-blue: #0CA5B0;
+
+$nav-bar-blue: #84BFC3;
 $black: #000000;
 $white: #ffffff;
 
@@ -28,8 +29,8 @@ body {
   max-width: 2000px;
 }
 
-h1, h3, h5, h6, p {
-  font-family: 'Unbuntu', sans-serif;
+h1, h3, h5, h6, p, a {
+  font-family: 'Open Sans', sans-serif;
   text-align: center;
   // font-size: 12px;
 }
@@ -95,7 +96,7 @@ h1, h3, h5, h6, p {
   border: 6px solid rgba(255, 255, 255, 0.45);
   color: $white;
   display: block;
-  font-family: 'Ubuntu';
+  font-family: 'Open Sans', sans-serif;
   font-size: 120%;
   font-weight: bolder;
   letter-spacing: 2.5px;
@@ -132,6 +133,8 @@ h1, h3, h5, h6, p {
   float: left;
   background-color: $black;
   color: $white;
+  padding: 5px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .event-show-buttons-row {
@@ -279,6 +282,19 @@ h1, h3, h5, h6, p {
   color: $black;
 }
 
+.submit-button {
+  color: $black;
+  background-color: $nav-bar-blue;
+  border: solid black 1px;
+  font-weight: bold;
+  width: 50%;
+}
+
+.submit-button:hover {
+  color: $white;
+  background-color: $black;
+}
+
 .edit-event-box, .edit-profile-page, .login-page, .invite-page {
   background-color: #D7D8C5;
   opacity: 0.9;
@@ -338,7 +354,14 @@ h1, h3, h5, h6, p {
   width: 100%;
   margin: 20px;
   overflow: hidden;
-  // box-shadow: 20px 20px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 10px 10px 3px rgba(0, 0, 0, 0.4);
+
+}
+
+h6 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 #home-sign-up-button {
@@ -380,13 +403,14 @@ h1, h3, h5, h6, p {
 
 .event-title {
   color: #041122;
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 30px;
-  font-weight: 400;
-  margin-bottom: 30px;
-  margin-top: 70px;
+  font-family: 'Pompiere', cursive;
+  font-size: 42px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  margin-top: 40px;
   padding: 20px;
   text-align: center;
+  letter-spacing: 1px;
 }
 
 .event-title:hover {
@@ -398,7 +422,7 @@ h1, h3, h5, h6, p {
 
 #nav-bar {
   background-color: $black;
-  height: 50px;
+  height: 60px;
   margin-top: 0;
   position: fixed;
   width: 100%;
@@ -409,7 +433,7 @@ h1, h3, h5, h6, p {
   padding-bottom: 5px;
   text-transform: uppercase;
   font-weight: bold;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   color: $white;
   height: 60px;
   margin-top: 10px;
@@ -421,9 +445,9 @@ h1, h3, h5, h6, p {
   border-radius: 20px;
   cursor: pointer;
   height: 100%;
-  margin-top: 5px;
+  margin-top: 8px;
   position: relative;
-  width: 80%;
+  width: 100%;
 }
 
 .search-input {
@@ -480,6 +504,7 @@ h1, h3, h5, h6, p {
 #logo a {
   margin-top: 0;
   font-size: 30px;
+  padding-top: 10px;
 }
 
 #logo a::first-letter {
@@ -524,6 +549,13 @@ h1, h3, h5, h6, p {
   #delete-button,
   #invite-show-button {
     padding: 0;
+  }
+  .search-wrapper {
+    width: 80%;
+  }
+  .edit-event-box, .edit-profile-page, .login-page, .invite-page {
+    width: 100%;
+    margin-top: 30%;
   }
 }
 

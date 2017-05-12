@@ -13,7 +13,7 @@ const NewDatetimeForm = props => {
        <label> Time: </label>
        <input name="time" type="time" onChange={props.timeChange} value={props.timeValue}/>
 
-       <input className= 'create-datetime-submit' type="submit" value="Submit"/>
+       <input className='button submit-button' type="submit" value="Submit"/>
      </form>
    </div>
  )

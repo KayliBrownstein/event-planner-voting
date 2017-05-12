@@ -22,7 +22,7 @@ const NewLocationForm = props => {
        <label> State: </label>
        <input name="state" type="text" onChange={props.stateChange} value={props.stateValue}/>
 
-       <input className= 'create-location-submit' type="submit" value="Submit"/>
+       <input className='button submit-button' type="submit" value="Submit"/>
      </form>
    </div>
  )

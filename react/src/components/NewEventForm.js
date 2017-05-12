@@ -16,7 +16,7 @@ const NewEventForm = props => {
        <label> Cutoff Date: </label>
        <input name="cutoffTime" type="date" onChange={props.cutOffChange} value={props.cutOffValue}/>
 
-       <input className= 'create-event-submit' type="submit" value="Submit"/>
+       <input className='button submit-button' type="submit" value="Submit"/>
      </form>
    </div>
  )
