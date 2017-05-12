@@ -335,7 +335,7 @@ h1, h3, h5, h6, p {
   background-size: cover;
   padding: 30px 50px 50px 50px;
   height: 400px;
-  width: 400px;
+  width: 540px;
   margin: 20px;
   overflow: hidden;
   // box-shadow: 20px 20px 5px rgba(0, 0, 0, 0.4);
@@ -513,4 +513,20 @@ h1, h3, h5, h6, p {
   #new-location, #new-datetime {
     width: 400px;
   }
+  .welcome {
+    width: 100%;
+  }
+  .box-content {
+    margin-left: 0;
+  }
 }
+
+// .welcome {
+//   background-color: #D7D8C5;
+//   opacity: 0.9;
+//   padding-top: 10px;
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+// }
