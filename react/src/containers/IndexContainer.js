@@ -131,7 +131,8 @@ class IndexContainer extends Component {
     this.setState({
       name: '',
       description: '',
-      cutoff_time: ''
+      cutoff_time: '',
+      formToggle: false
     })
   }
 

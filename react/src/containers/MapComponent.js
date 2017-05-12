@@ -90,18 +90,13 @@ class MapComponent extends Component {
   }
 
   render(){
-    const mapStyle = {
-      width: 500,
-      height: 300,
-      border: '1px solid black'
-    };
     let map_options = {
       scrollwheel: false
     }
     return(
       <div className="map-container">
         <button onClick={this.panToLocation}>Go to Location</button>
-        <center><div className="map" style={mapStyle} ref="map">MAP HERE</div></center>
+        <center><div className="map" ref="map">MAP HERE</div></center>
       </div>
     )
   }

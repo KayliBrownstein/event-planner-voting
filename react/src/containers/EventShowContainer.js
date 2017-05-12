@@ -310,7 +310,9 @@ class EventShowContainer extends Component {
       city: '',
       state: '',
       date: '',
-      time: ''
+      time: '',
+      locationformToggle: false,
+      datetimeformToggle: false
     })
   }
 
