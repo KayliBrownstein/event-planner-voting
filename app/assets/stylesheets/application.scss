@@ -304,12 +304,12 @@ h1, h3, h5, h6, p, a {
   padding-top: 10px;
   width: 50%;
   position: absolute;
-  top: 30%;
+  margin-top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-#edit-event-button, #edit-account-button, .login-button {
+#edit-event-button, #edit-account-button, .login-button, .signup-button {
   background-color: $black;
 }
 
@@ -340,13 +340,6 @@ h1, h3, h5, h6, p, a {
 
 .sign-up {
   padding: 10px;
-}
-
-.signup-button {
-  background-color: #D7D8C5;
-  border: solid $white 1px;
-  color: $white;
-  text-align: center;
 }
 
 .box-content {
@@ -561,16 +554,9 @@ h6 {
   }
   .edit-event-box, .edit-profile-page, .login-page, .invite-page {
     width: 100%;
-    margin-top: 30%;
+    margin-top: 100%;
+  }
+  .edit-event-box {
+    margin-top: 90%;
   }
 }
-
-// .welcome {
-//   background-color: #D7D8C5;
-//   opacity: 0.9;
-//   padding-top: 10px;
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-// }

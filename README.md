@@ -13,6 +13,7 @@ Test User Credentials:
 
 # Technologies
 * React frontend and Rails backend;
+* Optimized for mobile;
 * Utilizes the Google Maps API for directions and location information;
 * Integrated ActionMailer and Heroku add-on SendGrid for emails;
 * Utilizes Carrierwave and Amazon S3 for profile photo upload;

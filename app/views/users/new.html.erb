@@ -1,5 +1,12 @@
 <div class="index-page">
-  <div class="log-in-page">
+  <%= link_to "Already have an account?", :back, id:'back-button' %>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <div class="login-page">
     <% provide(:title, 'Sign up') %>
     <h1 class="signup-header">Sign Up</h1>
 
@@ -8,22 +15,22 @@
         <%= form_for(@user, url: signup_path) do |f| %>
           <%= render 'shared/error_messages' %>
 
-          <%= f.label :username %>
+          <%= f.label :username, "Username*" %>
           <%= f.text_field :username, class: 'form-control' %>
 
-          <%= f.label :first_name %>
+          <%= f.label :first_name, "First name*" %>
           <%= f.text_field :first_name, class: 'form-control' %>
 
-          <%= f.label :last_name %>
+          <%= f.label :last_name, "Last name*" %>
           <%= f.text_field :last_name, class: 'form-control' %>
 
-          <%= f.label :email %>
+          <%= f.label :email, "Email*" %>
           <%= f.email_field :email, class: 'form-control' %>
 
-          <%= f.label :password %>
+          <%= f.label :password, "Password*" %>
           <%= f.password_field :password, class: 'form-control' %>
 
-          <%= f.label :password_confirmation, "Password confirmation" %>
+          <%= f.label :password_confirmation, "Password confirmation*" %>
           <%= f.password_field :password_confirmation, class: 'form-control' %>
 
           <%= f.label :avatar, "Avatar" %>
