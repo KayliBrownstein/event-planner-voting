@@ -6,18 +6,19 @@
 SeeYouWhen allows groups to easily plan events by providing a platform for voting on suggestions.
 
 http://seeyouwhen.herokuapp.com/
+
 Test User Credentials:
 * Email: tester@testeremail.com
 * Password: 123456
 
-# Created by Kayli Brownstein
+## Created by Kayli Brownstein
 
 # Technologies
 * React frontend and Rails backend;
 * Utilizes the Google Maps API for directions and location information;
 * Integrated ActionMailer and Heroku add-on SendGrid for emails;
 * Utilizes Carrierwave and Amazon S3 for profile photo upload;
-* Rolled user authentication utilizing bcrypt for password security
+* Rolled user authentication utilizing bcrypt for password security.
 
 # Features
 * User can create an event by specifying a name, description, and cutoff time;
