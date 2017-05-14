@@ -63,17 +63,6 @@ class Api::V1::EventsController < ApplicationController
     }
   end
 
-  def edit
-    @event = Event.find(params[:id])
-    render :update
-  end
-
-  def update
-    @event = Event.find(params[:id])
-    @event.update(event_params)
-    redirect_to edit_event_path(@event)
-  end
-
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
