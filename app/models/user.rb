@@ -6,7 +6,6 @@ class User < ApplicationRecord
   has_many :invitations, :class_name => "Invite", :foreign_key => 'recipient_id'
   has_many :sent_invites, :class_name => "Invite", :foreign_key => 'sender_id'
 
-  before_save { self.email = email.downcase }
   validates :username,  presence: true, length: { maximum: 50 }
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -16,6 +15,8 @@ class User < ApplicationRecord
 
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
+
+  before_save { self.email = email.downcase }
 
   mount_uploader :avatar, AvatarUploader
 
