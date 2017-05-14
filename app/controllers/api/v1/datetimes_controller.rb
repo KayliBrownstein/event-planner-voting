@@ -25,10 +25,6 @@ class Api::V1::DatetimesController < ApplicationController
     end
   end
 
-  def edit
-    @datetime = Datetime.find(params[:id])
-  end
-
   private
 
   def datetime_params

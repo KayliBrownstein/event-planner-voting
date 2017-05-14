@@ -8,13 +8,11 @@ gem "jquery-rails"
 gem "pg"
 gem "fog"
 gem "fog-aws"
-
 gem 'dotenv'
 gem 'listen'
 gem "responders"
 gem 'dotenv-rails'
 gem 'httpclient'
-gem "omniauth-google-oauth2", "~> 0.2.1"
 gem 'actionmailer', '~> 5.0', '>= 5.0.0.1'
 gem "rails"
 gem "sass-rails", "~> 5.0"
