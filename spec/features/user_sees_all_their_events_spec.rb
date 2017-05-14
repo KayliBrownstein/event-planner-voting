@@ -15,7 +15,8 @@ feature "User sees all their events" do
       user_id: 1,
       name: "Birthday Party",
       description: 'This is a description. This is a description. This is a
-        description. This is a description. This is a description. This is a description.',
+        description. This is a description. This is a description. This is a
+        description.',
       cutoff_time: "2017-05-29"
     )
   end

@@ -14,7 +14,8 @@ feature "User adds an event" do
       id: 1,
       user_id: 1,
       name: "Birthday Party",
-      description: 'This is a description. This is a description. This is a description. This is a description. This is a description. This is a description.',
+      description: 'This is a description. This is a description. This is a
+        description. This is a description. This is a description. This is a description.',
       cutoff_time: "Monday"
     )
   end
