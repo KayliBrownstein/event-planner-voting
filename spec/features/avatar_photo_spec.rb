@@ -17,8 +17,5 @@ feature "profile photo" do
     expect(page).to have_content("You have signed up successfully!")
 
     click_link "Get Started"
-    # click_link "My Profile"
-
-    # expect(page).to have_css("img[src*='Pug_hero.jpg']")
   end
 end

@@ -3,4 +3,6 @@ class LocationVote < ApplicationRecord
   belongs_to :user
 
   validates :user, uniqueness: { scope: :location_id }
-end 
+  validates :user, presence: true
+  validates :location, presence: true
+end

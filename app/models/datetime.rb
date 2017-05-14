@@ -1,9 +1,12 @@
 class Datetime < ApplicationRecord
-  validates :date, presence: true
-  validates :time, presence: true
   belongs_to :user
   belongs_to :event
   has_many :datetime_votes
+
+  validates :date, presence: true
+  validates :time, presence: true
+  validates :user, presence: true
+  validates :event, presence: true
 
   before_save :format_time
   before_save :format_date

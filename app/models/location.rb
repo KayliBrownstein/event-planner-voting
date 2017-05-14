@@ -1,13 +1,15 @@
 class Location < ApplicationRecord
+  belongs_to :user
+  belongs_to :event
+  has_many :location_votes
+
   validates :name, presence: true
   validates :street_address, presence: true
   validates :city, presence: true
   validates :state, presence: true
   validates :description, presence: true
-
-  belongs_to :user
-  belongs_to :event
-  has_many :location_votes
+  validates :user, presence: true
+  validates :event, presence: true
 
   def upvotes
     location_votes.where(upvote: true).length
