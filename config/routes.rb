@@ -13,8 +13,6 @@ Rails.application.routes.draw do
 
   root 'home#show'
 
-  # get 'users/edit', to: 'users#edit', as: :edit_user
-
   get 'events/:id/edit', to: 'events#edit', as: :edit_event
   put 'events/:id', to: 'events#update', as: :update_event
   get 'events/:id/invite', to: 'invites#new'
