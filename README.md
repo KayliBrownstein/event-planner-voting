@@ -26,3 +26,8 @@ Test User Credentials:
 * User can upvote or downvote suggestions;
 * User can search for their events via a live-updating React search bar;
 * After the cutoff time, user can see the winning date, time, and location (with a map).
+
+# Local Instructions
+* After cloning, run: `npm install` and `bundle install`;
+* To get the app up, run: `npm start` then `rails s` in another tab;
+* Open up `localhost:3000` in your browser.
