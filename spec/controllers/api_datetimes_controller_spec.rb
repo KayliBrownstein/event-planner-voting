@@ -15,7 +15,8 @@ describe Api::V1::DatetimesController, type: :controller do
         id: 1,
         user_id: 1,
         name: "Birthday Party",
-        description: 'This is a description. This is a description. This is a description. This is a description. This is a description. This is a description.',
+        description: 'This is a description. This is a description.
+          This is a description. This is a description. This is a description. This is a description.',
         cutoff_time: "Monday"
       )
       Datetime.create(

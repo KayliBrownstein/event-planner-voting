@@ -14,7 +14,8 @@ describe Api::V1::EventsController, type: :controller do
       Event.create(
         user_id: 1,
         name: "Birthday Party",
-        description: 'This is a description. This is a description. This is a description. This is a description. This is a description. This is a description.',
+        description: 'This is a description. This is a description.
+          This is a description. This is a description. This is a description. This is a description.',
         cutoff_time: "Monday"
       )
     end
