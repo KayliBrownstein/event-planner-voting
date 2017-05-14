@@ -22,7 +22,7 @@ RSpec.describe Event, type: :model do
     expect(event).to be_valid
   end
 
-  it 'is not valid without an associated id' do
+  it 'is not valid without an associated user' do
     event.user_id = nil
     expect(event).to_not be_valid
   end

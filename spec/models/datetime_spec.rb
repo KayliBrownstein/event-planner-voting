@@ -30,6 +30,16 @@ RSpec.describe Datetime, type: :model do
     expect(datetime).to be_valid
   end
 
+  it 'is not valid without an associated user' do
+    datetime.user_id = nil
+    expect(datetime).to_not be_valid
+  end
+
+  it 'is not valid without an associated event' do
+    datetime.event_id = nil
+    expect(datetime).to_not be_valid
+  end
+
   it 'is not valid without a date' do
     datetime.date = nil
     expect(datetime).to_not be_valid

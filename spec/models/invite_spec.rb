@@ -29,6 +29,11 @@ RSpec.describe Invite, type: :model do
     expect(invite).to be_valid
   end
 
+  it 'is not valid without a sender id' do
+    invite.sender_id = nil
+    expect(invite).to_not be_valid
+  end
+
   it 'is not valid without an email' do
     invite.email = nil
     expect(invite).to_not be_valid

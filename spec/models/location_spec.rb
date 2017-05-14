@@ -33,6 +33,16 @@ RSpec.describe Location, type: :model do
     expect(location).to be_valid
   end
 
+  it 'is not valid without an associated user' do
+    location.user_id = nil
+    expect(location).to_not be_valid
+  end
+
+  it 'is not valid without an associated event' do
+    location.event_id = nil
+    expect(location).to_not be_valid
+  end
+
   it 'is not valid without a name' do
     location.name = nil
     expect(location).to_not be_valid
