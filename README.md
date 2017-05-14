@@ -3,6 +3,7 @@
 ![Coverage Status](https://coveralls.io/repos/github/KayliBrownstein/event-planner-voting/badge.svg?branch=master)
 
 # SeeYouWhen
+## Created by Kayli Brownstein
 SeeYouWhen allows groups to easily plan events by providing a platform for voting on suggestions.
 
 http://seeyouwhen.herokuapp.com/
@@ -10,8 +11,6 @@ http://seeyouwhen.herokuapp.com/
 Test User Credentials:
 * Email: tester@testeremail.com
 * Password: 123456
-
-## Created by Kayli Brownstein
 
 # Technologies
 * React frontend and Rails backend;
