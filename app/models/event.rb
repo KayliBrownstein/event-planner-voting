@@ -10,6 +10,14 @@ class Event < ApplicationRecord
   validates :cutoff_time, presence: true
   validates :user_id, presence: true
 
+  before_save :format_cutoff_time
+
+  def format_cutoff_time
+    unless self.cutoff_time.nil?
+      self.cutoff_time = cutoff_time.to_date.strftime('%A %B %e, %Y')
+    end
+  end
+
   def winning_location
     winner = locations.first
     max_vote = 0

@@ -18,7 +18,6 @@ class Api::V1::EventsController < ApplicationController
 
   def create
     @event = Event.create!(event_params)
-    @event.cutoff_time = event_params[:cutoff_time].to_date.strftime('%A %B %e, %Y')
     @event.user_id = current_user.id
     if @event.save!
       render json: @event

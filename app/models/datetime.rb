@@ -5,6 +5,21 @@ class Datetime < ApplicationRecord
   belongs_to :event
   has_many :datetime_votes
 
+  before_save :format_time
+  before_save :format_date
+
+  def format_time
+    unless self.time.nil?
+      self.time = time.to_time.strftime("%l:%M %P")
+    end
+  end
+
+  def format_date
+    unless self.date.nil?
+      self.date = date.to_date.strftime('%A %B %e, %Y')
+    end
+  end
+
   def upvotes
     datetime_votes.where(upvote: true).length
   end
