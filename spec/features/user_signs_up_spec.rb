@@ -11,7 +11,7 @@ feature "User signs in" do
     fill_in 'First name', with: 'Jar'
     fill_in 'Last name', with: 'Smith'
     fill_in 'Email', with: "test123@launchacademy.com"
-    fill_in 'Password', with: 'password'
+    fill_in 'Password*', with: 'password'
     fill_in 'Password confirmation', with: 'password'
 
     click_button 'Create my account'
@@ -27,7 +27,7 @@ feature "User signs in" do
     fill_in 'Username', with: "jarlax3"
     fill_in 'First name', with: 'Jar'
     fill_in 'Email', with: "test123@launchacademy.com"
-    fill_in 'Password', with: 'password'
+    fill_in 'Password*', with: 'password'
     fill_in 'Password confirmation', with: 'password'
 
     click_button 'Create my account'
