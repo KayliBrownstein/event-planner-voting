@@ -18,7 +18,8 @@ class MapComponent extends Component {
       coordinatesY: '',
       mapLoaded: false,
       isGeocodingError: false,
-      foundAddress: LOCATION_POSITION
+      foundAddress: LOCATION_POSITION,
+      place_id: ''
     }
     this.panToLocation = this.panToLocation.bind(this);
     this.geocodeAddress = this.geocodeAddress.bind(this);
@@ -66,7 +67,8 @@ class MapComponent extends Component {
           foundAddress: results[0].formatted_address,
           isGeocodingError: false,
           coordinatesX: results[0].geometry.location.lat,
-          coordinatesY: results[0].geometry.location.lng
+          coordinatesY: results[0].geometry.location.lng,
+          place_id: results[0].place_id
         });
         that.map.setCenter(results[0].geometry.location);
         that.marker.setPosition(results[0].geometry.location);
@@ -95,6 +97,7 @@ class MapComponent extends Component {
   }
 
   render(){
+    debugger;
     let map_options = {
       scrollwheel: false
     }
