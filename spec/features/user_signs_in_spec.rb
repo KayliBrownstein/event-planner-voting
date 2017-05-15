@@ -19,7 +19,7 @@ feature "User signs in" do
 
     click_button 'Log In'
 
-    expect(page).to have_content "If you're new to SeeYouWhen"
+    expect(page).to have_content "If you're new to SYW"
   end
 
   scenario "unsuccessful login" do
