@@ -15,7 +15,6 @@ class MapComponent extends Component {
     this.state = {
       location_winner_address: '',
       coordinatesX: '',
-      coordinatesY: '',
       mapLoaded: false,
       isGeocodingError: false,
       foundAddress: LOCATION_POSITION,
@@ -30,8 +29,8 @@ class MapComponent extends Component {
   }
 
   componentWillReceiveProps(nextProps){
-    this.initMap();
     this.setState({ location_winner_address: nextProps.winner_address})
+    this.initMap();
     this.makeMarker();
     this.geocodeAddress(this.state.location_winner_address);
   }
@@ -66,8 +65,7 @@ class MapComponent extends Component {
         that.setState({
           foundAddress: results[0].formatted_address,
           isGeocodingError: false,
-          coordinatesX: results[0].geometry.location.lat,
-          coordinatesY: results[0].geometry.location.lng,
+          coordinatesX: results[0].geometry.location,
           place_id: results[0].place_id
         });
         that.map.setCenter(results[0].geometry.location);
@@ -93,11 +91,10 @@ class MapComponent extends Component {
   }
 
   panToLocation() {
-    this.map.panTo({lat: this.state.coordinatesX, lng: this.state.coordinatesY});
+    this.map.panTo(this.state.coordinatesX);
   }
 
   render(){
-    debugger;
     let map_options = {
       scrollwheel: false
     }
