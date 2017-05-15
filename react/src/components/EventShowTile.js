@@ -79,10 +79,10 @@ class EventShowTile extends Component {
 
        <div className={eventWinnerclassName}>
         <h3>This event is closed.</h3>
-        <p>Location: {this.state.location_winner_name}, {this.state.location_winner_address}</p>
+        <p>Location: {this.state.location_winner_name},<br/> {this.state.location_winner_address}</p>
         <p>Date & Time: {this.state.datetime_winner_time}, {this.state.datetime_winner_date}</p>
         <MapComponent
-          winner_address = {this.state.location_winner_address}
+          winner_address = {this.state.location_winner_name + '' + this.state.location_winner_address}
         />
        </div>
 
