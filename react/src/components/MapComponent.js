@@ -15,10 +15,11 @@ class MapComponent extends Component {
     this.state = {
       location_winner_address: '',
       coordinatesX: '',
-      coordinatesY: '',
       mapLoaded: false,
       isGeocodingError: false,
-      foundAddress: LOCATION_POSITION
+      foundAddress: LOCATION_POSITION,
+      place_id: '',
+      reviews: []
     }
     this.panToLocation = this.panToLocation.bind(this);
     this.geocodeAddress = this.geocodeAddress.bind(this);
@@ -29,8 +30,8 @@ class MapComponent extends Component {
   }
 
   componentWillReceiveProps(nextProps){
-    this.initMap();
     this.setState({ location_winner_address: nextProps.winner_address})
+    this.initMap();
     this.makeMarker();
     this.geocodeAddress(this.state.location_winner_address);
   }
@@ -61,17 +62,16 @@ class MapComponent extends Component {
     let that = this;
     this.geocoder.geocode({ 'address': address }, function handleResults(results, status){
       if (status === google.maps.GeocoderStatus.OK) {
-        if (results[0])
-        that.setState({
-          foundAddress: results[0].formatted_address,
-          isGeocodingError: false,
-          coordinatesX: results[0].geometry.location.lat,
-          coordinatesY: results[0].geometry.location.lng
-        });
-        that.map.setCenter(results[0].geometry.location);
-        that.marker.setPosition(results[0].geometry.location);
-
-        return;
+        if (results[0]) {
+          that.setState({
+            foundAddress: results[0].formatted_address,
+            isGeocodingError: false,
+            coordinatesX: results[0].geometry.location
+          });
+          that.map.setCenter(results[0].geometry.location);
+          that.marker.setPosition(results[0].geometry.location);
+          return;
+        }
       }
 
       that.setState({
@@ -88,10 +88,28 @@ class MapComponent extends Component {
         lng: LOCATION_POSITION.position.longitude
       });
     });
+    if (this.state.location_winner_address){
+    var request = {
+      location: this.map.getCenter(),
+      radius: '500',
+      query: this.state.location_winner_address
+    };
+
+    var service = new google.maps.places.PlacesService(this.map);
+    service.textSearch(request, function (results, status){
+      if (status == google.maps.places.PlacesServiceStatus.OK){
+        that.setState({
+          place_id: results[0].place_id,
+          price_level: results[0].price_level,
+          rating: results[0].rating
+        });
+      }
+    })
+  }
   }
 
   panToLocation() {
-    this.map.panTo({lat: this.state.coordinatesX, lng: this.state.coordinatesY});
+    this.map.panTo(this.state.coordinatesX);
   }
 
   render(){
@@ -99,9 +117,16 @@ class MapComponent extends Component {
       scrollwheel: false
     }
     return(
-      <div className="map-container">
-        <button className='button submit-button' onClick={this.panToLocation}>Go to Location</button>
-        <center><div className="map" ref="map">MAP HERE</div></center>
+      <div>
+        <div>
+          <p>Price Level: {this.state.price_level}/4</p>
+          <p>Rating: {this.state.rating}/5</p>
+        </div>
+
+        <div className="map-container">
+          <button className='button submit-button' onClick={this.panToLocation}>Go to Location</button>
+          <center><div className="map" ref="map">MAP HERE</div></center>
+        </div>
       </div>
     )
   }
