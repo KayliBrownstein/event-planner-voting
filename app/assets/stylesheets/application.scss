@@ -11,7 +11,7 @@ $white: #ffffff;
 /*GENERAL STYLING */
 
 body {
-  background-image: url("gradient-food-on-table.png");
+  background-image: url("food-on-table.png");
   background-size: cover;
   repeat: none;
 }
@@ -558,5 +558,10 @@ h6 {
   }
   .edit-event-box {
     margin-top: 90%;
+  }
+  .welcome-image {
+    background-image: cover;
+    repeat: none;
+    width: 100%;
   }
 }
