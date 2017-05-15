@@ -1,12 +1,12 @@
 <div class="welcome">
-<h1 class="show-header">Welcome</h1>
+<h1 class="show-header">Welcome to SeeYouWhen</h1>
 
 <% unless current_user %>
   <p class="home-page"> Please <%= link_to "Sign Up", signup_path, class:"home-sign-up-button", id:"home-sign-up-button" %> or <%= link_to "Log In", login_path, class:"home-sign-up-button", id:"home-sign-up-button" %> before continuing!</p>
 <% end %>
 
 <% if current_user %>
-  <p class="home-page"> If you're new to SeeYouWhen, feel free to get started by creating your very first event. <br><br> Once you've done that,
+  <p class="home-page"> If you're new to SYW, feel free to get started by creating your very first event. <br><br> Once you've done that,
   you can send an invitation by email to whomever you'd like to invite. You and your fellow attendees can vote on dates, times, and locations that work for you.
   <br>
   <center><%= link_to "Get Started", events_path, class:"button get-started", id: "get_started" %></center>
