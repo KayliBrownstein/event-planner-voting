@@ -30,5 +30,5 @@ Test User Credentials:
 
 # Local Instructions
 * After cloning, run: `npm install` and `bundle install`;
-* To get the app up, run: `npm start` then `rails s` in another tab;
+* To get the app up, run: `npm start` in one tab, then `rake db:create`, `rake db:migrate`, `rails s` in another tab;
 * Open up `localhost:3000` in your browser.
