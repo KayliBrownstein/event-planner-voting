@@ -11,7 +11,10 @@ class Api::V1::EventsController < ApplicationController
   end
 
   def index
-  end 
+    @current_user = current_user
+    @events = Event.where(user_id: @current_user.id)
+    render json: @events
+  end
 
   def new
     @event = Event.new
