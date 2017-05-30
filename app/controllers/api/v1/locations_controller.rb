@@ -6,6 +6,7 @@ class Api::V1::LocationsController < ApplicationController
     @locations = @event.locations
     @user = current_user
     render :json => @locations.to_json(:methods => :vote_count)
+    # pass down vote_count method for use in React AllLocations component 
   end
 
   def show

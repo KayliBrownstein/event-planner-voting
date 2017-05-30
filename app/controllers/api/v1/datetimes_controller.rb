@@ -4,7 +4,9 @@ class Api::V1::DatetimesController < ApplicationController
   def index
     @user = current_user
     @event = Event.find(params[:event_id])
+    # sort datetimes by date and time --> chrono order
     @datetimes = @event.datetimes.sort_by{ |dt| [dt.date.to_date, dt.time.to_time] }
+    # pass down vote_count method for use in React AllDatetimes component
     render json: @datetimes.to_json(:methods => [:vote_count])
   end
 
