@@ -11,11 +11,11 @@ class InvitesController < ApplicationController
 
     if @invite.save
       if recipient.nil?
-       InviteMailer.new_user_invite(@invite, root_path(:invite_token => @invite.token)).deliver_now
+       InviteMailer.new_user_invite(@invite).deliver_now
        flash[:notice] = "Invite Sent"
        redirect_to events_path
       else
-        InviteMailer.returning_user_invite(@invite, root_path(:invite_token => @invite.token)).deliver_now
+        InviteMailer.returning_user_invite(@invite).deliver_now
         flash[:notice] = "Invite Sent"
         redirect_to events_path
       end
