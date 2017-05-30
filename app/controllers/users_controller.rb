@@ -2,20 +2,12 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    @token = params[:invite_token]
-    session[:token] = @token
   end
 
   def create
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      if session[:token] != nil
-         org =  Invite.find_by_token(session[:token]).event
-         @event_member = EventMember.new(user_id: current_user.id, event_id: org.id)
-         @event_member.save
-         flash[:notice] = "You joined the event you were invited to!"
-      end
       flash[:notice] = "You have signed up successfully!"
       redirect_to root_path
     else

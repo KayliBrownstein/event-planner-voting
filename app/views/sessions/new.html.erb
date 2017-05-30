@@ -6,9 +6,6 @@
     <div class="column row">
       <div class="small-12 medium-6 large-4 medium-centered large-centered columns">
         <%= form_for(:session, url: login_path) do |f| %>
-          <% if @token != nil %>
-            <%= hidden_field_tag :invite_token, session[:token] %>
-          <% end %>
 
           <%= f.label :email %>
           <%= f.email_field :email, class: 'form-control' %>
