@@ -28,6 +28,6 @@ class Api::V1::DatetimesController < ApplicationController
   private
 
   def datetime_params
-    params.permit(:id, :user_id, :event_id, :date, :time)
+    params.require(:datetime).permit(:id, :user_id, :event_id, :date, :time)
   end
 end
